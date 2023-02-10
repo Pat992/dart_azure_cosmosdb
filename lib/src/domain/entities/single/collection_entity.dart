@@ -19,6 +19,10 @@ abstract class CollectionEntity extends BaseEntity {
 
   CollectionEntity({
     required super.id,
+    required super.rid,
+    required super.ts,
+    required super.self,
+    required super.etag,
     super.error = const {},
     required this.partitionKey,
     this.docs = '',

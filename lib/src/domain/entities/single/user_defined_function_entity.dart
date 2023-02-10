@@ -4,8 +4,12 @@ abstract class UserDefinedFunctionEntity extends BaseEntity {
   String body;
 
   UserDefinedFunctionEntity({
-    super.error = const {},
     required super.id,
+    required super.rid,
+    required super.ts,
+    required super.self,
+    required super.etag,
+    required super.error,
     required this.body,
   });
 }

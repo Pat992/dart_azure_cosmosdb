@@ -9,9 +9,9 @@ abstract class BaseEntity {
   BaseEntity({
     required this.id,
     required this.error,
-    this.rid = '',
-    this.ts = 0,
-    this.self = '',
-    this.etag = '',
+    required this.rid,
+    required this.ts,
+    required this.self,
+    required this.etag,
   });
 }

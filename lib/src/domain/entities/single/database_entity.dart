@@ -6,8 +6,12 @@ abstract class DatabaseEntity extends BaseEntity {
 
   DatabaseEntity({
     required super.id,
-    super.error = const {},
-    this.colls = '',
-    this.users = '',
+    required super.rid,
+    required super.ts,
+    required super.self,
+    required super.etag,
+    required super.error,
+    required this.colls,
+    required this.users,
   });
 }

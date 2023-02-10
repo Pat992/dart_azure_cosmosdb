@@ -5,7 +5,11 @@ abstract class StoredProcedureEntity extends BaseEntity {
 
   StoredProcedureEntity({
     required super.id,
-    super.error = const {},
+    required super.rid,
+    required super.ts,
+    required super.self,
+    required super.etag,
+    required super.error,
     required this.body,
   });
 }

@@ -6,10 +6,14 @@ abstract class PermissionEntity extends BaseEntity {
   String token;
 
   PermissionEntity({
-    required super.id,
-    super.error = const {},
     required this.permissionMode,
     required this.resource,
-    this.token = '',
+    required this.token,
+    required super.id,
+    required super.rid,
+    required super.ts,
+    required super.self,
+    required super.etag,
+    required super.error,
   });
 }

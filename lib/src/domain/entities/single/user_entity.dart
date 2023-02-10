@@ -5,7 +5,11 @@ abstract class UserEntity extends BaseEntity {
 
   UserEntity({
     required super.id,
-    super.error = const {},
-    this.permissions = '',
+    required super.rid,
+    required super.ts,
+    required super.self,
+    required super.etag,
+    required super.error,
+    required this.permissions,
   });
 }

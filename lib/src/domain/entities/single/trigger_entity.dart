@@ -7,7 +7,11 @@ abstract class TriggerEntity extends BaseEntity {
 
   TriggerEntity({
     required super.id,
-    super.error = const {},
+    required super.rid,
+    required super.ts,
+    required super.self,
+    required super.etag,
+    required super.error,
     required this.body,
     required this.triggerOperation,
     required this.triggerType,
