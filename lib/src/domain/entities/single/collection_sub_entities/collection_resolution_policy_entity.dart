@@ -1,4 +1,4 @@
-class ConflictResolutionPolicyEntity {
+abstract class ConflictResolutionPolicyEntity {
   String mode;
   String conflictResolutionPath;
   String conflictResolutionProcedure;
