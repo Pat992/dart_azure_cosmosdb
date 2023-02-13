@@ -1,6 +1,6 @@
 import 'package:dart_azure_cosmosdb/src/core/enum/permission_enum.dart';
 
-abstract class IPermissionRepository {
+abstract class IPermissionDatasource {
   Future<Map<String, dynamic>> list({
     required String dbId,
     required String userId,
@@ -16,7 +16,7 @@ abstract class IPermissionRepository {
     required String dbId,
     required String userId,
     required String permissionId,
-    required String collId,
+    required String collectionId,
     required PermissionMode permissionMode,
   });
 
@@ -25,7 +25,7 @@ abstract class IPermissionRepository {
     required String userId,
     required String newPermissionId,
     required String permissionId,
-    required String collId,
+    required String collectionId,
     required PermissionMode permissionMode,
   });
 
