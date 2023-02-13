@@ -1,10 +1,14 @@
-import 'package:dart_azure_cosmosdb/src/domain/entities/single/trigger_entity.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/base_model.dart';
 
-class Trigger extends TriggerEntity {
+class Trigger extends Base {
+  String body;
+  String triggerOperation;
+  String triggerType;
+
   Trigger({
-    super.body = '',
-    super.triggerOperation = '',
-    super.triggerType = '',
+    this.body = '',
+    this.triggerOperation = '',
+    this.triggerType = '',
     required super.id,
     super.rid = '',
     super.ts = 0,
@@ -13,30 +17,23 @@ class Trigger extends TriggerEntity {
     super.error = const {},
   });
 
+  @override
   Map<String, dynamic> toMap() {
-    return {
+    var body = super.toMap();
+
+    body.addAll({
       'body': body,
       'triggerOperation': triggerOperation,
       'triggerType': triggerType,
-      'id': id,
-      '_rid': rid,
-      '_ts': ts,
-      '_self': self,
-      '_etag': etag,
-    };
+    });
+
+    return body;
   }
 
-  factory Trigger.fromMap(Map<String, dynamic> map) {
-    return Trigger(
-      body: map['body'] as String,
-      triggerOperation: map['triggerOperation'] as String,
-      triggerType: map['triggerType'] as String,
-      id: map['id'] as String,
-      rid: map['_rid'] as String,
-      ts: map['_ts'] as int,
-      self: map['_self'] as String,
-      etag: map['_etag'] as String,
-      error: map['error'] as Object,
-    );
-  }
+  @override
+  Trigger.fromMap(Map<String, dynamic> map)
+      : body = map['body'] ?? '',
+        triggerOperation = map['triggerOperation'] ?? '',
+        triggerType = map['triggerType'] ?? '',
+        super.fromMap(map);
 }

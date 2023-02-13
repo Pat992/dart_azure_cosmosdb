@@ -1,8 +1,10 @@
-import 'package:dart_azure_cosmosdb/src/domain/entities/single/user_defined_function_entity.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/base_model.dart';
 
-class UserDefinedFunction extends UserDefinedFunctionEntity {
+class UserDefinedFunction extends Base {
+  String body;
+
   UserDefinedFunction({
-    super.body = '',
+    this.body = '',
     required super.id,
     super.rid = '',
     super.ts = 0,
@@ -11,26 +13,19 @@ class UserDefinedFunction extends UserDefinedFunctionEntity {
     super.error = const {},
   });
 
+  @override
   Map<String, dynamic> toMap() {
-    return {
+    var body = super.toMap();
+
+    body.addAll({
       'body': body,
-      'id': id,
-      '_rid': rid,
-      '_ts': ts,
-      '_self': self,
-      '_etag': etag,
-    };
+    });
+
+    return body;
   }
 
-  factory UserDefinedFunction.fromMap(Map<String, dynamic> map) {
-    return UserDefinedFunction(
-      body: map['body'] as String,
-      id: map['id'] as String,
-      rid: map['_rid'] as String,
-      ts: map['_ts'] as int,
-      self: map['_self'] as String,
-      etag: map['_etag'] as String,
-      error: map['error'] as Object,
-    );
-  }
+  @override
+  UserDefinedFunction.fromMap(Map<String, dynamic> map)
+      : body = map['body'] ?? '',
+        super.fromMap(map);
 }

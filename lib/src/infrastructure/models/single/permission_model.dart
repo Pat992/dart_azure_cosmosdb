@@ -1,10 +1,14 @@
-import 'package:dart_azure_cosmosdb/src/domain/entities/single/permission_entity.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/base_model.dart';
 
-class Permission extends PermissionEntity {
+class Permission extends Base {
+  String permissionMode;
+  String resource;
+  String token;
+
   Permission({
-    super.token = '',
-    super.permissionMode = '',
-    super.resource = '',
+    this.token = '',
+    this.permissionMode = '',
+    this.resource = '',
     required super.id,
     super.rid = '',
     super.ts = 0,
@@ -13,30 +17,23 @@ class Permission extends PermissionEntity {
     super.error = const {},
   });
 
+  @override
   Map<String, dynamic> toMap() {
-    return {
+    var body = super.toMap();
+
+    body.addAll({
       'permissionMode': permissionMode,
       'resource': resource,
       'token': token,
-      'id': id,
-      '_rid': rid,
-      '_ts': ts,
-      '_self': self,
-      '_etag': etag,
-    };
+    });
+
+    return body;
   }
 
-  factory Permission.fromMap(Map<String, dynamic> map) {
-    return Permission(
-      permissionMode: map['permissionMode'] as String,
-      resource: map['resource'] as String,
-      token: map['token'] as String,
-      id: map['id'] as String,
-      rid: map['_rid'] as String,
-      ts: map['_ts'] as int,
-      self: map['_self'] as String,
-      etag: map['_etag'] as String,
-      error: map['error'] as Object,
-    );
-  }
+  @override
+  Permission.fromMap(Map<String, dynamic> map)
+      : permissionMode = map['permissionMode'] ?? '',
+        resource = map['resource'] ?? '',
+        token = map['_token'] ?? '',
+        super.fromMap(map);
 }

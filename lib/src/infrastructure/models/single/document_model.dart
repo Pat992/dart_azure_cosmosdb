@@ -1,9 +1,10 @@
-import 'package:dart_azure_cosmosdb/src/domain/entities/single/document_entity.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/base_model.dart';
 
-class Document extends DocumentEntity {
-  Document({
-    super.attachments = '',
-    super.values = const {},
+class CosmosDocument extends Base {
+  Map<String, dynamic> values;
+
+  CosmosDocument({
+    this.values = const {},
     required super.id,
     super.rid = '',
     super.ts = 0,
@@ -12,28 +13,18 @@ class Document extends DocumentEntity {
     super.error = const {},
   });
 
+  @override
   Map<String, dynamic> toMap() {
-    return {
-      'attachments': attachments,
-      'values': values,
-      'id': id,
-      '_rid': rid,
-      '_ts': ts,
-      '_self': self,
-      '_etag': etag,
-    };
+    var body = values;
+    var baseBody = super.toMap();
+
+    body.addAll(baseBody);
+
+    return body;
   }
 
-  factory Document.fromMap(Map<String, dynamic> map) {
-    return Document(
-      attachments: map['attachments'] as String,
-      values: map['values'] as Map<String, dynamic>,
-      id: map['id'] as String,
-      rid: map['_rid'] as String,
-      ts: map['_ts'] as int,
-      self: map['_self'] as String,
-      etag: map['_etag'] as String,
-      error: map['error'] as Object,
-    );
-  }
+  @override
+  CosmosDocument.fromMap(Map<String, dynamic> map)
+      : values = map,
+        super.fromMap(map);
 }
