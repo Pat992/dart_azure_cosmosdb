@@ -1,0 +1,14 @@
+{
+  "_rid": "KiAXAA==",
+  "Users": [
+    {
+      "id": "testuser",
+      "_rid": "KiAXAEODSQA=",
+      "_self": "dbs/KiAXAA==/users/KiAXAEODSQA=/",
+      "_etag": "\"0000a809-0000-0700-0000-628a6e860000\"",
+      "_permissions": "permissions/",
+      "_ts": 1653239430
+    }
+  ],
+  "_count": 1
+}

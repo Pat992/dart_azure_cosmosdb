@@ -1,0 +1,24 @@
+{
+  "_rid": "",
+  "Databases": [
+    {
+      "id": "MySecondDB",
+      "_rid": "KiAXAA==",
+      "_self": "dbs/KiAXAA==/",
+      "_etag": "\"00008605-0000-0700-0000-6280def60000\"",
+      "_colls": "colls/",
+      "_users": "users/",
+      "_ts": 1652612854
+    },
+    {
+      "id": "Messages",
+      "_rid": "Ve1NAA==",
+      "_self": "dbs/Ve1NAA==/",
+      "_etag": "\"0000ed01-0000-0700-0000-6272729e0000\"",
+      "_colls": "colls/",
+      "_users": "users/",
+      "_ts": 1651667614
+    }
+  ],
+  "_count": 2
+}
