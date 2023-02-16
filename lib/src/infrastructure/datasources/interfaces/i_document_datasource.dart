@@ -24,4 +24,19 @@ abstract class IDocumentDatasource {
     required String documentId,
     required String partitionKey,
   });
+
+  Future<Map<String, dynamic>> replace({
+    required String dbId,
+    required String collectionId,
+    required String documentId,
+    required String partitionKey,
+    required Map<String, dynamic> body,
+  });
+
+  Future<Map<String, dynamic>> query({
+    required String dbId,
+    required String collectionId,
+    required String query,
+    List<dynamic> parameters = const [],
+  });
 }

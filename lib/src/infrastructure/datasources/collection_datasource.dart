@@ -17,22 +17,13 @@ class CollectionDatasource extends BaseDatasource
   Future<Map<String, dynamic>> list({
     required String dbId,
   }) async {
-    try {
-      final String resourceLink = '${ResourceType.dbs.value}/$dbId';
-      final String urlExtension =
-          '/$resourceLink/${ResourceType.collections.value}';
+    final String resourceLink = '${ResourceType.dbs.value}/$dbId';
+    final String urlExtension = '/$resourceLink/${resourceType.value}';
 
-      return await getRequest(
-        urlExtension: urlExtension,
-        resourceLink: resourceLink,
-      );
-    } catch (e) {
-      return {
-        'code': 'unknown_exception',
-        'message': e.toString(),
-        'status': 1,
-      };
-    }
+    return await getRequest(
+      urlExtension: urlExtension,
+      resourceLink: resourceLink,
+    );
   }
 
   @override
@@ -40,22 +31,14 @@ class CollectionDatasource extends BaseDatasource
     required String dbId,
     required String collectionId,
   }) async {
-    try {
-      final String resourceLink =
-          '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId';
-      final String urlExtension = '/$resourceLink';
+    final String resourceLink =
+        '${ResourceType.dbs.value}/$dbId/${resourceType.value}/$collectionId';
+    final String urlExtension = '/$resourceLink';
 
-      return await getRequest(
-        urlExtension: urlExtension,
-        resourceLink: resourceLink,
-      );
-    } catch (e) {
-      return {
-        'code': 'unknown_exception',
-        'message': e.toString(),
-        'status': 1,
-      };
-    }
+    return await getRequest(
+      urlExtension: urlExtension,
+      resourceLink: resourceLink,
+    );
   }
 
   @override
@@ -65,32 +48,23 @@ class CollectionDatasource extends BaseDatasource
     required String partitionKey,
     required int version,
   }) async {
-    try {
-      final String resourceLink = '${ResourceType.dbs.value}/$dbId';
-      final String urlExtension =
-          '/$resourceLink/${ResourceType.collections.value}';
+    final String resourceLink = '${ResourceType.dbs.value}/$dbId';
+    final String urlExtension = '/$resourceLink/${resourceType.value}';
 
-      Map<String, dynamic> body = {
-        "id": collectionId,
-        "partitionKey": {
-          "paths": [partitionKey],
-          "kind": "Hash",
-          "Version": version,
-        }
-      };
+    Map<String, dynamic> body = {
+      "id": collectionId,
+      "partitionKey": {
+        "paths": [partitionKey],
+        "kind": "Hash",
+        "Version": version,
+      }
+    };
 
-      return await postRequest(
-        urlExtension: urlExtension,
-        resourceLink: resourceLink,
-        body: body,
-      );
-    } catch (e) {
-      return {
-        'code': 'unknown_exception',
-        'message': e.toString(),
-        'status': 1,
-      };
-    }
+    return await postRequest(
+      urlExtension: urlExtension,
+      resourceLink: resourceLink,
+      body: body,
+    );
   }
 
   @override
@@ -98,21 +72,13 @@ class CollectionDatasource extends BaseDatasource
     required String dbId,
     required String collectionId,
   }) async {
-    try {
-      final String resourceLink =
-          '${ResourceType.dbs}/$dbId/${ResourceType.collections.value}/$collectionId';
-      final String urlExtension = '/$resourceLink';
+    final String resourceLink =
+        '${ResourceType.dbs}/$dbId/${resourceType.value}/$collectionId';
+    final String urlExtension = '/$resourceLink';
 
-      return await deleteRequest(
-        urlExtension: urlExtension,
-        resourceLink: resourceLink,
-      );
-    } catch (e) {
-      return {
-        'code': 'unknown_exception',
-        'message': e.toString(),
-        'status': 1,
-      };
-    }
+    return await deleteRequest(
+      urlExtension: urlExtension,
+      resourceLink: resourceLink,
+    );
   }
 }

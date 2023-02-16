@@ -1,4 +1,4 @@
-abstract class IStoredProcedure {
+abstract class IStoredProcedureDatasource {
   Future<Map<String, dynamic>> list({
     required String dbId,
     required String collectionId,
