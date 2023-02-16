@@ -6,7 +6,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_
 import 'package:http/http.dart' as http;
 
 class BaseDatasource implements IBaseDatasource {
-  AuthUtil authUtil;
+  IAuthUtil authUtil;
   String baseUrl = '';
   String authorizationType = '';
   String authorizationVersion = '';
@@ -165,7 +165,7 @@ class BaseDatasource implements IBaseDatasource {
     String? contentType,
   }) {
     final utcString = getRfc1123Date();
-    final authHeader = authUtil.getHeader(
+    final authHeader = authUtil.getHeaders(
       authorizationType: authorizationType,
       contentType: contentType ?? 'application/json',
       authorizationVersion: authorizationVersion,
