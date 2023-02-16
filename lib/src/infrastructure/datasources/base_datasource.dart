@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
+import 'package:http/http.dart' as http;
 
 abstract class BaseDatasource {
   AuthUtil authUtil;
@@ -12,7 +12,6 @@ abstract class BaseDatasource {
   String primaryKey = '';
   ResourceType resourceType;
   String xmsVersion;
-  late HttpClient client;
 
   BaseDatasource({
     required this.authUtil,
@@ -30,44 +29,23 @@ abstract class BaseDatasource {
     Map<String, String> additionalHeader = const {},
   }) async {
     try {
-      client = HttpClient();
+      final uri = Uri.parse('$baseUrl$urlExtension');
 
-      final uri = '$baseUrl$urlExtension';
-
-      final header = generateHeader(
+      final headers = generateHeaders(
         resourceLink: resourceLink,
         method: 'get',
         additionalHeader: additionalHeader,
       );
 
-      final request = await createGetOrDeleteRequest(
-        uri: uri,
-        header: header,
-        isGet: true,
-      );
-      final response = await request.close();
+      var response = await http.get(uri, headers: headers);
 
-      client.close(force: true);
-
-      final stringRes = await readResponse(response: response);
+      final stringRes = response.body;
       final responseMap = json.decode(stringRes);
 
       return responseMap;
-    } on SocketException catch (e) {
-      return {
-        'code': 'socket_exception',
-        'message': e.message,
-        'status': 1,
-      };
-    } on HttpException catch (e) {
-      return {
-        'code': 'http_exception',
-        'message': e.message,
-        'status': 1,
-      };
     } catch (e) {
       return {
-        'code': 'unknown_exception',
+        'code': 'exception',
         'message': e.toString(),
         'status': 1,
       };
@@ -83,45 +61,27 @@ abstract class BaseDatasource {
     String? contentType,
   }) async {
     try {
-      client = HttpClient();
+      final uri = Uri.parse('$baseUrl$urlExtension');
 
-      final uri = '$baseUrl$urlExtension';
-
-      final header = generateHeader(
+      final headers = generateHeaders(
         resourceLink: resourceLink,
         method: 'post',
         additionalHeader: additionalHeader,
       );
 
-      final request = await createPostOrPutRequest(
-        uri: uri,
-        header: header,
+      var response = await http.post(
+        uri,
+        headers: headers,
         body: arrBody.isEmpty ? body : arrBody,
-        isPost: true,
       );
-      final response = await request.close();
 
-      client.close(force: true);
-
-      final stringRes = await readResponse(response: response);
+      final stringRes = response.body;
       final responseMap = json.decode(stringRes);
 
       return responseMap;
-    } on SocketException catch (e) {
-      return {
-        'code': 'socket_exception',
-        'message': e.message,
-        'status': 1,
-      };
-    } on HttpException catch (e) {
-      return {
-        'code': 'http_exception',
-        'message': e.message,
-        'status': 1,
-      };
     } catch (e) {
       return {
-        'code': 'unknown_exception',
+        'code': 'exception',
         'message': e.toString(),
         'status': 1,
       };
@@ -136,45 +96,27 @@ abstract class BaseDatasource {
     String? contentType,
   }) async {
     try {
-      client = HttpClient();
+      final uri = Uri.parse('$baseUrl$urlExtension');
 
-      final uri = '$baseUrl$urlExtension';
-
-      final header = generateHeader(
+      final headers = generateHeaders(
         resourceLink: resourceLink,
         method: 'put',
         additionalHeader: additionalHeader,
       );
 
-      final request = await createPostOrPutRequest(
-        uri: uri,
-        header: header,
+      var response = await http.put(
+        uri,
+        headers: headers,
         body: body,
-        isPost: false,
       );
-      final response = await request.close();
 
-      client.close(force: true);
-
-      final stringRes = await readResponse(response: response);
+      final stringRes = response.body;
       final responseMap = json.decode(stringRes);
 
       return responseMap;
-    } on SocketException catch (e) {
-      return {
-        'code': 'socket_exception',
-        'message': e.message,
-        'status': 1,
-      };
-    } on HttpException catch (e) {
-      return {
-        'code': 'http_exception',
-        'message': e.message,
-        'status': 1,
-      };
     } catch (e) {
       return {
-        'code': 'unknown_exception',
+        'code': 'exception',
         'message': e.toString(),
         'status': 1,
       };
@@ -188,119 +130,33 @@ abstract class BaseDatasource {
     String? contentType,
   }) async {
     try {
-      client = HttpClient();
+      final uri = Uri.parse('$baseUrl$urlExtension');
 
-      final uri = '$baseUrl$urlExtension';
-
-      final header = generateHeader(
+      final headers = generateHeaders(
         resourceLink: resourceLink,
         method: 'delete',
         additionalHeader: additionalHeader,
       );
 
-      final request = await createGetOrDeleteRequest(
-        uri: uri,
-        header: header,
-        isGet: false,
+      var response = await http.delete(
+        uri,
+        headers: headers,
       );
-      final response = await request.close();
 
-      client.close(force: true);
-
-      final stringRes = await readResponse(response: response);
+      final stringRes = response.body;
       final responseMap = json.decode(stringRes);
 
       return responseMap;
-    } on SocketException catch (e) {
-      return {
-        'code': 'socket_exception',
-        'message': e.message,
-        'status': 1,
-      };
-    } on HttpException catch (e) {
-      return {
-        'code': 'http_exception',
-        'message': e.message,
-        'status': 1,
-      };
     } catch (e) {
       return {
-        'code': 'unknown_exception',
+        'code': 'exception',
         'message': e.toString(),
         'status': 1,
       };
     }
   }
 
-  Future<HttpClientRequest> createGetOrDeleteRequest({
-    required String uri,
-    required Map<String, String> header,
-    required bool isGet,
-  }) async {
-    HttpClientRequest request;
-    if (isGet) {
-      request = await client.getUrl(Uri.parse(uri));
-    } else {
-      request = await client.deleteUrl(Uri.parse(uri));
-    }
-
-    header.forEach((key, value) {
-      request.headers.set(key, value);
-    });
-
-    return request;
-  }
-
-  Future<HttpClientRequest> createPostOrPutRequest({
-    required String uri,
-    required Map<String, String> header,
-    required Object body,
-    required bool isPost,
-  }) async {
-    HttpClientRequest request;
-
-    if (isPost) {
-      request = await client.postUrl(Uri.parse(uri));
-    } else {
-      request = await client.putUrl(Uri.parse(uri));
-    }
-
-    header.forEach((key, value) {
-      request.headers.set(key, value);
-    });
-
-    request.write(body);
-
-    return request;
-  }
-
-  Future<HttpClientRequest> createPutRequest({
-    required String uri,
-    required Map<String, String> header,
-    required Object body,
-  }) async {
-    final request = await client.putUrl(Uri.parse(uri));
-
-    header.forEach((key, value) {
-      request.headers.set(key, value);
-    });
-
-    request.write(body);
-
-    return request;
-  }
-
-  Future<String> readResponse({
-    required HttpClientResponse response,
-  }) async {
-    final contents = StringBuffer();
-    await for (var data in response.transform(utf8.decoder)) {
-      contents.write(data);
-    }
-    return contents.toString();
-  }
-
-  Map<String, String> generateHeader({
+  Map<String, String> generateHeaders({
     required String resourceLink,
     required String method,
     required Map<String, String> additionalHeader,
@@ -326,6 +182,6 @@ abstract class BaseDatasource {
   }
 
   String getRfc1123Date() {
-    return HttpDate.format(DateTime.now().toUtc());
+    return DateTime.now().toUtc().toIso8601String();
   }
 }
