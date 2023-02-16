@@ -2,10 +2,11 @@ import 'dart:convert';
 
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_base_datasource.dart';
 import 'package:http/http.dart' as http;
 
-abstract class BaseDatasource {
-  AuthUtil authUtil;
+class BaseDatasource implements IBaseDatasource {
+  IAuthUtil authUtil;
   String baseUrl = '';
   String authorizationType = '';
   String authorizationVersion = '';
@@ -23,6 +24,7 @@ abstract class BaseDatasource {
     this.primaryKey = '',
   });
 
+  @override
   Future<Map<String, dynamic>> getRequest({
     required String urlExtension,
     String resourceLink = '',
@@ -47,11 +49,11 @@ abstract class BaseDatasource {
       return {
         'code': 'exception',
         'message': e.toString(),
-        'status': 1,
       };
     }
   }
 
+  @override
   Future<Map<String, dynamic>> postRequest({
     required String urlExtension,
     required Map<String, dynamic> body,
@@ -83,11 +85,11 @@ abstract class BaseDatasource {
       return {
         'code': 'exception',
         'message': e.toString(),
-        'status': 1,
       };
     }
   }
 
+  @override
   Future<Map<String, dynamic>> putRequest({
     required String urlExtension,
     required Map<String, dynamic> body,
@@ -118,11 +120,11 @@ abstract class BaseDatasource {
       return {
         'code': 'exception',
         'message': e.toString(),
-        'status': 1,
       };
     }
   }
 
+  @override
   Future<Map<String, dynamic>> deleteRequest({
     required String urlExtension,
     String resourceLink = '',
@@ -151,11 +153,11 @@ abstract class BaseDatasource {
       return {
         'code': 'exception',
         'message': e.toString(),
-        'status': 1,
       };
     }
   }
 
+  @override
   Map<String, String> generateHeaders({
     required String resourceLink,
     required String method,
@@ -163,7 +165,7 @@ abstract class BaseDatasource {
     String? contentType,
   }) {
     final utcString = getRfc1123Date();
-    final authHeader = authUtil.getHeader(
+    final authHeader = authUtil.getHeaders(
       authorizationType: authorizationType,
       contentType: contentType ?? 'application/json',
       authorizationVersion: authorizationVersion,
@@ -181,6 +183,7 @@ abstract class BaseDatasource {
     return authHeader;
   }
 
+  @override
   String getRfc1123Date() {
     return DateTime.now().toUtc().toIso8601String();
   }

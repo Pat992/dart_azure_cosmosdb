@@ -2,8 +2,33 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 
-class AuthUtil {
-  Map<String, String> getHeader({
+abstract class IAuthUtil {
+  Map<String, String> getHeaders({
+    required String authorizationType,
+    required String authorizationVersion,
+    required String primaryKey,
+    required String resourceType,
+    required String resourceLink,
+    required String method,
+    required String utcNow,
+    required String contentType,
+    String xmsVersion = '2018-12-31',
+  });
+
+  String getAuthorizationToken({
+    required String authorizationType,
+    required String authorizationVersion,
+    required String primaryKey,
+    required String utcNow,
+    required String resourceType,
+    required String resourceLink,
+    required String method,
+  });
+}
+
+class AuthUtil implements IAuthUtil {
+  @override
+  Map<String, String> getHeaders({
     required String authorizationType,
     required String authorizationVersion,
     required String primaryKey,
@@ -14,7 +39,7 @@ class AuthUtil {
     required String contentType,
     String xmsVersion = '2018-12-31',
   }) {
-    final authToken = _getAuthorizationToken(
+    final authToken = getAuthorizationToken(
       authorizationType: authorizationType,
       authorizationVersion: authorizationVersion,
       primaryKey: primaryKey,
@@ -34,7 +59,8 @@ class AuthUtil {
     };
   }
 
-  String _getAuthorizationToken({
+  @override
+  String getAuthorizationToken({
     required String authorizationType,
     required String authorizationVersion,
     required String primaryKey,
