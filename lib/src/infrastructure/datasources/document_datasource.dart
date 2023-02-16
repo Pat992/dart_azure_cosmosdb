@@ -6,9 +6,9 @@ class DocumentDatasource extends BaseDatasource implements IDocumentDatasource {
   DocumentDatasource({
     required super.baseUrl,
     required super.primaryKey,
-    super.authorizationType = 'master',
-    super.authorizationVersion = '1.0',
-    super.xmsVersion = '2018-12-31',
+    required super.authorizationType,
+    required super.authorizationVersion,
+    required super.xmsVersion,
     required super.authUtil,
   }) : super(resourceType: ResourceType.docs);
 

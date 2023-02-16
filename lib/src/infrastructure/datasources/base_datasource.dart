@@ -7,10 +7,10 @@ import 'package:http/http.dart' as http;
 
 class BaseDatasource implements IBaseDatasource {
   IAuthUtil authUtil;
-  String baseUrl = '';
-  String authorizationType = '';
-  String authorizationVersion = '';
-  String primaryKey = '';
+  String baseUrl;
+  String authorizationType;
+  String authorizationVersion;
+  String primaryKey;
   ResourceType resourceType;
   String xmsVersion;
 
@@ -18,10 +18,10 @@ class BaseDatasource implements IBaseDatasource {
     required this.authUtil,
     required this.resourceType,
     required this.xmsVersion,
-    this.baseUrl = '',
-    this.authorizationType = '',
-    this.authorizationVersion = '',
-    this.primaryKey = '',
+    required this.baseUrl,
+    required this.authorizationType,
+    required this.authorizationVersion,
+    required this.primaryKey,
   });
 
   @override
