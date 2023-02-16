@@ -26,10 +26,10 @@ class Base {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'rid': rid,
-      'ts': ts,
-      'self': self,
-      'etag': etag,
+      '_rid': rid,
+      '_ts': ts,
+      '_self': self,
+      '_etag': etag,
       'error': error,
     };
   }
