@@ -1,4 +1,4 @@
-abstract class IDatabaseSource {
+abstract class IDatabaseDatasource {
   Future<Map<String, dynamic>> list();
 
   Future<Map<String, dynamic>> get({
