@@ -4,6 +4,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_
 
 class DatabaseDatasource extends BaseDatasource implements IDatabaseDatasource {
   DatabaseDatasource({
+    required super.client,
     required super.baseUrl,
     required super.primaryKey,
     required super.authorizationType,
