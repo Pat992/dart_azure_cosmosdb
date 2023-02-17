@@ -4,8 +4,8 @@ class UserDefinedFunction extends Base {
   String body;
 
   UserDefinedFunction({
-    this.body = '',
     required super.id,
+    required this.body,
     super.rid = '',
     super.ts = 0,
     super.self = '',

@@ -4,8 +4,8 @@ class User extends Base {
   String permissions = '';
 
   User({
-    this.permissions = '',
     required super.id,
+    this.permissions = '',
     super.rid = '',
     super.ts = 0,
     super.self = '',

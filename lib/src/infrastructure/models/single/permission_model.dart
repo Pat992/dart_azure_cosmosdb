@@ -1,15 +1,16 @@
+import 'package:dart_azure_cosmosdb/src/core/enum/permission_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/base_model.dart';
 
 class Permission extends Base {
-  String permissionMode;
+  PermissionMode permissionMode;
   String resource;
   String token;
 
   Permission({
-    this.token = '',
-    this.permissionMode = '',
-    this.resource = '',
     required super.id,
+    required this.permissionMode,
+    required this.resource,
+    this.token = '',
     super.rid = '',
     super.ts = 0,
     super.self = '',
@@ -22,7 +23,7 @@ class Permission extends Base {
     var body = super.toMap();
 
     body.addAll({
-      'permissionMode': permissionMode,
+      'permissionMode': permissionMode.value,
       'resource': resource,
       'token': token,
     });
@@ -32,7 +33,9 @@ class Permission extends Base {
 
   @override
   Permission.fromMap(Map<String, dynamic> map)
-      : permissionMode = map['permissionMode'] ?? '',
+      : permissionMode = map['permissionMode'] == 'All'
+            ? PermissionMode.all
+            : PermissionMode.read,
         resource = map['resource'] ?? '',
         token = map['_token'] ?? '',
         super.fromMap(map);

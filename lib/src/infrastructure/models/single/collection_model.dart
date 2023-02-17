@@ -11,7 +11,7 @@ class Collection extends Base {
   String triggers;
   String udfs;
   String conflicts;
-  PartitionKey? partitionKey;
+  PartitionKey partitionKey;
   IndexingPolicy? indexingPolicy;
   UniqueKeyPolicy? uniqueKeyPolicy;
   GeospatialConfig? geospatialConfig;
@@ -19,6 +19,7 @@ class Collection extends Base {
 
   Collection({
     required this.partitionKey,
+    required super.id,
     this.docs = '',
     this.sprocs = '',
     this.triggers = '',
@@ -28,11 +29,10 @@ class Collection extends Base {
     this.uniqueKeyPolicy,
     this.geospatialConfig,
     this.conflictResolutionPolicy,
-    required super.id,
-    required super.rid,
-    required super.ts,
-    required super.self,
-    required super.etag,
+    super.rid = '',
+    super.ts = 0,
+    super.self = '',
+    super.etag = '',
     super.error = const {},
   });
 
@@ -65,7 +65,7 @@ class Collection extends Base {
         conflicts = map['_conflicts'] ?? '',
         partitionKey = map['partitionKey'] != null
             ? PartitionKey.fromMap(map['partitionKey'])
-            : null,
+            : PartitionKey(paths: []),
         indexingPolicy = map['indexingPolicy'] != null
             ? IndexingPolicy.fromMap(map['indexingPolicy'])
             : null,

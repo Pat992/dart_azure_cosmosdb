@@ -4,8 +4,8 @@ class CosmosDocument extends Base {
   Map<String, dynamic> values;
 
   CosmosDocument({
-    this.values = const {},
     required super.id,
+    this.values = const {},
     super.rid = '',
     super.ts = 0,
     super.self = '',

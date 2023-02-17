@@ -5,9 +5,9 @@ class CosmosDatabase extends Base {
   String users;
 
   CosmosDatabase({
+    required super.id,
     this.colls = '',
     this.users = '',
-    required super.id,
     super.rid = '',
     super.ts = 0,
     super.self = '',

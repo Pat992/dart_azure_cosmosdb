@@ -4,8 +4,8 @@ class StoredProcedure extends Base {
   String body;
 
   StoredProcedure({
-    this.body = '',
     required super.id,
+    required this.body,
     super.rid = '',
     super.ts = 0,
     super.self = '',
