@@ -2,7 +2,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_
 
 abstract class Path {
   String path;
-  List<PathIndex> indexes;
+  List<PathIndex> indexes = [];
 
   Path({
     required this.path,
@@ -12,18 +12,23 @@ abstract class Path {
   Map<String, dynamic> toMap() {
     return {
       'path': path,
-      'indexes': indexes,
+      'indexes': indexes.map((index) => index.toMap()).toList(),
     };
   }
 
-  Path.fromMap(Map<String, dynamic> map)
-      : path = map['path'] ?? '',
-        indexes = map['indexes'] ?? [];
+  Path.fromMap(Map<String, dynamic> map) : path = map['path'] ?? '' {
+    if (map.containsKey('indexes')) {
+      for (final index in map['indexes']) {
+        indexes.add(PathIndex.fromMap(index));
+      }
+    }
+  }
 }
 
 class IncludedPath extends Path {
   IncludedPath({
     required super.path,
+    super.indexes = const [],
   });
 
   IncludedPath.fromMap(Map<String, dynamic> map) : super.fromMap(map);
@@ -32,6 +37,7 @@ class IncludedPath extends Path {
 class ExcludedPath extends Path {
   ExcludedPath({
     required super.path,
+    super.indexes = const [],
   });
 
   ExcludedPath.fromMap(Map<String, dynamic> map) : super.fromMap(map);

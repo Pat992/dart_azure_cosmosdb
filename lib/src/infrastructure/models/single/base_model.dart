@@ -21,7 +21,7 @@ class Base {
         ts = map['_ts'] ?? 0,
         self = map['_self'] ?? '',
         etag = map['_etag'] ?? '',
-        error = map['code'] && map['message']
+        error = map.containsKey('code') && map.containsKey('message')
             ? {'code': map['code'], 'message': map['message']}
             : {};
 

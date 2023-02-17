@@ -36,10 +36,10 @@ void main() {
       self: '',
       etag: '',
     );
-    final baseMap = json.decode(fixture('base-error.json'));
+    final errorMap = json.decode(fixture('general-error.json'));
     // act
     // assert
-    expect(baseModel.toMap(), baseMap);
+    expect(baseModel.toMap(), errorMap);
   });
 
   test('Model is correct for any kind of api endpoint', () {
@@ -54,11 +54,10 @@ void main() {
 
   test('Model has an error object', () {
     // arrange
-    final collection = json.decode(fixture('general-error.json'));
-    final baseMap = json.decode(fixture('base-error.json'));
+    final errorMap = json.decode(fixture('general-error.json'));
     // act
-    final baseModel = Base.fromMap({'error': collection});
+    final baseModel = Base.fromMap(errorMap);
     // assert
-    expect(baseModel.toMap(), baseMap);
+    expect(baseModel.toMap(), errorMap);
   });
 }

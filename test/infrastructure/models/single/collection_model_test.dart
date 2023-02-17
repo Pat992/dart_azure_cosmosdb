@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/collection_resolution_policy_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/geospatial_config_model.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/index_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/indexing_policy_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/partition_key_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/path_model.dart';
@@ -34,12 +35,15 @@ void main() {
       ),
       indexingPolicy: IndexingPolicy(
         includedPaths: [
-          IncludedPath(
-            path: '/*',
-          )
+          IncludedPath(path: '/*', indexes: [
+            PathIndex(dataType: 'String', kind: 'Range', precision: -1),
+            PathIndex(dataType: 'Number', kind: 'Range', precision: -1),
+          ]),
         ],
         excludedPaths: [
-          ExcludedPath(path: '/"_etag"/?'),
+          ExcludedPath(
+            path: '/"_etag"/?',
+          ),
         ],
       ),
       partitionKey: PartitionKey(
@@ -59,24 +63,36 @@ void main() {
 
   test('Model has a correct error when created manually', () {
     // arrange
-    final baseMap = json.decode(fixture('base-error.json'));
+    final errorMap = json.decode(fixture('general-error.json'));
+    final collection = Collection(
+      partitionKey: PartitionKey(paths: [], version: 1, kind: 'Hash'),
+      id: '1',
+      error: {
+        "code": "BadRequest",
+        "message":
+            "Request url is invalid.\r\nActivityId: 9e68f294-7603-4502-a009-6b5dff0a2759, Microsoft.Azure.Documents.Common/2.14.0"
+      },
+    );
     // act
     // assert
+    expect(collection.toMap(), errorMap);
   });
 
   test('Model is correct for any kind of api endpoint', () {
     // arrange
-    final collection = json.decode(fixture('collection-success.json'));
-    final baseMap = json.decode(fixture('base-success.json'));
+    final collectionMap = json.decode(fixture('collection-success.json'));
     // act
+    final collection = Collection.fromMap(collectionMap);
     // assert
+    expect(collection.toMap(), collectionMap);
   });
 
   test('Model has an error object', () {
     // arrange
-    final collection = json.decode(fixture('general-error.json'));
-    final baseMap = json.decode(fixture('base-error.json'));
+    final errorMap = json.decode(fixture('general-error.json'));
     // act
+    final collection = Collection.fromMap(errorMap);
     // assert
+    expect(collection.toMap(), errorMap);
   });
 }

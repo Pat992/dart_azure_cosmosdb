@@ -40,18 +40,20 @@ class Collection extends Base {
   Map<String, dynamic> toMap() {
     var body = super.toMap();
 
-    body.addAll({
-      '_docs': docs,
-      '_sprocs': sprocs,
-      '_triggers': triggers,
-      '_udfs': udfs,
-      '_conflicts': conflicts,
-      'partitionKey': partitionKey.toMap(),
-      'indexingPolicy': indexingPolicy?.toMap() ?? {},
-      'uniqueKeyPolicy': uniqueKeyPolicy?.toMap() ?? {},
-      'geospatialConfig': geospatialConfig?.toMap() ?? {},
-      'conflictResolutionPolicy': conflictResolutionPolicy?.toMap() ?? {},
-    });
+    if (super.error.isEmpty) {
+      body.addAll({
+        '_docs': docs,
+        '_sprocs': sprocs,
+        '_triggers': triggers,
+        '_udfs': udfs,
+        '_conflicts': conflicts,
+        'partitionKey': partitionKey.toMap(),
+        'indexingPolicy': indexingPolicy?.toMap() ?? {},
+        'uniqueKeyPolicy': uniqueKeyPolicy?.toMap() ?? {},
+        'geospatialConfig': geospatialConfig?.toMap() ?? {},
+        'conflictResolutionPolicy': conflictResolutionPolicy?.toMap() ?? {},
+      });
+    }
 
     return body;
   }
