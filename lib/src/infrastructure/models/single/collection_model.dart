@@ -11,7 +11,7 @@ class Collection extends Base {
   String triggers;
   String udfs;
   String conflicts;
-  PartitionKey? partitionKey;
+  PartitionKey partitionKey;
   IndexingPolicy? indexingPolicy;
   UniqueKeyPolicy? uniqueKeyPolicy;
   GeospatialConfig? geospatialConfig;
@@ -19,6 +19,7 @@ class Collection extends Base {
 
   Collection({
     required this.partitionKey,
+    required super.id,
     this.docs = '',
     this.sprocs = '',
     this.triggers = '',
@@ -28,30 +29,31 @@ class Collection extends Base {
     this.uniqueKeyPolicy,
     this.geospatialConfig,
     this.conflictResolutionPolicy,
-    required super.id,
-    required super.rid,
-    required super.ts,
-    required super.self,
-    required super.etag,
+    super.rid = '',
+    super.ts = 0,
+    super.self = '',
+    super.etag = '',
     super.error = const {},
   });
 
   @override
   Map<String, dynamic> toMap() {
-    var body = super.toMap();
+    final body = super.toMap();
 
-    body.addAll({
-      '_docs': docs,
-      '_sprocs': sprocs,
-      '_triggers': triggers,
-      '_udfs': udfs,
-      '_conflicts': conflicts,
-      'partitionKey': partitionKey?.toMap() ?? {},
-      'indexingPolicy': indexingPolicy?.toMap() ?? {},
-      'uniqueKeyPolicy': uniqueKeyPolicy?.toMap() ?? {},
-      'geospatialConfig': geospatialConfig?.toMap() ?? {},
-      'conflictResolutionPolicy': conflictResolutionPolicy?.toMap() ?? {},
-    });
+    if (super.error.isEmpty) {
+      body.addAll({
+        '_docs': docs,
+        '_sprocs': sprocs,
+        '_triggers': triggers,
+        '_udfs': udfs,
+        '_conflicts': conflicts,
+        'partitionKey': partitionKey.toMap(),
+        'indexingPolicy': indexingPolicy?.toMap() ?? {},
+        'uniqueKeyPolicy': uniqueKeyPolicy?.toMap() ?? {},
+        'geospatialConfig': geospatialConfig?.toMap() ?? {},
+        'conflictResolutionPolicy': conflictResolutionPolicy?.toMap() ?? {},
+      });
+    }
 
     return body;
   }
@@ -65,7 +67,7 @@ class Collection extends Base {
         conflicts = map['_conflicts'] ?? '',
         partitionKey = map['partitionKey'] != null
             ? PartitionKey.fromMap(map['partitionKey'])
-            : null,
+            : PartitionKey(paths: []),
         indexingPolicy = map['indexingPolicy'] != null
             ? IndexingPolicy.fromMap(map['indexingPolicy'])
             : null,

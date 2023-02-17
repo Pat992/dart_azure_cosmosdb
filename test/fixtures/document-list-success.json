@@ -1,0 +1,33 @@
+{
+  "_rid": "KiAXAIQ5uQY=",
+  "Documents": [
+    {
+      "id": "my Product1",
+      "_rid": "KiAXAIQ5uQYBAAAAAAAAAA==",
+      "_self": "dbs/KiAXAA==/colls/KiAXAIQ5uQY=/docs/KiAXAIQ5uQYBAAAAAAAAAA==/",
+      "_etag": "\"0000b90a-0000-0700-0000-628135b70000\"",
+      "_attachments": "attachments/",
+      "amount": 1,
+      "_ts": 1652635063
+    },
+    {
+      "id": "my Product2",
+      "_rid": "KiAXAIQ5uQYCAAAAAAAAAA==",
+      "_self": "dbs/KiAXAA==/colls/KiAXAIQ5uQY=/docs/KiAXAIQ5uQYCAAAAAAAAAA==/",
+      "_etag": "\"0000ba0a-0000-0700-0000-628135c20000\"",
+      "_attachments": "attachments/",
+      "amount": 2,
+      "_ts": 1652635074
+    },
+    {
+      "id": "my Product3",
+      "amount": 3,
+      "_rid": "KiAXAIQ5uQbiAAAAAAAAAA==",
+      "_self": "dbs/KiAXAA==/colls/KiAXAIQ5uQY=/docs/KiAXAIQ5uQbiAAAAAAAAAA==/",
+      "_etag": "\"810561c4-0000-0700-0000-63ea5d5d0000\"",
+      "_attachments": "attachments/",
+      "_ts": 1676303709
+    }
+  ],
+  "_count": 3
+}

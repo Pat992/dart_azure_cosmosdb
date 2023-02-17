@@ -7,10 +7,12 @@ class UniqueKeyPolicy {
 
   Map<String, dynamic> toMap() {
     return {
-      'uniqueKeys': uniqueKeys,
+      'uniqueKeys': [
+        {'paths': uniqueKeys}
+      ],
     };
   }
 
   UniqueKeyPolicy.fromMap(Map<String, dynamic> map)
-      : uniqueKeys = map['uniqueKeys'] as List<dynamic>;
+      : uniqueKeys = map['uniqueKeys'][0]['paths'] as List<dynamic>;
 }

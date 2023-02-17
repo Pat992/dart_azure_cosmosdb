@@ -1,0 +1,139 @@
+{
+  "_rid": "KiAXAA==",
+  "DocumentCollections": [
+    {
+      "id": "myTestContainer",
+      "indexingPolicy": {
+        "indexingMode": "consistent",
+        "automatic": true,
+        "includedPaths": [
+          {
+            "path": "/*"
+          }
+        ],
+        "excludedPaths": [
+          {
+            "path": "/\"_etag\"/?"
+          }
+        ]
+      },
+      "partitionKey": {
+        "paths": [
+          "/id"
+        ],
+        "kind": "Hash"
+      },
+      "uniqueKeyPolicy": {
+        "uniqueKeys": [
+          {
+            "paths": [
+              "/fistname/lastname"
+            ]
+          }
+        ]
+      },
+      "conflictResolutionPolicy": {
+        "mode": "LastWriterWins",
+        "conflictResolutionPath": "/_ts",
+        "conflictResolutionProcedure": ""
+      },
+      "geospatialConfig": {
+        "type": "Geography"
+      },
+      "_rid": "KiAXAIQ5uQY=",
+      "_ts": 1652612926,
+      "_self": "dbs/KiAXAA==/colls/KiAXAIQ5uQY=/",
+      "_etag": "\"00008905-0000-0700-0000-6280df3e0000\"",
+      "_docs": "docs/",
+      "_sprocs": "sprocs/",
+      "_triggers": "triggers/",
+      "_udfs": "udfs/",
+      "_conflicts": "conflicts/"
+    },
+    {
+      "id": "myNewCollection",
+      "indexingPolicy": {
+        "indexingMode": "consistent",
+        "automatic": true,
+        "includedPaths": [
+          {
+            "path": "/*"
+          }
+        ],
+        "excludedPaths": [
+          {
+            "path": "/\"_etag\"/?"
+          }
+        ]
+      },
+      "partitionKey": {
+        "paths": [
+          "/id"
+        ],
+        "kind": "Hash",
+        "version": 1
+      },
+      "conflictResolutionPolicy": {
+        "mode": "LastWriterWins",
+        "conflictResolutionPath": "/_ts",
+        "conflictResolutionProcedure": ""
+      },
+      "geospatialConfig": {
+        "type": "Geography"
+      },
+      "_rid": "KiAXAJovgTA=",
+      "_ts": 1665134937,
+      "_self": "dbs/KiAXAA==/colls/KiAXAJovgTA=/",
+      "_etag": "\"0000be03-0000-0700-0000-633ff1590000\"",
+      "_docs": "docs/",
+      "_sprocs": "sprocs/",
+      "_triggers": "triggers/",
+      "_udfs": "udfs/",
+      "_conflicts": "conflicts/"
+    },
+    {
+      "id": "test",
+      "indexingPolicy": {
+        "indexingMode": "consistent",
+        "automatic": true,
+        "includedPaths": [
+          {
+            "path": "/*"
+          }
+        ],
+        "excludedPaths": [
+          {
+            "path": "/\"_etag\"/?"
+          }
+        ]
+      },
+      "partitionKey": {
+        "paths": [
+          "/id/test"
+        ],
+        "kind": "Hash"
+      },
+      "uniqueKeyPolicy": {
+        "uniqueKeys": []
+      },
+      "conflictResolutionPolicy": {
+        "mode": "LastWriterWins",
+        "conflictResolutionPath": "/_ts",
+        "conflictResolutionProcedure": ""
+      },
+      "geospatialConfig": {
+        "type": "Geography"
+      },
+      "_rid": "KiAXAKIaBOg=",
+      "_ts": 1657442900,
+      "_self": "dbs/KiAXAA==/colls/KiAXAKIaBOg=/",
+      "_etag": "\"0000bd06-0000-0700-0000-62ca92540000\"",
+      "_docs": "docs/",
+      "_sprocs": "sprocs/",
+      "_triggers": "triggers/",
+      "_udfs": "udfs/",
+      "_conflicts": "conflicts/"
+    }
+  ],
+  "_count": 3
+}

@@ -1,0 +1,8 @@
+{
+  "body": "function tax(income) {\r\n    if(income == undefined) \r\n        throw 'no input';\r\n    if (income < 1000) \r\n        return income * 0.1;\r\n    else if (income < 10000) \r\n        return income * 0.2;\r\n    else\r\n        return income * 0.4;\r\n}",
+  "id": "simpleTaxUDF",
+  "_rid": "Sl8fALN4sw4BAAAAAAAAYA==",
+  "_ts": 1449688293,
+  "_self": "dbs\/Sl8fAA==\/colls\/Sl8fALN4sw4=\/udfs\/Sl8fALN4sw4BAAAAAAAAYA==\/",
+  "_etag": "\"060072e4-0000-0000-0000-56687ce50000\""
+}

@@ -4,8 +4,8 @@ class User extends Base {
   String permissions = '';
 
   User({
-    this.permissions = '',
     required super.id,
+    this.permissions = '',
     super.rid = '',
     super.ts = 0,
     super.self = '',
@@ -15,14 +15,15 @@ class User extends Base {
 
   @override
   Map<String, dynamic> toMap() {
-    return {
-      'permissions': permissions,
-      'id': id,
-      '_rid': rid,
-      '_ts': ts,
-      '_self': self,
-      '_etag': etag,
-    };
+    final body = super.toMap();
+
+    if (error.isEmpty) {
+      body.addAll({
+        '_permissions': permissions,
+      });
+    }
+
+    return body;
   }
 
   @override

@@ -4,8 +4,8 @@ class UserDefinedFunction extends Base {
   String body;
 
   UserDefinedFunction({
-    this.body = '',
     required super.id,
+    required this.body,
     super.rid = '',
     super.ts = 0,
     super.self = '',
@@ -15,13 +15,15 @@ class UserDefinedFunction extends Base {
 
   @override
   Map<String, dynamic> toMap() {
-    var body = super.toMap();
+    final superBody = super.toMap();
 
-    body.addAll({
-      'body': body,
-    });
+    if (error.isEmpty) {
+      superBody.addAll({
+        'body': body,
+      });
+    }
 
-    return body;
+    return superBody;
   }
 
   @override
