@@ -20,15 +20,17 @@ class Trigger extends Base {
 
   @override
   Map<String, dynamic> toMap() {
-    final body = super.toMap();
+    final superBody = super.toMap();
 
-    body.addAll({
-      'body': body,
-      'triggerOperation': triggerOperation,
-      'triggerType': triggerType,
-    });
+    if (error.isEmpty) {
+      superBody.addAll({
+        'body': body,
+        'triggerOperation': triggerOperation.value,
+        'triggerType': triggerType.value,
+      });
+    }
 
-    return body;
+    return superBody;
   }
 
   @override
