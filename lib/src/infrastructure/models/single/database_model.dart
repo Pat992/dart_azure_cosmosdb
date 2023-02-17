@@ -19,17 +19,19 @@ class CosmosDatabase extends Base {
   Map<String, dynamic> toMap() {
     var body = super.toMap();
 
-    body.addAll({
-      'colls': colls,
-      'users': users,
-    });
+    if (error.isEmpty) {
+      body.addAll({
+        '_colls': colls,
+        '_users': users,
+      });
+    }
 
     return body;
   }
 
   @override
   CosmosDatabase.fromMap(Map<String, dynamic> map)
-      : colls = map['colls'] as String,
-        users = map['users'] as String,
+      : colls = map['_colls'] ?? '',
+        users = map['_users'] ?? '',
         super.fromMap(map);
 }
