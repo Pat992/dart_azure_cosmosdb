@@ -38,7 +38,7 @@ class Collection extends Base {
 
   @override
   Map<String, dynamic> toMap() {
-    var body = super.toMap();
+    final body = super.toMap();
 
     if (super.error.isEmpty) {
       body.addAll({

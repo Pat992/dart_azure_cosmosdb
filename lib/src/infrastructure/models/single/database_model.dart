@@ -17,7 +17,7 @@ class CosmosDatabase extends Base {
 
   @override
   Map<String, dynamic> toMap() {
-    var body = super.toMap();
+    final body = super.toMap();
 
     if (error.isEmpty) {
       body.addAll({

@@ -20,7 +20,7 @@ class Permission extends Base {
 
   @override
   Map<String, dynamic> toMap() {
-    var body = super.toMap();
+    final body = super.toMap();
 
     body.addAll({
       'permissionMode': permissionMode.value,

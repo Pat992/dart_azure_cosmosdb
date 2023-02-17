@@ -15,14 +15,13 @@ class User extends Base {
 
   @override
   Map<String, dynamic> toMap() {
-    return {
+    final body = super.toMap();
+
+    body.addAll({
       'permissions': permissions,
-      'id': id,
-      '_rid': rid,
-      '_ts': ts,
-      '_self': self,
-      '_etag': etag,
-    };
+    });
+
+    return body;
   }
 
   @override

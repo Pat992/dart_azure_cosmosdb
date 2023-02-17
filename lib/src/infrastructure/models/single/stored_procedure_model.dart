@@ -15,7 +15,7 @@ class StoredProcedure extends Base {
 
   @override
   Map<String, dynamic> toMap() {
-    var body = super.toMap();
+    final body = super.toMap();
 
     body.addAll({
       'body': body,
