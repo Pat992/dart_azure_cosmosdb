@@ -46,7 +46,7 @@ class Collection extends Base {
       '_triggers': triggers,
       '_udfs': udfs,
       '_conflicts': conflicts,
-      'partitionKey': partitionKey?.toMap() ?? {},
+      'partitionKey': partitionKey.toMap(),
       'indexingPolicy': indexingPolicy?.toMap() ?? {},
       'uniqueKeyPolicy': uniqueKeyPolicy?.toMap() ?? {},
       'geospatialConfig': geospatialConfig?.toMap() ?? {},

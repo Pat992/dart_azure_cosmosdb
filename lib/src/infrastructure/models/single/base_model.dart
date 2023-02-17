@@ -4,7 +4,7 @@ class Base {
   int ts;
   String self;
   String etag;
-  Object error;
+  Map<String, String> error;
 
   Base({
     required this.id,
@@ -21,16 +21,23 @@ class Base {
         ts = map['_ts'] ?? 0,
         self = map['_self'] ?? '',
         etag = map['_etag'] ?? '',
-        error = map['error'] ?? {};
+        error = map['code'] && map['message']
+            ? {'code': map['code'], 'message': map['message']}
+            : {};
 
   Map<String, dynamic> toMap() {
+    if (error.isNotEmpty) {
+      return {
+        'code': error['code'],
+        'message': error['message'],
+      };
+    }
     return {
       'id': id,
       '_rid': rid,
       '_ts': ts,
       '_self': self,
       '_etag': etag,
-      'error': error,
     };
   }
 }

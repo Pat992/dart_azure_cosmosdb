@@ -5,12 +5,14 @@
     "automatic": true,
     "includedPaths": [
       {
-        "path": "/*"
+        "path": "/*",
+        "indexes": []
       }
     ],
     "excludedPaths": [
       {
-        "path": "/\"_etag\"/?"
+        "path": "/\"_etag\"/?",
+        "indexes": []
       }
     ]
   },
@@ -18,7 +20,8 @@
     "paths": [
       "/id"
     ],
-    "kind": "Hash"
+    "kind": "Hash",
+    "version": 1
   },
   "uniqueKeyPolicy": {
     "uniqueKeys": [

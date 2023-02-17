@@ -17,8 +17,10 @@ class IndexingPolicy {
     return {
       'indexingMode': indexingMode,
       'automatic': automatic,
-      'includedPaths': includedPaths,
-      'excludedPaths': excludedPaths,
+      'includedPaths':
+          includedPaths.map((includedPath) => includedPath.toMap()).toList(),
+      'excludedPaths':
+          excludedPaths.map((excludedPath) => excludedPath.toMap()).toList(),
     };
   }
 
