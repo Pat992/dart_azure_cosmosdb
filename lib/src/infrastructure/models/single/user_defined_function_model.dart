@@ -15,13 +15,15 @@ class UserDefinedFunction extends Base {
 
   @override
   Map<String, dynamic> toMap() {
-    final body = super.toMap();
+    final superBody = super.toMap();
 
-    body.addAll({
-      'body': body,
-    });
+    if (error.isEmpty) {
+      superBody.addAll({
+        'body': body,
+      });
+    }
 
-    return body;
+    return superBody;
   }
 
   @override
