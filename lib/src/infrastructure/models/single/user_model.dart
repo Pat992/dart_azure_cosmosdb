@@ -17,9 +17,11 @@ class User extends Base {
   Map<String, dynamic> toMap() {
     final body = super.toMap();
 
-    body.addAll({
-      'permissions': permissions,
-    });
+    if (error.isEmpty) {
+      body.addAll({
+        '_permissions': permissions,
+      });
+    }
 
     return body;
   }
