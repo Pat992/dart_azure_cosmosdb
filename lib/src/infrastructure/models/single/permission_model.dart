@@ -22,11 +22,13 @@ class Permission extends Base {
   Map<String, dynamic> toMap() {
     final body = super.toMap();
 
-    body.addAll({
-      'permissionMode': permissionMode.value,
-      'resource': resource,
-      'token': token,
-    });
+    if (error.isEmpty) {
+      body.addAll({
+        'permissionMode': permissionMode.value,
+        'resource': resource,
+        '_token': token,
+      });
+    }
 
     return body;
   }
