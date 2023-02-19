@@ -2,7 +2,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_mo
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/database_model.dart';
 
 class CosmosDatabaseList extends BaseList {
-  List<CosmosDatabase> databases;
+  List<CosmosDatabase> databases = [];
 
   CosmosDatabaseList({
     this.databases = const [],
@@ -15,15 +15,25 @@ class CosmosDatabaseList extends BaseList {
   Map<String, dynamic> toMap() {
     var body = super.toMap();
 
-    body.addAll({
-      'Databases': databases,
-    });
+    if (error.isEmpty) {
+      body.addAll({
+        'Databases': databases
+            .map(
+              (db) => db.toMap(),
+            )
+            .toList(),
+      });
+    }
 
     return body;
   }
 
   @override
-  CosmosDatabaseList.fromMap(Map<String, dynamic> map)
-      : databases = map['Databases'] as List<CosmosDatabase>,
-        super.fromMap(map);
+  CosmosDatabaseList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
+    if (map.containsKey('Databases')) {
+      for (final db in map['Databases']) {
+        databases.add(CosmosDatabase.fromMap(db));
+      }
+    }
+  }
 }
