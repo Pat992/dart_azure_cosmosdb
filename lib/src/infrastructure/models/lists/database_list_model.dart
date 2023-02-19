@@ -16,13 +16,7 @@ class CosmosDatabaseList extends BaseList {
     var body = super.toMap();
 
     if (error.isEmpty) {
-      body.addAll({
-        'Databases': databases
-            .map(
-              (db) => db.toMap(),
-            )
-            .toList(),
-      });
+      body.addAll({'Databases': databases.map((db) => db.toMap()).toList()});
     }
 
     return body;

@@ -16,13 +16,8 @@ class TriggerList extends BaseList {
     var body = super.toMap();
 
     if (error.isEmpty) {
-      body.addAll({
-        'Triggers': triggers
-            .map(
-              (trigger) => trigger.toMap(),
-            )
-            .toList(),
-      });
+      body.addAll(
+          {'Triggers': triggers.map((trigger) => trigger.toMap()).toList()});
     }
 
     return body;

@@ -17,11 +17,8 @@ class CollectionList extends BaseList {
 
     if (error.isEmpty) {
       body.addAll({
-        'DocumentCollections': collections
-            .map(
-              (collection) => collection.toMap(),
-            )
-            .toList(),
+        'DocumentCollections':
+            collections.map((collection) => collection.toMap()).toList()
       });
     }
 

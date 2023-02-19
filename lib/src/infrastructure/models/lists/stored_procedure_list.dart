@@ -18,10 +18,8 @@ class StoredProcedureList extends BaseList {
     if (error.isEmpty) {
       body.addAll({
         'StoredProcedures': storedProcedures
-            .map(
-              (storedProcedure) => storedProcedure.toMap(),
-        )
-            .toList(),
+            .map((storedProcedure) => storedProcedure.toMap())
+            .toList()
       });
     }
 
@@ -29,9 +27,7 @@ class StoredProcedureList extends BaseList {
   }
 
   @override
-  StoredProcedureList.fromMap(Map<String, dynamic> map)
-      :
-        super.fromMap(map) {
+  StoredProcedureList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
     if (map.containsKey('StoredProcedures')) {
       for (final storedProcedure in map['StoredProcedures']) {
         storedProcedures.add(StoredProcedure.fromMap(storedProcedure));

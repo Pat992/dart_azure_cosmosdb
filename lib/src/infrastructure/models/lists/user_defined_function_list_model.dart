@@ -18,10 +18,8 @@ class UserDefinedFunctionList extends BaseList {
     if (error.isEmpty) {
       body.addAll({
         'UserDefinedFunctions': userDefinedFunctions
-            .map(
-              (userDefinedFunction) => userDefinedFunction.toMap(),
-            )
-            .toList(),
+            .map((userDefinedFunction) => userDefinedFunction.toMap())
+            .toList()
       });
     }
 

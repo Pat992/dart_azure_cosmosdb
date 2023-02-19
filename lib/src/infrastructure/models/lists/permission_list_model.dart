@@ -17,11 +17,8 @@ class PermissionList extends BaseList {
 
     if (error.isEmpty) {
       body.addAll({
-        'Permissions': permissions
-            .map(
-              (permission) => permission.toMap(),
-            )
-            .toList(),
+        'Permissions':
+            permissions.map((permission) => permission.toMap()).toList()
       });
     }
 

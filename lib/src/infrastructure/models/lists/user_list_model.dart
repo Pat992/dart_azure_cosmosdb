@@ -16,13 +16,7 @@ class UserList extends BaseList {
     var body = super.toMap();
 
     if (error.isEmpty) {
-      body.addAll({
-        'Users': users
-            .map(
-              (user) => user.toMap(),
-            )
-            .toList(),
-      });
+      body.addAll({'Users': users.map((user) => user.toMap()).toList()});
     }
 
     return body;

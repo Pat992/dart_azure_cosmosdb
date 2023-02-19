@@ -17,11 +17,7 @@ class CosmosDocumentList extends BaseList {
 
     if (error.isEmpty) {
       body.addAll({
-        'Documents': documents
-            .map(
-              (document) => document.toMap(),
-            )
-            .toList(),
+        'Documents': documents.map((document) => document.toMap()).toList()
       });
     }
 
