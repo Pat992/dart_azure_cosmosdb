@@ -9,7 +9,7 @@ void main() {
   test('Model is a correct map when created manually', () {
     // arrange
     final baseListModel = BaseList(
-      count: 3,
+      count: 1,
       error: {},
       rid: 'KiAXAA==',
     );
