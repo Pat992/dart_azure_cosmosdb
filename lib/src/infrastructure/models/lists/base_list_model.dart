@@ -1,7 +1,7 @@
 class BaseList {
-  String rid = '';
+  String rid;
   int count;
-  Object error;
+  Map<String, String> error;
 
   BaseList({
     required this.error,
@@ -10,15 +10,22 @@ class BaseList {
   });
 
   Map<String, dynamic> toMap() {
+    if (error.isNotEmpty) {
+      return {
+        'code': error['code'],
+        'message': error['message'],
+      };
+    }
     return {
       '_rid': rid,
       '_count': count,
-      'error': error,
     };
   }
 
   BaseList.fromMap(Map<String, dynamic> map)
-      : rid = map['_rid'] as String,
-        count = map['_count'] as int,
-        error = map['error'] as Object;
+      : rid = map['_rid'] ?? '',
+        count = map['_count'] ?? 0,
+        error = map.containsKey('code') && map.containsKey('message')
+            ? {'code': map['code'], 'message': map['message']}
+            : {};
 }
