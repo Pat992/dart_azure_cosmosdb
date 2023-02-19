@@ -2,7 +2,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_mo
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/stored_procedure_model.dart';
 
 class StoredProcedureList extends BaseList {
-  List<StoredProcedure> storedProcedures;
+  List<StoredProcedure> storedProcedures = [];
 
   StoredProcedureList({
     this.storedProcedures = const [],
@@ -15,15 +15,27 @@ class StoredProcedureList extends BaseList {
   Map<String, dynamic> toMap() {
     var body = super.toMap();
 
-    body.addAll({
-      'StoredProcedures': storedProcedures,
-    });
+    if (error.isEmpty) {
+      body.addAll({
+        'StoredProcedures': storedProcedures
+            .map(
+              (storedProcedure) => storedProcedure.toMap(),
+        )
+            .toList(),
+      });
+    }
 
     return body;
   }
 
   @override
   StoredProcedureList.fromMap(Map<String, dynamic> map)
-      : storedProcedures = map['StoredProcedures'] as List<StoredProcedure>,
-        super.fromMap(map);
+      :
+        super.fromMap(map) {
+    if (map.containsKey('StoredProcedures')) {
+      for (final storedProcedure in map['StoredProcedures']) {
+        storedProcedures.add(StoredProcedure.fromMap(storedProcedure));
+      }
+    }
+  }
 }

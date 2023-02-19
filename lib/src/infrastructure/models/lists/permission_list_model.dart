@@ -2,7 +2,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_mo
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/permission_model.dart';
 
 class PermissionList extends BaseList {
-  List<Permission> permissions;
+  List<Permission> permissions = [];
 
   PermissionList({
     this.permissions = const [],
@@ -15,15 +15,25 @@ class PermissionList extends BaseList {
   Map<String, dynamic> toMap() {
     var body = super.toMap();
 
-    body.addAll({
-      'Permissions': permissions,
-    });
+    if (error.isEmpty) {
+      body.addAll({
+        'Permissions': permissions
+            .map(
+              (permission) => permission.toMap(),
+            )
+            .toList(),
+      });
+    }
 
     return body;
   }
 
   @override
-  PermissionList.fromMap(Map<String, dynamic> map)
-      : permissions = map['Permissions'] as List<Permission>,
-        super.fromMap(map);
+  PermissionList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
+    if (map.containsKey('Permissions')) {
+      for (final permission in map['Permissions']) {
+        permissions.add(Permission.fromMap(permission));
+      }
+    }
+  }
 }

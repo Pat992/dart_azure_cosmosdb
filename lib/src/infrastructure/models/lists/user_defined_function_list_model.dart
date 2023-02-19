@@ -2,7 +2,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_mo
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/user_defined_function_model.dart';
 
 class UserDefinedFunctionList extends BaseList {
-  List<UserDefinedFunction> userDefinedFunctions;
+  List<UserDefinedFunction> userDefinedFunctions = [];
 
   UserDefinedFunctionList({
     this.userDefinedFunctions = const [],
@@ -15,16 +15,27 @@ class UserDefinedFunctionList extends BaseList {
   Map<String, dynamic> toMap() {
     var body = super.toMap();
 
-    body.addAll({
-      'UserDefinedFunctions': userDefinedFunctions,
-    });
+    if (error.isEmpty) {
+      body.addAll({
+        'UserDefinedFunctions': userDefinedFunctions
+            .map(
+              (userDefinedFunction) => userDefinedFunction.toMap(),
+            )
+            .toList(),
+      });
+    }
 
     return body;
   }
 
   @override
   UserDefinedFunctionList.fromMap(Map<String, dynamic> map)
-      : userDefinedFunctions =
-            map['UserDefinedFunctions'] as List<UserDefinedFunction>,
-        super.fromMap(map);
+      : super.fromMap(map) {
+    if (map.containsKey('UserDefinedFunctions')) {
+      for (final userDefinedFunction in map['UserDefinedFunctions']) {
+        userDefinedFunctions
+            .add(UserDefinedFunction.fromMap(userDefinedFunction));
+      }
+    }
+  }
 }

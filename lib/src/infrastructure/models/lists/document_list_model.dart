@@ -2,7 +2,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_mo
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/document_model.dart';
 
 class CosmosDocumentList extends BaseList {
-  List<CosmosDocument> documents;
+  List<CosmosDocument> documents = [];
 
   CosmosDocumentList({
     this.documents = const [],
@@ -15,15 +15,25 @@ class CosmosDocumentList extends BaseList {
   Map<String, dynamic> toMap() {
     var body = super.toMap();
 
-    body.addAll({
-      'Documents': documents,
-    });
+    if (error.isEmpty) {
+      body.addAll({
+        'Documents': documents
+            .map(
+              (document) => document.toMap(),
+            )
+            .toList(),
+      });
+    }
 
     return body;
   }
 
   @override
-  CosmosDocumentList.fromMap(Map<String, dynamic> map)
-      : documents = map['Documents'] as List<CosmosDocument>,
-        super.fromMap(map);
+  CosmosDocumentList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
+    if (map.containsKey('Documents')) {
+      for (final document in map['Documents']) {
+        documents.add(CosmosDocument.fromMap(document));
+      }
+    }
+  }
 }
