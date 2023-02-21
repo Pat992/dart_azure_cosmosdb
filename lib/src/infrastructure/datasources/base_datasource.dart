@@ -32,27 +32,20 @@ class BaseDatasource implements IBaseDatasource {
     String resourceLink = '',
     Map<String, String> additionalHeader = const {},
   }) async {
-    try {
-      final uri = Uri.parse('$baseUrl$urlExtension');
+    final uri = Uri.parse('$baseUrl$urlExtension');
 
-      final headers = generateHeaders(
-        resourceLink: resourceLink,
-        method: 'get',
-        additionalHeader: additionalHeader,
-      );
+    final headers = generateHeaders(
+      resourceLink: resourceLink,
+      method: 'get',
+      additionalHeader: additionalHeader,
+    );
 
-      var response = await client.get(uri, headers: headers);
+    var response = await client.get(uri, headers: headers);
 
-      final stringRes = response.body;
-      final responseMap = json.decode(stringRes);
+    final stringRes = response.body;
+    final responseMap = json.decode(stringRes);
 
-      return responseMap;
-    } catch (e) {
-      return {
-        'code': 'exception',
-        'message': e.toString(),
-      };
-    }
+    return responseMap;
   }
 
   @override
@@ -64,31 +57,24 @@ class BaseDatasource implements IBaseDatasource {
     Map<String, String> additionalHeader = const {},
     String? contentType,
   }) async {
-    try {
-      final uri = Uri.parse('$baseUrl$urlExtension');
+    final uri = Uri.parse('$baseUrl$urlExtension');
 
-      final headers = generateHeaders(
-        resourceLink: resourceLink,
-        method: 'post',
-        additionalHeader: additionalHeader,
-      );
+    final headers = generateHeaders(
+      resourceLink: resourceLink,
+      method: 'post',
+      additionalHeader: additionalHeader,
+    );
 
-      var response = await client.post(
-        uri,
-        headers: headers,
-        body: arrBody.isEmpty ? body : arrBody,
-      );
+    var response = await client.post(
+      uri,
+      headers: headers,
+      body: arrBody.isEmpty ? body : arrBody,
+    );
 
-      final stringRes = response.body;
-      final responseMap = json.decode(stringRes);
+    final stringRes = response.body;
+    final responseMap = json.decode(stringRes);
 
-      return responseMap;
-    } catch (e) {
-      return {
-        'code': 'exception',
-        'message': e.toString(),
-      };
-    }
+    return responseMap;
   }
 
   @override
@@ -99,31 +85,24 @@ class BaseDatasource implements IBaseDatasource {
     Map<String, String> additionalHeader = const {},
     String? contentType,
   }) async {
-    try {
-      final uri = Uri.parse('$baseUrl$urlExtension');
+    final uri = Uri.parse('$baseUrl$urlExtension');
 
-      final headers = generateHeaders(
-        resourceLink: resourceLink,
-        method: 'put',
-        additionalHeader: additionalHeader,
-      );
+    final headers = generateHeaders(
+      resourceLink: resourceLink,
+      method: 'put',
+      additionalHeader: additionalHeader,
+    );
 
-      var response = await client.put(
-        uri,
-        headers: headers,
-        body: body,
-      );
+    var response = await client.put(
+      uri,
+      headers: headers,
+      body: body,
+    );
 
-      final stringRes = response.body;
-      final responseMap = json.decode(stringRes);
+    final stringRes = response.body;
+    final responseMap = json.decode(stringRes);
 
-      return responseMap;
-    } catch (e) {
-      return {
-        'code': 'exception',
-        'message': e.toString(),
-      };
-    }
+    return responseMap;
   }
 
   @override
@@ -133,30 +112,23 @@ class BaseDatasource implements IBaseDatasource {
     Map<String, String> additionalHeader = const {},
     String? contentType,
   }) async {
-    try {
-      final uri = Uri.parse('$baseUrl$urlExtension');
+    final uri = Uri.parse('$baseUrl$urlExtension');
 
-      final headers = generateHeaders(
-        resourceLink: resourceLink,
-        method: 'delete',
-        additionalHeader: additionalHeader,
-      );
+    final headers = generateHeaders(
+      resourceLink: resourceLink,
+      method: 'delete',
+      additionalHeader: additionalHeader,
+    );
 
-      var response = await client.delete(
-        uri,
-        headers: headers,
-      );
+    var response = await client.delete(
+      uri,
+      headers: headers,
+    );
 
-      final stringRes = response.body;
-      final responseMap = json.decode(stringRes);
+    final stringRes = response.body;
+    final responseMap = json.decode(stringRes);
 
-      return responseMap;
-    } catch (e) {
-      return {
-        'code': 'exception',
-        'message': e.toString(),
-      };
-    }
+    return responseMap;
   }
 
   @override

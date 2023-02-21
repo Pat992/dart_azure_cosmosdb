@@ -1,0 +1,9 @@
+{
+  "Accept": "application/json",
+  "x-ms-version": "2018-12-31",
+  "x-ms-date": "Sun, 15 May 2022 10:06:39 GMT",
+  "Authorization": "type%3Dmaster%26ver%3D1.0%26sig%3DjmOtTFc9K%2FUEBXu2ZTGmSYzQ8EaPvktG%2FpjnFUWLSzs%3D",
+  "Content-Type": "application/json",
+  "Accept-Encoding": "gzip, deflate, br",
+  "Connection": "keep-alive"
+}
