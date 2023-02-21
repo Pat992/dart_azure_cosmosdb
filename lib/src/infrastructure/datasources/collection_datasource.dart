@@ -2,6 +2,7 @@ import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/base_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_collection_datasource.dart';
 
+// TODO: replace/update
 class CollectionDatasource extends BaseDatasource
     implements ICollectionDatasource {
   CollectionDatasource({
@@ -74,7 +75,7 @@ class CollectionDatasource extends BaseDatasource
     required String collectionId,
   }) async {
     final String resourceLink =
-        '${ResourceType.dbs}/$dbId/${resourceType.value}/$collectionId';
+        '${ResourceType.dbs.value}/$dbId/${resourceType.value}/$collectionId';
     final String urlExtension = '/$resourceLink';
 
     return await deleteRequest(
