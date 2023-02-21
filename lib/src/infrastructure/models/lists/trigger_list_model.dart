@@ -24,9 +24,7 @@ class TriggerList extends BaseList {
   }
 
   @override
-  TriggerList.fromMap(Map<String, dynamic> map)
-      : triggers = map['Triggers'] as List<Trigger>,
-        super.fromMap(map) {
+  TriggerList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
     if (map.containsKey('Triggers')) {
       for (final trigger in map['Triggers']) {
         triggers.add(Trigger.fromMap(trigger));
