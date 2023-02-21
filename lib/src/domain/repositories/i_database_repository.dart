@@ -1,15 +1,17 @@
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/models_barrel.dart';
+
 abstract class IDatabaseRepository {
-  Future<Map<String, dynamic>> list();
+  Future<CosmosDatabaseList> list();
 
-  Future<Map<String, dynamic>> get({
+  Future<CosmosDatabase> get({
     required String dbId,
   });
 
-  Future<Map<String, dynamic>> create({
+  Future<CosmosDatabase> create({
     required String dbId,
   });
 
-  Future<Map<String, dynamic>> delete({
+  Future<CosmosDatabase> delete({
     required String dbId,
   });
 }

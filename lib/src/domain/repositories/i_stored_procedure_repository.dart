@@ -1,19 +1,26 @@
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/models_barrel.dart';
+
 abstract class IStoredProcedureRepository {
-  Future<Map<String, dynamic>> create({
+  Future<StoredProcedureList> list({
+    required String dbId,
+    required String collectionId,
+  });
+
+  Future<StoredProcedure> create({
     required String dbId,
     required String collectionId,
     required String storedProcedureId,
     required String function,
   });
 
-  Future<Map<String, dynamic>> replace({
+  Future<StoredProcedure> replace({
     required String dbId,
     required String collectionId,
     required String storedProcedureId,
     required String function,
   });
 
-  Future<Map<String, dynamic>> delete({
+  Future<StoredProcedure> delete({
     required String dbId,
     required String collectionId,
     required String storedProcedureId,

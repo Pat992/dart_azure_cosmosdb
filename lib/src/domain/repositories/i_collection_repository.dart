@@ -1,19 +1,23 @@
-abstract class ICollectionRepository {
-  Future<Map<String, dynamic>> list({required String dbId});
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/models_barrel.dart';
 
-  Future<Map<String, dynamic>> get({
+abstract class ICollectionRepository {
+  Future<CollectionList> list({
+    required String dbId,
+  });
+
+  Future<Collection> get({
     required String dbId,
     required String collectionId,
   });
 
-  Future<Map<String, dynamic>> create({
+  Future<Collection> create({
     required String dbId,
     required String collectionId,
     required String partitionKey,
-    required bool isBigPartKey,
+    required int version,
   });
 
-  Future<Map<String, dynamic>> delete({
+  Future<Collection> delete({
     required String dbId,
     required String collectionId,
   });
