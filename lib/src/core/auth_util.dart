@@ -12,7 +12,7 @@ abstract class IAuthUtil {
     required String method,
     required String utcNow,
     required String contentType,
-    String xmsVersion = '2018-12-31',
+    required String xmsVersion,
   });
 
   String getAuthorizationToken({
@@ -37,7 +37,7 @@ class AuthUtil implements IAuthUtil {
     required String method,
     required String utcNow,
     required String contentType,
-    String xmsVersion = '2018-12-31',
+    required String xmsVersion,
   }) {
     final authToken = getAuthorizationToken(
       authorizationType: authorizationType,
