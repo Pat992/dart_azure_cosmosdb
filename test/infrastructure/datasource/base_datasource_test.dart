@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/base_datasource.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_base_datasource.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -14,7 +15,7 @@ import 'base_datasource_test.mocks.dart';
 @GenerateMocks([http.Client])
 void main() {
   final authUtil = AuthUtil();
-  late BaseDatasource baseDatasource;
+  late IBaseDatasource baseDatasource;
   late MockClient mockClient;
   final uriString = 'https://cosmosdb-test.com';
   String pk =
