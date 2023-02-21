@@ -13,9 +13,9 @@ void main() {
       id: "a_user",
       rid: "Sl8fAFEKCQA=",
       ts: 1449603893,
-      self: "dbs\/Sl8fAA==\/users\/Sl8fAFEKCQA=\/",
+      self: "dbs/Sl8fAA==/users/Sl8fAFEKCQA=/",
       etag: "\"00000b00-0000-0000-0000-566733350000\"",
-      permissions: "permissions\/",
+      permissions: "permissions/",
     );
     // act
     // assert

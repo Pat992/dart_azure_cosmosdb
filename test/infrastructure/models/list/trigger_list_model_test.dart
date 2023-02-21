@@ -24,7 +24,7 @@ void main() {
             rid: "Sl8fALN4sw4BAAAAAAAAcA==",
             ts: 1449689654,
             self:
-                "dbs\/Sl8fAA==\/colls\/Sl8fALN4sw4=\/triggers\/Sl8fALN4sw4BAAAAAAAAcA==\/",
+                "dbs/Sl8fAA==/colls/Sl8fALN4sw4=/triggers/Sl8fALN4sw4BAAAAAAAAcA==/",
             etag: "\"060022e5-0000-0000-0000-566882360000\""),
       ],
     );

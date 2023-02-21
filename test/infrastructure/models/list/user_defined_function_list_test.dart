@@ -21,7 +21,7 @@ void main() {
               rid: "Sl8fALN4sw4BAAAAAAAAYA==",
               ts: 1449688293,
               self:
-                  "dbs\/Sl8fAA==\/colls\/Sl8fALN4sw4=\/udfs\/Sl8fALN4sw4BAAAAAAAAYA==\/",
+                  "dbs/Sl8fAA==/colls/Sl8fALN4sw4=/udfs/Sl8fALN4sw4BAAAAAAAAYA==/",
               etag: "\"060072e4-0000-0000-0000-56687ce50000\""),
         ]);
     final userDefinedFunctionListMap =

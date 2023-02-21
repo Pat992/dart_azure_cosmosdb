@@ -22,10 +22,10 @@ void main() {
           rid: "Sl8fAG8cXgBn6Ju2GqNsAA==",
           ts: 1449604760,
           self:
-              "dbs\/Sl8fAA==\/users\/Sl8fAG8cXgA=\/permissions\/Sl8fAG8cXgBn6Ju2GqNsAA==\/",
+              "dbs/Sl8fAA==/users/Sl8fAG8cXgA=/permissions/Sl8fAG8cXgBn6Ju2GqNsAA==/",
           etag: "\"00000e00-0000-0000-0000-566736980000\"",
           token:
-              "type=resource&ver=1&sig=lxKlPHeqlIx2\/J02rFs3jw==;20MwFhNUO9xNOuglK9gyL18Mt5xIhbN48pzSq6FaR\/7sKFtGd6GaxCooIoPP6rYxRHUeCabHOFkbIeT4ercXk\/F1FG70QkQTD9CxDqNJx3NImgZJWErK1NlEjxkpFDV5uslhpJ4Y3JBnc72\/vlmR95TibFS0rC\/cdND0uRvoOOWXZYvVAJFKEUKyy3GTlYOxY1nKT313ZCOSUQF7kldjo9DE3XEBf8cct1uNKMILImo=;",
+              "type=resource&ver=1&sig=lxKlPHeqlIx2/J02rFs3jw==;20MwFhNUO9xNOuglK9gyL18Mt5xIhbN48pzSq6FaR/7sKFtGd6GaxCooIoPP6rYxRHUeCabHOFkbIeT4ercXk/F1FG70QkQTD9CxDqNJx3NImgZJWErK1NlEjxkpFDV5uslhpJ4Y3JBnc72/vlmR95TibFS0rC/cdND0uRvoOOWXZYvVAJFKEUKyy3GTlYOxY1nKT313ZCOSUQF7kldjo9DE3XEBf8cct1uNKMILImo=;",
         ),
       ],
     );

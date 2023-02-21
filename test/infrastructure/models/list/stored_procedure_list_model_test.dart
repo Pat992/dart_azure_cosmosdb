@@ -21,7 +21,7 @@ void main() {
           rid: "Sl8fALN4sw4CAAAAAAAAgA==",
           ts: 1449681197,
           self:
-              "dbs\/Sl8fAA==\/colls\/Sl8fALN4sw4=\/sprocs\/Sl8fALN4sw4CAAAAAAAAgA==\/",
+              "dbs/Sl8fAA==/colls/Sl8fALN4sw4=/sprocs/Sl8fALN4sw4CAAAAAAAAgA==/",
           etag: "\"06003ce1-0000-0000-0000-5668612d0000\"",
         ),
       ],
