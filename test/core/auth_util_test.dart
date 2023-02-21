@@ -16,6 +16,7 @@ void main() {
         'BHipJo/AFw5lUZ6v/dOzQF2RPAbS9WQ9QbiFkjhOWNLOTk9LWL/Sm16/ZySbCmBH9bFl4pvLS+egQC0S6cIioA==';
     // act
     final authHeader = authUtil.getHeaders(
+      xmsVersion: '2018-12-31',
       contentType: 'application/json',
       authorizationType: 'master',
       authorizationVersion: '1.0',
