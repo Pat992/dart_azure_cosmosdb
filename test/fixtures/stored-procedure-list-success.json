@@ -1,0 +1,14 @@
+{
+  "_rid": "Sl8fALN4sw4=",
+  "StoredProcedures": [
+    {
+      "body": "function () {\r\n    var context = getContext();\r\n    var response = context.getResponse();\r\n\r\n    response.setBody(\"Hello, World!\");\r\n}",
+      "id": "sproc_hello_world",
+      "_rid": "Sl8fALN4sw4CAAAAAAAAgA==",
+      "_ts": 1449681197,
+      "_self": "dbs\/Sl8fAA==\/colls\/Sl8fALN4sw4=\/sprocs\/Sl8fALN4sw4CAAAAAAAAgA==\/",
+      "_etag": "\"06003ce1-0000-0000-0000-5668612d0000\""
+    }
+  ],
+  "_count": 1
+}
