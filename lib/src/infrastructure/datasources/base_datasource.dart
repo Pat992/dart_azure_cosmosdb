@@ -126,8 +126,12 @@ class BaseDatasource implements IBaseDatasource {
     );
 
     final stringRes = response.body;
-    final responseMap = json.decode(stringRes);
 
+    if (stringRes.isEmpty) {
+      return {};
+    }
+
+    final responseMap = json.decode(stringRes);
     return responseMap;
   }
 
