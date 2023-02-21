@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/database_list_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/document_list_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/document_model.dart';
 import 'package:test/test.dart';
@@ -83,7 +82,7 @@ void main() {
     // arrange
     final errorMap = json.decode(fixture('general-error.json'));
     // act
-    final documentListModel = CosmosDatabaseList.fromMap(errorMap);
+    final documentListModel = CosmosDocumentList.fromMap(errorMap);
     // assert
     expect(documentListModel.toMap(), errorMap);
   });
