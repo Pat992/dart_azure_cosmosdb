@@ -1,21 +1,13 @@
 import 'package:dart_azure_cosmosdb/src/core/enum/trigger_enum.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/models_barrel.dart';
 
 abstract class ITriggerRepository {
-  Future<Map<String, dynamic>> list({
+  Future<TriggerList> list({
     required String dbId,
     required String collectionId,
   });
 
-  Future<Map<String, dynamic>> create({
-    required String dbId,
-    required String collectionId,
-    required String triggerId,
-    required String function,
-    required TriggerOperation triggerOperation,
-    required TriggerType triggerType,
-  });
-
-  Future<Map<String, dynamic>> replace({
+  Future<Trigger> create({
     required String dbId,
     required String collectionId,
     required String triggerId,
@@ -24,7 +16,16 @@ abstract class ITriggerRepository {
     required TriggerType triggerType,
   });
 
-  Future<Map<String, dynamic>> delete({
+  Future<Trigger> replace({
+    required String dbId,
+    required String collectionId,
+    required String triggerId,
+    required String function,
+    required TriggerOperation triggerOperation,
+    required TriggerType triggerType,
+  });
+
+  Future<Trigger> delete({
     required String dbId,
     required String collectionId,
     required String triggerId,

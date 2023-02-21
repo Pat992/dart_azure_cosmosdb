@@ -1,35 +1,36 @@
 import 'package:dart_azure_cosmosdb/src/core/enum/permission_enum.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/models_barrel.dart';
 
 abstract class IPermissionRepository {
-  Future<Map<String, dynamic>> list({
+  Future<PermissionList> list({
     required String dbId,
     required String userId,
   });
 
-  Future<Map<String, dynamic>> get({
+  Future<Permission> get({
     required String dbId,
     required String userId,
     required String permissionId,
   });
 
-  Future<Map<String, dynamic>> create({
+  Future<Permission> create({
     required String dbId,
     required String userId,
     required String permissionId,
-    required String collId,
+    required String collectionId,
     required PermissionMode permissionMode,
   });
 
-  Future<Map<String, dynamic>> replace({
+  Future<Permission> replace({
     required String dbId,
     required String userId,
     required String newPermissionId,
     required String permissionId,
-    required String collId,
+    required String collectionId,
     required PermissionMode permissionMode,
   });
 
-  Future<Map<String, dynamic>> delete({
+  Future<Permission> delete({
     required String dbId,
     required String userId,
     required String permissionId,

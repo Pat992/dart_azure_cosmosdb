@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/stored_procedure_list.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/stored_procedure_list_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/stored_procedure_model.dart';
 import 'package:test/test.dart';
 

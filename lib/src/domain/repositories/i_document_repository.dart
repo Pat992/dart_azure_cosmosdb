@@ -1,31 +1,33 @@
+import 'package:dart_azure_cosmosdb/src/infrastructure/models/models_barrel.dart';
+
 abstract class IDocumentRepository {
-  Future<Map<String, dynamic>> list({
+  Future<CosmosDocumentList> list({
     required String dbId,
     required String collectionId,
   });
 
-  Future<Map<String, dynamic>> get({
+  Future<CosmosDocument> get({
     required String dbId,
     required String collectionId,
     required String documentId,
     required String partitionKey,
   });
 
-  Future<Map<String, dynamic>> create({
+  Future<CosmosDocument> create({
     required String dbId,
     required String collectionId,
     required String partitionKey,
     required Map<String, dynamic> body,
   });
 
-  Future<Map<String, dynamic>> delete({
+  Future<CosmosDocument> delete({
     required String dbId,
     required String collectionId,
     required String documentId,
     required String partitionKey,
   });
 
-  Future<Map<String, dynamic>> replace({
+  Future<CosmosDocument> replace({
     required String dbId,
     required String collectionId,
     required String documentId,
@@ -33,7 +35,7 @@ abstract class IDocumentRepository {
     required Map<String, dynamic> body,
   });
 
-  Future<Map<String, dynamic>> query({
+  Future<CosmosDocumentList> query({
     required String dbId,
     required String collectionId,
     required String query,
