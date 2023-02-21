@@ -14,7 +14,7 @@ void main() {
       rid: "KiAXAIQ5uQYBAAAAAAAAAA==",
       self: "dbs/KiAXAA==/colls/KiAXAIQ5uQY=/docs/KiAXAIQ5uQYBAAAAAAAAAA==/",
       etag: "\"0000b90a-0000-0700-0000-628135b70000\"",
-      attachements: "attachments/",
+      attachments: "attachments/",
       values: {
         'amount': 1,
       },

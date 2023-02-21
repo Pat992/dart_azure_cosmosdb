@@ -2,7 +2,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_mo
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/trigger_model.dart';
 
 class TriggerList extends BaseList {
-  List<Trigger> triggers;
+  List<Trigger> triggers = [];
 
   TriggerList({
     this.triggers = const [],
@@ -15,15 +15,20 @@ class TriggerList extends BaseList {
   Map<String, dynamic> toMap() {
     var body = super.toMap();
 
-    body.addAll({
-      'Triggers': triggers,
-    });
+    if (error.isEmpty) {
+      body.addAll(
+          {'Triggers': triggers.map((trigger) => trigger.toMap()).toList()});
+    }
 
     return body;
   }
 
   @override
-  TriggerList.fromMap(Map<String, dynamic> map)
-      : triggers = map['Triggers'] as List<Trigger>,
-        super.fromMap(map);
+  TriggerList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
+    if (map.containsKey('Triggers')) {
+      for (final trigger in map['Triggers']) {
+        triggers.add(Trigger.fromMap(trigger));
+      }
+    }
+  }
 }

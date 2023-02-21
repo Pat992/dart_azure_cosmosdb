@@ -2,12 +2,12 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/base_model.
 
 class CosmosDocument extends Base {
   Map<String, dynamic> values;
-  String attachements;
+  String attachments;
 
   CosmosDocument({
     required super.id,
     this.values = const {},
-    this.attachements = '',
+    this.attachments = '',
     super.rid = '',
     super.ts = 0,
     super.self = '',
@@ -19,10 +19,10 @@ class CosmosDocument extends Base {
   Map<String, dynamic> toMap() {
     if (error.isEmpty) {
       final body = values;
-      if (attachements.isNotEmpty) {
+      if (attachments.isNotEmpty) {
         body.remove('_attachments');
         body.addAll({
-          '_attachments': attachements,
+          '_attachments': attachments,
         });
       }
 
@@ -38,7 +38,7 @@ class CosmosDocument extends Base {
   @override
   CosmosDocument.fromMap(Map<String, dynamic> map)
       : values = map,
-        attachements = map['_attachments'] ?? '',
+        attachments = map['_attachments'] ?? '',
         super.fromMap(map) {
     values.remove('_attachments');
   }

@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 
 class BaseDatasource implements IBaseDatasource {
   IAuthUtil authUtil;
+  final http.Client client;
   String baseUrl;
   String authorizationType;
   String authorizationVersion;
@@ -15,6 +16,7 @@ class BaseDatasource implements IBaseDatasource {
   String xmsVersion;
 
   BaseDatasource({
+    required this.client,
     required this.authUtil,
     required this.resourceType,
     required this.xmsVersion,
@@ -39,7 +41,7 @@ class BaseDatasource implements IBaseDatasource {
         additionalHeader: additionalHeader,
       );
 
-      var response = await http.get(uri, headers: headers);
+      var response = await client.get(uri, headers: headers);
 
       final stringRes = response.body;
       final responseMap = json.decode(stringRes);
@@ -71,7 +73,7 @@ class BaseDatasource implements IBaseDatasource {
         additionalHeader: additionalHeader,
       );
 
-      var response = await http.post(
+      var response = await client.post(
         uri,
         headers: headers,
         body: arrBody.isEmpty ? body : arrBody,
@@ -106,7 +108,7 @@ class BaseDatasource implements IBaseDatasource {
         additionalHeader: additionalHeader,
       );
 
-      var response = await http.put(
+      var response = await client.put(
         uri,
         headers: headers,
         body: body,
@@ -140,7 +142,7 @@ class BaseDatasource implements IBaseDatasource {
         additionalHeader: additionalHeader,
       );
 
-      var response = await http.delete(
+      var response = await client.delete(
         uri,
         headers: headers,
       );

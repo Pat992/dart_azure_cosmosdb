@@ -2,7 +2,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_mo
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/user_model.dart';
 
 class UserList extends BaseList {
-  List<User> users;
+  List<User> users = [];
 
   UserList({
     this.users = const [],
@@ -15,15 +15,19 @@ class UserList extends BaseList {
   Map<String, dynamic> toMap() {
     var body = super.toMap();
 
-    body.addAll({
-      'Users': users,
-    });
+    if (error.isEmpty) {
+      body.addAll({'Users': users.map((user) => user.toMap()).toList()});
+    }
 
     return body;
   }
 
   @override
-  UserList.fromMap(Map<String, dynamic> map)
-      : users = map['Users'] as List<User>,
-        super.fromMap(map);
+  UserList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
+    if (map.containsKey('Users')) {
+      for (final user in map['Users']) {
+        users.add(User.fromMap(user));
+      }
+    }
+  }
 }

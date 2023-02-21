@@ -5,6 +5,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_
 
 class TriggerDatasource extends BaseDatasource implements ITriggerDatasource {
   TriggerDatasource({
+    required super.client,
     required super.baseUrl,
     required super.primaryKey,
     required super.authorizationType,

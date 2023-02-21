@@ -1,13 +1,13 @@
 {
-  "_rid": "KiAXAA==",
+  "_rid": "Sl8fAA==",
   "Users": [
     {
-      "id": "testuser",
-      "_rid": "KiAXAEODSQA=",
-      "_self": "dbs/KiAXAA==/users/KiAXAEODSQA=/",
-      "_etag": "\"0000a809-0000-0700-0000-628a6e860000\"",
-      "_permissions": "permissions/",
-      "_ts": 1653239430
+      "id": "a_user",
+      "_rid": "Sl8fAFEKCQA=",
+      "_ts": 1449603893,
+      "_self": "dbs\/Sl8fAA==\/users\/Sl8fAFEKCQA=\/",
+      "_etag": "\"00000b00-0000-0000-0000-566733350000\"",
+      "_permissions": "permissions\/"
     }
   ],
   "_count": 1

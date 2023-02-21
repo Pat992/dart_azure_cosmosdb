@@ -5,6 +5,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_
 class StoredProcedureDatasource extends BaseDatasource
     implements IStoredProcedureDatasource {
   StoredProcedureDatasource({
+    required super.client,
     required super.baseUrl,
     required super.primaryKey,
     required super.authorizationType,
