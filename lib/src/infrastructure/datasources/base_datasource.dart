@@ -113,7 +113,7 @@ class BaseDatasource implements IBaseDatasource {
     String? contentType,
   }) async {
     final uri = Uri.parse('$baseUrl$urlExtension');
-
+    
     final headers = generateHeaders(
       resourceLink: resourceLink,
       method: 'delete',
