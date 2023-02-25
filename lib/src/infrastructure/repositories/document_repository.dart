@@ -48,7 +48,7 @@ class DocumentRepository implements IDocumentRepository {
       );
 
       if (res.isEmpty) {
-        return CosmosDocument(id: collectionId);
+        return CosmosDocument(id: documentId);
       }
 
       return CosmosDocument.fromMap(res);
