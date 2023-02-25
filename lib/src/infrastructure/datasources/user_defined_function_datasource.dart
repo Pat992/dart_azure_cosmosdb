@@ -83,7 +83,7 @@ class UserDefinedFunctionDatasource extends BaseDatasource
       'id': userDefinedFunctionId,
       'body': function,
     };
-    return await postRequest(
+    return await putRequest(
       urlExtension: urlExtension,
       resourceLink: resourceLink,
       body: body,
