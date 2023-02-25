@@ -107,7 +107,7 @@ class PermissionDatasource extends BaseDatasource
           '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId'
     };
 
-    return await postRequest(
+    return await putRequest(
       urlExtension: urlExtension,
       resourceLink: resourceLink,
       body: body,
