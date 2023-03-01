@@ -42,7 +42,7 @@ class TriggerDatasource extends BaseDatasource implements ITriggerDatasource {
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId';
     final String urlExtension = '/$resourceLink/${resourceType.value}';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': triggerId,
       'body': function,
       'triggerOperation': triggerOperation.value,
@@ -85,7 +85,7 @@ class TriggerDatasource extends BaseDatasource implements ITriggerDatasource {
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId/${resourceType.value}/$triggerId';
     final String urlExtension = '/$resourceLink';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': triggerId,
       'body': function,
       'triggerOperation': triggerOperation.value,

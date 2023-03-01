@@ -100,7 +100,7 @@ class PermissionDatasource extends BaseDatasource
         '${ResourceType.dbs.value}/$dbId/${ResourceType.users.value}/$userId/${resourceType.value}/$permissionId';
     final String urlExtension = '/$resourceLink';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': permissionId,
       'permissionMode': permissionMode.value,
       'resource':

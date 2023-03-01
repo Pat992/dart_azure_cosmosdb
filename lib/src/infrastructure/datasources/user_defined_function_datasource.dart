@@ -40,7 +40,7 @@ class UserDefinedFunctionDatasource extends BaseDatasource
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId';
     final String urlExtension = '/$resourceLink/${resourceType.value}';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': userDefinedFunctionId,
       'body': function,
     };
@@ -79,7 +79,7 @@ class UserDefinedFunctionDatasource extends BaseDatasource
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId/${resourceType.value}/$userDefinedFunctionId';
     final String urlExtension = '/$resourceLink';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': userDefinedFunctionId,
       'body': function,
     };

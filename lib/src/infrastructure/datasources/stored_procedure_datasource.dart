@@ -40,7 +40,7 @@ class StoredProcedureDatasource extends BaseDatasource
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId';
     final String urlExtension = '/$resourceLink/${resourceType.value}';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': storedProcedureId,
       'body': function,
     };
@@ -79,7 +79,7 @@ class StoredProcedureDatasource extends BaseDatasource
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId/${resourceType.value}/$storedProcedureId';
     final String urlExtension = '/$resourceLink';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': storedProcedureId,
       'body': function,
     };

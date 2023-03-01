@@ -49,7 +49,7 @@ class UserDatasource extends BaseDatasource implements IUserDatasource {
     final String resourceLink = '${ResourceType.dbs.value}/$dbId';
     final String urlExtension = '/$resourceLink/${resourceType.value}';
 
-    Map<String, dynamic> body = {"id": userId};
+    final Map<String, dynamic> body = {"id": userId};
 
     return await postRequest(
       urlExtension: urlExtension,
@@ -83,7 +83,7 @@ class UserDatasource extends BaseDatasource implements IUserDatasource {
         '${ResourceType.dbs.value}/$dbId/${resourceType.value}/$userId';
     final String urlExtension = '/$resourceLink';
 
-    Map<String, dynamic> body = {"id": newUserId};
+    final Map<String, dynamic> body = {"id": newUserId};
 
     return await putRequest(
       urlExtension: urlExtension,

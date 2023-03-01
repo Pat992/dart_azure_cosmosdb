@@ -53,7 +53,7 @@ class CollectionDatasource extends BaseDatasource
     final String resourceLink = '${ResourceType.dbs.value}/$dbId';
     final String urlExtension = '/$resourceLink/${resourceType.value}';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       "id": collectionId,
       "partitionKey": {
         "paths": [partitionKey],
