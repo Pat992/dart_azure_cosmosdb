@@ -1,3 +1,5 @@
+// Copyright 2023 Patrick Hettich. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/domain/repositories/i_stored_procedure_repository.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_stored_procedures_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/stored_procedure_list_model.dart';

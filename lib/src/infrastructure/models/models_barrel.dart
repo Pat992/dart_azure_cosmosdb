@@ -1,3 +1,5 @@
+// Copyright 2023 Patrick Hettich. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 export 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/collection_list_model.dart';
 export 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/database_list_model.dart';
 export 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/document_list_model.dart';

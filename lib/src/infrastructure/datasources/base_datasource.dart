@@ -1,3 +1,5 @@
+// Copyright 2023 Patrick Hettich. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'dart:convert';
 
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
@@ -113,7 +115,7 @@ class BaseDatasource implements IBaseDatasource {
     String? contentType,
   }) async {
     final uri = Uri.parse('$baseUrl$urlExtension');
-    
+
     final headers = generateHeaders(
       resourceLink: resourceLink,
       method: 'delete',
