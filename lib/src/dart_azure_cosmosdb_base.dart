@@ -4,14 +4,7 @@
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
 import 'package:dart_azure_cosmosdb/src/domain/repositories/i_repository_barrel.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/datasources_barrel.dart';
-import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/collection_repository.dart';
-import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/database_repository.dart';
-import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/document_repository.dart';
-import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/permission_repository.dart';
-import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/stored_procedure_repository.dart';
-import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/trigger_repository.dart';
-import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/user_defined_function_repository.dart';
-import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/user_repository.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/repository_barrel.dart';
 import 'package:http/http.dart' as http;
 
 class CosmosDb {
