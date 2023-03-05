@@ -3,16 +3,29 @@
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/document_model.dart';
 
+/// A list of CosmosDB documents.
 class CosmosDocumentList extends BaseList {
+  /// **Description:** A list of CosmosDB documents.
+  ///
+  /// **Example:** [[]]
   List<CosmosDocument> documents = [];
 
+  /// **Description:** Creates a [CosmosDocumentList] model Object.
+  ///
+  /// **documents:** A list of CosmosDB documents.
+  ///
+  /// [Type:] List<CosmosDocument> *optional*
+  ///
+  /// [Default value:] const [[]]
   CosmosDocumentList({
     this.documents = const [],
-    super.error = const {},
-    super.rid = '',
-    super.count = 0,
-  });
+  }) : super(
+          error: const {},
+          rid: '',
+          count: 0,
+        );
 
+  /// **Description:** Transforms the [CosmosDocumentList] model to a Map for the CosmosDB API.
   @override
   Map<String, dynamic> toMap() {
     var body = super.toMap();
@@ -26,6 +39,7 @@ class CosmosDocumentList extends BaseList {
     return body;
   }
 
+  /// **Description:** Transforms a Map from the CosmosDB API to the [CosmosDocumentList] model.
   @override
   CosmosDocumentList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
     if (map.containsKey('Documents')) {

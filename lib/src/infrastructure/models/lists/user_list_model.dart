@@ -3,16 +3,29 @@
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/user_model.dart';
 
+/// A list of CosmosDB users.
 class UserList extends BaseList {
+  /// **Description:** A list of CosmosDB users.
+  ///
+  /// **Example:** [[]]
   List<User> users = [];
 
+  /// **Description:** Creates a [UserList] model Object.
+  ///
+  /// **users:** A list of CosmosDB users.
+  ///
+  /// [Type:] List<User> *optional*
+  ///
+  /// [Default value:] const [[]]
   UserList({
     this.users = const [],
-    super.error = const {},
-    super.rid = '',
-    super.count = 0,
-  });
+  }) : super(
+          error: const {},
+          rid: '',
+          count: 0,
+        );
 
+  /// **Description:** Transforms the [UserList] model to a Map for the CosmosDB API.
   @override
   Map<String, dynamic> toMap() {
     var body = super.toMap();
@@ -24,6 +37,7 @@ class UserList extends BaseList {
     return body;
   }
 
+  /// **Description:** Transforms a Map from the CosmosDB API to the [UserList] model.
   @override
   UserList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
     if (map.containsKey('Users')) {
