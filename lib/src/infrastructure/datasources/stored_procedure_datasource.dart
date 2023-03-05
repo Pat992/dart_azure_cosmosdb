@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/base_datasource.dart';
-import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_stored_procedures_datasource.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_stored_procedure_datasource.dart';
 
 class StoredProcedureDatasource extends BaseDatasource
     implements IStoredProcedureDatasource {
