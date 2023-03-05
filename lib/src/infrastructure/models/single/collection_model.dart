@@ -46,7 +46,8 @@ class Collection extends Base {
   /// **Example:** [{ "path": "/*", "indexes": [{ "dataType": "String", "precision": -1, "kind": "Range" }]}]
   IndexingPolicy? indexingPolicy;
 
-  /// **Description:** This value is used to configure unique key policy. By default, the unique key policy is an empty array or null as an object.
+  /// **Description:** With unique keys, you make sure that one or more values within a logical partition is unique. You also can guarantee uniqueness per partition key.
+  /// This value is used to configure unique key policy. By default, the unique key policy is an empty array or null as an object.
   ///
   /// **Example:** []
   UniqueKeyPolicy? uniqueKeyPolicy;
