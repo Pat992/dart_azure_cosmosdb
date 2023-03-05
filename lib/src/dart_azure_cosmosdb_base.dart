@@ -2,14 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
-import 'package:dart_azure_cosmosdb/src/domain/repositories/i_collection_repository.dart';
-import 'package:dart_azure_cosmosdb/src/domain/repositories/i_database_repository.dart';
-import 'package:dart_azure_cosmosdb/src/domain/repositories/i_document_repository.dart';
-import 'package:dart_azure_cosmosdb/src/domain/repositories/i_permission_repository.dart';
-import 'package:dart_azure_cosmosdb/src/domain/repositories/i_stored_procedure_repository.dart';
-import 'package:dart_azure_cosmosdb/src/domain/repositories/i_trigger_repository.dart';
-import 'package:dart_azure_cosmosdb/src/domain/repositories/i_user_defined_function_repository.dart';
-import 'package:dart_azure_cosmosdb/src/domain/repositories/i_user_repository.dart';
+import 'package:dart_azure_cosmosdb/src/domain/repositories/i_repository_barrel.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/datasources_barrel.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/collection_repository.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/database_repository.dart';
