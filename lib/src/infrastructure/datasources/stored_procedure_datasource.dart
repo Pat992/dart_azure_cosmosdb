@@ -8,7 +8,7 @@ class StoredProcedureDatasource extends BaseDatasource
     implements IStoredProcedureDatasource {
   StoredProcedureDatasource({
     required super.client,
-    required super.baseUrl,
+    required super.connectionUri,
     required super.primaryKey,
     required super.authorizationType,
     required super.authorizationVersion,

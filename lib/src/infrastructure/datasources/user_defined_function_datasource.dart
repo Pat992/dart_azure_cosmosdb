@@ -8,7 +8,7 @@ class UserDefinedFunctionDatasource extends BaseDatasource
     implements IUserDefinedFunctionDatasource {
   UserDefinedFunctionDatasource({
     required super.client,
-    required super.baseUrl,
+    required super.connectionUri,
     required super.primaryKey,
     required super.authorizationType,
     required super.authorizationVersion,

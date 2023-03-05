@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 class BaseDatasource implements IBaseDatasource {
   IAuthUtil authUtil;
   final http.Client client;
-  String baseUrl;
+  String connectionUri;
   String authorizationType;
   String authorizationVersion;
   String primaryKey;
@@ -22,7 +22,7 @@ class BaseDatasource implements IBaseDatasource {
     required this.authUtil,
     required this.resourceType,
     required this.xmsVersion,
-    required this.baseUrl,
+    required this.connectionUri,
     required this.authorizationType,
     required this.authorizationVersion,
     required this.primaryKey,
@@ -34,7 +34,7 @@ class BaseDatasource implements IBaseDatasource {
     String resourceLink = '',
     Map<String, String> additionalHeader = const {},
   }) async {
-    final uri = Uri.parse('$baseUrl$urlExtension');
+    final uri = Uri.parse('$connectionUri$urlExtension');
 
     final headers = generateHeaders(
       resourceLink: resourceLink,
@@ -59,7 +59,7 @@ class BaseDatasource implements IBaseDatasource {
     Map<String, String> additionalHeader = const {},
     String? contentType,
   }) async {
-    final uri = Uri.parse('$baseUrl$urlExtension');
+    final uri = Uri.parse('$connectionUri$urlExtension');
 
     final headers = generateHeaders(
       resourceLink: resourceLink,
@@ -87,7 +87,7 @@ class BaseDatasource implements IBaseDatasource {
     Map<String, String> additionalHeader = const {},
     String? contentType,
   }) async {
-    final uri = Uri.parse('$baseUrl$urlExtension');
+    final uri = Uri.parse('$connectionUri$urlExtension');
 
     final headers = generateHeaders(
       resourceLink: resourceLink,
@@ -114,7 +114,7 @@ class BaseDatasource implements IBaseDatasource {
     Map<String, String> additionalHeader = const {},
     String? contentType,
   }) async {
-    final uri = Uri.parse('$baseUrl$urlExtension');
+    final uri = Uri.parse('$connectionUri$urlExtension');
 
     final headers = generateHeaders(
       resourceLink: resourceLink,

@@ -9,7 +9,7 @@ class PermissionDatasource extends BaseDatasource
     implements IPermissionDatasource {
   PermissionDatasource({
     required super.client,
-    required super.baseUrl,
+    required super.connectionUri,
     required super.primaryKey,
     required super.authorizationType,
     required super.authorizationVersion,

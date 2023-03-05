@@ -9,7 +9,7 @@ class CollectionDatasource extends BaseDatasource
     implements ICollectionDatasource {
   CollectionDatasource({
     required super.client,
-    required super.baseUrl,
+    required super.connectionUri,
     required super.primaryKey,
     required super.authorizationType,
     required super.authorizationVersion,
