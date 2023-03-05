@@ -38,18 +38,18 @@ class Collection extends Base {
 
   /// **Description:** This value is used to configure the partition key to be used for partitioning data into multiple partitions.
   ///
-  /// **Example:** { "paths": [ "/AccountNumber" ], "kind": "Hash", "Version": 2 }
+  /// **Example:** { "paths": [[ "/AccountNumber" ]], "kind": "Hash", "Version": 2 }
   PartitionKey partitionKey;
 
   /// **Description:** This value is used to configure indexing policy. By default, the indexing is automatic for all document paths within the collection.
   ///
-  /// **Example:** [{ "path": "/*", "indexes": [{ "dataType": "String", "precision": -1, "kind": "Range" }]}]
+  /// **Example:** [[{ "path": "/*", "indexes": [[{ "dataType": "String", "precision": -1, "kind": "Range" }]]}]]
   IndexingPolicy? indexingPolicy;
 
   /// **Description:** With unique keys, you make sure that one or more values within a logical partition is unique. You also can guarantee uniqueness per partition key.
   /// This value is used to configure unique key policy. By default, the unique key policy is an empty array or null as an object.
   ///
-  /// **Example:** []
+  /// **Example:** [[]]
   UniqueKeyPolicy? uniqueKeyPolicy;
 
   /// **Description:** In your container, the Geospatial Configuration specifies how the spatial data will be indexed.
