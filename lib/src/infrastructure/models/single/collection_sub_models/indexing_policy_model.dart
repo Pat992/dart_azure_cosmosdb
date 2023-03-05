@@ -24,12 +24,12 @@ class IndexingPolicy {
   /// By default, two paths are included: the / path, which specifies that all document paths be indexed, and the _ts path, which indexes for a timestamp range comparison.
   ///
   /// **Example:** [[]]
-  List<IncludedPath> includedPaths = [];
+  List<Path> includedPaths = [];
 
   /// **Description:** The array containing document paths to be excluded from indexing.
   ///
   /// **Example:** [[]]
-  List<ExcludedPath> excludedPaths = [];
+  List<Path> excludedPaths = [];
 
   /// **Description:** Creates a [IndexingPolicy] model Object.
   ///
@@ -81,10 +81,10 @@ class IndexingPolicy {
     indexingMode = map['indexingMode'] ?? '';
     automatic = map['automatic'] ?? true;
     for (Map<String, dynamic> ip in map['includedPaths']) {
-      includedPaths.add(IncludedPath.fromMap(ip));
+      includedPaths.add(Path.fromMap(ip));
     }
     for (Map<String, dynamic> ep in map['excludedPaths']) {
-      excludedPaths.add(ExcludedPath.fromMap(ep));
+      excludedPaths.add(Path.fromMap(ep));
     }
   }
 }
