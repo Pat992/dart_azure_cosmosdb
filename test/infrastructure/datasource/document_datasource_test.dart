@@ -27,7 +27,7 @@ void main() {
       client: mockClient,
       authUtil: authUtil,
       xmsVersion: '2018-12-31',
-      baseUrl: uriString,
+      connectionUri: uriString,
       authorizationType: 'master',
       authorizationVersion: '1.0',
       primaryKey: pk,

@@ -28,7 +28,7 @@ void main() {
       authUtil: authUtil,
       resourceType: ResourceType.dbs,
       xmsVersion: '2018-12-31',
-      baseUrl: uriString,
+      connectionUri: uriString,
       authorizationType: 'master',
       authorizationVersion: '1.0',
       primaryKey: pk,

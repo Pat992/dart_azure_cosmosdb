@@ -1,3 +1,5 @@
+// Copyright 2023 Patrick Hettich. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/base_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_user_defined_function_datasource.dart';
@@ -6,7 +8,7 @@ class UserDefinedFunctionDatasource extends BaseDatasource
     implements IUserDefinedFunctionDatasource {
   UserDefinedFunctionDatasource({
     required super.client,
-    required super.baseUrl,
+    required super.connectionUri,
     required super.primaryKey,
     required super.authorizationType,
     required super.authorizationVersion,
@@ -40,7 +42,7 @@ class UserDefinedFunctionDatasource extends BaseDatasource
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId';
     final String urlExtension = '/$resourceLink/${resourceType.value}';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': userDefinedFunctionId,
       'body': function,
     };
@@ -79,7 +81,7 @@ class UserDefinedFunctionDatasource extends BaseDatasource
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId/${resourceType.value}/$userDefinedFunctionId';
     final String urlExtension = '/$resourceLink';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': userDefinedFunctionId,
       'body': function,
     };

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
-import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_stored_procedures_datasource.dart';
+import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_stored_procedure_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/stored_procedure_datasource.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
@@ -27,7 +27,7 @@ void main() {
       client: mockClient,
       authUtil: authUtil,
       xmsVersion: '2018-12-31',
-      baseUrl: uriString,
+      connectionUri: uriString,
       authorizationType: 'master',
       authorizationVersion: '1.0',
       primaryKey: pk,

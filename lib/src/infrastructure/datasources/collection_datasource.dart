@@ -1,3 +1,5 @@
+// Copyright 2023 Patrick Hettich. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/base_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_collection_datasource.dart';
@@ -7,7 +9,7 @@ class CollectionDatasource extends BaseDatasource
     implements ICollectionDatasource {
   CollectionDatasource({
     required super.client,
-    required super.baseUrl,
+    required super.connectionUri,
     required super.primaryKey,
     required super.authorizationType,
     required super.authorizationVersion,
@@ -53,7 +55,7 @@ class CollectionDatasource extends BaseDatasource
     final String resourceLink = '${ResourceType.dbs.value}/$dbId';
     final String urlExtension = '/$resourceLink/${resourceType.value}';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       "id": collectionId,
       "partitionKey": {
         "paths": [partitionKey],

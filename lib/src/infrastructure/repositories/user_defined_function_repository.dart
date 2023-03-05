@@ -1,3 +1,5 @@
+// Copyright 2023 Patrick Hettich. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/domain/repositories/i_user_defined_function_repository.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_user_defined_function_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/user_defined_function_list_model.dart';

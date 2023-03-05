@@ -1,3 +1,5 @@
+// Copyright 2023 Patrick Hettich. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/core/enum/trigger_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/base_datasource.dart';
@@ -6,7 +8,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_
 class TriggerDatasource extends BaseDatasource implements ITriggerDatasource {
   TriggerDatasource({
     required super.client,
-    required super.baseUrl,
+    required super.connectionUri,
     required super.primaryKey,
     required super.authorizationType,
     required super.authorizationVersion,
@@ -42,7 +44,7 @@ class TriggerDatasource extends BaseDatasource implements ITriggerDatasource {
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId';
     final String urlExtension = '/$resourceLink/${resourceType.value}';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': triggerId,
       'body': function,
       'triggerOperation': triggerOperation.value,
@@ -85,7 +87,7 @@ class TriggerDatasource extends BaseDatasource implements ITriggerDatasource {
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId/${resourceType.value}/$triggerId';
     final String urlExtension = '/$resourceLink';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': triggerId,
       'body': function,
       'triggerOperation': triggerOperation.value,

@@ -1,3 +1,5 @@
+// Copyright 2023 Patrick Hettich. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/core/enum/permission_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/base_datasource.dart';
@@ -7,7 +9,7 @@ class PermissionDatasource extends BaseDatasource
     implements IPermissionDatasource {
   PermissionDatasource({
     required super.client,
-    required super.baseUrl,
+    required super.connectionUri,
     required super.primaryKey,
     required super.authorizationType,
     required super.authorizationVersion,
@@ -100,7 +102,7 @@ class PermissionDatasource extends BaseDatasource
         '${ResourceType.dbs.value}/$dbId/${ResourceType.users.value}/$userId/${resourceType.value}/$permissionId';
     final String urlExtension = '/$resourceLink';
 
-    Map<String, dynamic> body = {
+    final Map<String, dynamic> body = {
       'id': permissionId,
       'permissionMode': permissionMode.value,
       'resource':

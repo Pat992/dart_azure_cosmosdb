@@ -1,3 +1,5 @@
+// Copyright 2023 Patrick Hettich. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/base_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_document_datasource.dart';
@@ -5,7 +7,7 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_
 class DocumentDatasource extends BaseDatasource implements IDocumentDatasource {
   DocumentDatasource({
     required super.client,
-    required super.baseUrl,
+    required super.connectionUri,
     required super.primaryKey,
     required super.authorizationType,
     required super.authorizationVersion,
