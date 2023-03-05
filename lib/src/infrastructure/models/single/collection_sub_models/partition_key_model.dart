@@ -7,8 +7,8 @@ class PartitionKey {
   /// Paths must not contain a wildcard or a trailing slash. For example, the JSON property “AccountNumber” is specified as “/AccountNumber”.
   /// The array must contain only a single value.
   ///
-  /// **Example:** ['/id']
-  List<String> paths = [];
+  /// **Example:** [['/id']]
+  List<dynamic> paths = [];
 
   /// **Description:** The algorithm used for partitioning. Only Hash is supported.
   ///

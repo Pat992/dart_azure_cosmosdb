@@ -23,12 +23,12 @@ class IndexingPolicy {
   /// **Description:** The array containing document paths to be indexed.
   /// By default, two paths are included: the / path, which specifies that all document paths be indexed, and the _ts path, which indexes for a timestamp range comparison.
   ///
-  /// **Example:** []
+  /// **Example:** [[]]
   List<IncludedPath> includedPaths = [];
 
   /// **Description:** The array containing document paths to be excluded from indexing.
   ///
-  /// **Example:** []
+  /// **Example:** [[]]
   List<ExcludedPath> excludedPaths = [];
 
   /// **Description:** Creates a [IndexingPolicy] model Object.

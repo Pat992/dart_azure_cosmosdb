@@ -6,8 +6,8 @@
 class UniqueKeyPolicy {
   /// **Description:** List of keys that must have unique values in one collection, is an empty array on default.
   ///
-  /// **Example:** []
-  List<String> uniqueKeys;
+  /// **Example:** [[]]
+  List<dynamic> uniqueKeys;
 
   /// **Description:** Creates a [UniqueKeyPolicy] model Object.
   ///
