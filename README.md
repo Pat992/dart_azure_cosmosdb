@@ -28,8 +28,8 @@
     - [3.3.1 List Collections](#331-list-collections)
     - [3.3.2 Get a Collection](#332-get-a-collection)
     - [3.3.3 Create a Collection](#333-create-a-collection)
-    - [3.3.4 Delete a Collection](#335-delete-a-collection)
-    - [3.3.5 The Collection model](#336-the-collection-model)
+    - [3.3.4 Delete a Collection](#334-delete-a-collection)
+    - [3.3.5 The Collection model](#335-the-collection-model)
   - [3.4 Documents](#34-documents)
     - [3.4.1 List Documents](#341-list-documents)
     - [3.4.2 Get a Document](#342-get-a-document)
@@ -42,7 +42,7 @@
     - [3.5.2 Create a Stored Procedure](#352-create-a-stored-procedure)
     - [3.5.3 Replace a Stored Procedure](#353-replace-a-stored-procedure)
     - [3.5.4 Delete a Stored Procedure](#354-delete-a-stored-procedure)
-    - [3.5.6 The Stored Procedure model](#356-the-stored-procedure-model)
+    - [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model)
   - [3.6 User Defined Functions](#36-user-defined-functions)
     - [3.6.1 List User Defined Functions](#361-list-user-defined-functions)
     - [3.6.2 Create a User Defined Function](#362-create-a-user-defined-function)
@@ -130,6 +130,7 @@ Each Azure Cosmos DB account supports multiple independently named databases. A 
 
 #### 3.2.1 List Databases
 The database-list operation returns a `Future<CosmosDatabaseList>` with a list of  `CosmosDatabase` or an error object.
+See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
 final CosmosDatabaseList databaseList = await cosmosDb.database.list();
 
@@ -141,6 +142,7 @@ TODO: show model description
 
 #### 3.2.2 Get a Database
 The database-get operation returns a `Future<CosmosDatabase>`.
+See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
 final CosmosDatabase database = await cosmosDb.database.get(dbId: '<DB_ID>');
 
@@ -152,6 +154,7 @@ TODO: show model description
 
 #### 3.2.3 Create a Database
 The database-create operation returns a `Future<CosmosDatabase>`.
+See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
 final CosmosDatabase database = await cosmosDb.database.create(dbId: '<DB_ID>');
 
@@ -163,6 +166,7 @@ TODO: show model description
 
 #### 3.2.4 Delete a Database
 The database-delete operation returns a `Future<CosmosDatabase>`.
+See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
 final CosmosDatabase database = await cosmosDb.database.delete(dbId: '<DB_ID>');
 
@@ -179,6 +183,7 @@ A collection is a container of JSON documents and associated JavaScript applicat
 
 #### 3.3.1 List Collections
 The collection-list operation returns a `Future<CollectionList>` with a list of  `Collection` or an error object.
+See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
 final CollectionList collectionList = await cosmosDb.collection
     .list(dbId: '<DB_ID>');
@@ -191,6 +196,7 @@ TODO: show model description
 
 #### 3.3.2 Get a Collection
 The collection-get operation returns a `Future<Collection>`.
+See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
 final Collection collection = await cosmosDb.collection
     .get(dbId: '<DB_ID>', collectionId: '<COLLECTION_ID>');
@@ -203,6 +209,7 @@ TODO: show model description
 
 #### 3.3.3 Create a Collection
 The collection-create operation returns a `Future<Collection>`.
+See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
 final Collection collection = await cosmosDb.collection.create(
     dbId: '<DB_ID>',
@@ -219,6 +226,7 @@ TODO: show model description
 
 #### 3.3.4 Delete a Collection
 The collection-delete operation returns a `Future<Collection>`.
+See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
 final Collection collection = await cosmosDb.collection
     .delete(dbId: '<DB_ID>', collectionId: '<COLLECTION_ID>');
@@ -236,6 +244,7 @@ A document consists of user-defined content in JSON format. Aside from the requi
 
 #### 3.4.1 List Documents
 The document-list operation returns a `Future<CosmosDocumentList>` with a list of  `CosmosDocument` or an error object.
+See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
 final CosmosDocumentList documentList = await cosmosDb.document
     .list(dbId: '<DB_ID>', collectionId: '<COLLECTION_ID>');
@@ -248,6 +257,7 @@ TODO: show model description
 
 #### 3.4.2 Get a Document
 The collection-get operation returns a `Future<CosmosDocument>`.
+See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
 final CosmosDocument document = await cosmosDb.document.get(
     dbId: '<DB_ID>',
@@ -264,6 +274,7 @@ TODO: show model description
 
 #### 3.4.3 Create a Document
 The collection-create operation returns a `Future<CosmosDocument>`.
+See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
 final Person person = Person(
     id: '01',
@@ -287,6 +298,7 @@ TODO: show model description
 
 #### 3.4.4 Replace a Document
 The collection-replace operation returns a `Future<CosmosDocument>`.
+See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
 final Person personUpdated = Person(
     id: '02',
@@ -311,6 +323,7 @@ TODO: show model description
 
 #### 3.4.5 Delete a Document
 The collection-replace operation returns a `Future<CosmosDocument>`.
+See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
 final CosmosDocument document = await cosmosDb.document.delete(
     dbId: '<DB_ID>',
@@ -332,6 +345,7 @@ A stored procedure is a piece of application logic written in JavaScript that is
 
 #### 3.5.1 List Stored Procedures
 The stored-procedure-list operation returns a `Future<StoredProcedureList>` with a list of  `StoredProcedure` or an error object.
+See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
 final StoredProcedureList storedProcedureList = await cosmosDb.storedProcedure
     .list(dbId: '<DB_ID>', collectionId: '<COLLECTION_ID>');
@@ -344,6 +358,7 @@ TODO: show model description
 
 #### 3.5.2 Create a Stored Procedure
 The stored-procedure-create operation returns a `Future<StoredProcedure>`.
+See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
 final StoredProcedure storedProcedure = await cosmosDb.storedProcedure.create(
     dbId: '<DB_ID>',
@@ -361,6 +376,7 @@ TODO: show model description
 
 #### 3.5.3 Replace a Stored Procedure
 The stored-procedure-replace operation returns a `Future<StoredProcedure>`.
+See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
 final StoredProcedure storedProcedure = await cosmosDb.storedProcedure.replace(
     dbId: '<DB_ID>',
@@ -378,6 +394,7 @@ TODO: show model description
 
 #### 3.5.4 Delete a Stored Procedure
 The stored-procedure-delete operation returns a `Future<StoredProcedure>`.
+See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
 final StoredProcedure storedProcedure = await cosmosDb.storedProcedure.delete(
     dbId: '<DB_ID>',
@@ -398,6 +415,7 @@ A user-defined function (UDF) is a side effect free piece of application logic w
 
 #### 3.6.1 List User Defined Functions
 The user-defined-function-list operation returns a `Future<UserDefinedFunctionList>` with a list of  `UserDefinedFunction` or an error object.
+See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
 final UserDefinedFunctionList userDefinedFunctionList = await cosmosDb.userDefinedFunctions.list(
     dbId: '<DB_ID>',
@@ -411,6 +429,7 @@ if (userDefinedFunctionList.error.isEmpty) {
 
 #### 3.6.2 Create a User Defined Function
 The user-defined-function-create operation returns a `Future<UserDefinedFunction>`.
+See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
 final UserDefinedFunction userDefinedFunction = await cosmosDb.userDefinedFunctions.create(
     dbId: '<DB_ID>',
@@ -427,6 +446,7 @@ TODO: show model description
 
 #### 3.6.3 Replace a User Defined Function
 The user-defined-function-replace operation returns a `Future<UserDefinedFunction>`.
+See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
 final UserDefinedFunction userDefinedFunction = await cosmosDb.userDefinedFunctions.replace(
     dbId: '<DB_ID>',
@@ -443,6 +463,7 @@ TODO: show model description
 
 #### 3.6.4 Delete a User Defined Function
 The user-defined-function-delete operation returns a `Future<UserDefinedFunction>`.
+See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
 final UserDefinedFunction userDefinedFunction = await cosmosDb.userDefinedFunctions.delete(
     dbId: '<DB_ID>',
@@ -463,6 +484,7 @@ Triggers are pieces of application logic that can be executed before (pre-trigge
 
 #### 3.7.1 List Triggers
 The trigger-list operation returns a `Future<TriggerList>` with a list of  `Trigger` or an error object.
+See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final TriggerList triggerList = await cosmosDb.trigger.list(
     dbId: '<DB_ID>',
@@ -477,6 +499,7 @@ TODO: show model description
 
 #### 3.7.2 Create a Trigger
 The trigger-create operation returns a `Future<Trigger>`.
+See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final Trigger trigger = await cosmosDb.trigger.create(
     dbId: '<DB_ID>',
@@ -495,6 +518,7 @@ TODO: show model description
 
 #### 3.7.3 Replace a Trigger
 The trigger-replace operation returns a `Future<Trigger>`.
+See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final Trigger trigger = await cosmosDb.trigger.replace(
     dbId: '<DB_ID>',
@@ -513,6 +537,7 @@ TODO: show model description
 
 #### 3.7.4 Delete a Trigger
 The trigger-delete operation returns a `Future<Trigger>`.
+See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final Trigger trigger = await cosmosDb.trigger.delete(
     dbId: '<DB_ID>',
@@ -533,6 +558,7 @@ A user is a logical namespace for scoping permissions on collections, documents,
 
 #### 3.8.1 List Users
 The user-list operation returns a `Future<UserList>` with a list of  `User` or an error object.
+See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final UserList userList = await cosmosDb.user.list(dbId: '<DB_ID>');
 
@@ -544,6 +570,7 @@ TODO: show model description
 
 #### 3.8.2 Get a User
 The user-get operation returns a `Future<User>`.
+See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final User user = await cosmosDb.user.get(
     dbId: '<DB_ID>',
@@ -558,6 +585,7 @@ TODO: show model description
 
 #### 3.8.3 Create a User
 The user-create operation returns a `Future<User>`.
+See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final User user = await cosmosDb.user.create(
     dbId: '<DB_ID>',
@@ -572,6 +600,7 @@ TODO: show model description
 
 #### 3.8.4 Replace a User
 The user-replace operation returns a `Future<User>`.
+See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final User user = await cosmosDb.user.replace(
     dbId: '<DB_ID>',
@@ -587,6 +616,7 @@ TODO: show model description
 
 #### 3.8.5 Delete a User
 The user-delete operation returns a `Future<User>`.
+See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final User user = await cosmosDb.user.delete(
     dbId: '<DB_ID>',
@@ -606,6 +636,7 @@ Permission is an authorization token associated with a user for authorized acces
 
 #### 3.9.1 List Permissions
 The permission-list operation returns a `Future<PermissionList>` with a list of  `Permission` or an error object.
+See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
 final PermissionList permissionList = await cosmosDb.permission.list(
     dbId: '<DB_ID>',
@@ -620,6 +651,7 @@ TODO: show model description
 
 #### 3.9.2 Get a Permission
 The permission-get operation returns a `Future<Permission>`.
+See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
 final Permission permission = await cosmosDb.permission.get(
     dbId: '<DB_ID>',
@@ -635,6 +667,7 @@ TODO: show model description
 
 #### 3.9.3 Create a Permission
 The permission-create operation returns a `Future<Permission>`.
+See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
 final Permission permission = await cosmosDb.permission.create(
     dbId: '<DB_ID>',
@@ -652,6 +685,7 @@ TODO: show model description
 
 #### 3.9.4 Replace a Permission
 The permission-replace operation returns a `Future<Permission>`.
+See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
 final Permission permission = await cosmosDb.permission.replace(
     dbId: '<DB_ID>',
@@ -670,6 +704,7 @@ TODO: show model description
 
 #### 3.9.5 Delete a Permission
 The permission-delete operation returns a `Future<Permission>`.
+See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
 final Permission permission = await cosmosDb.permission.delete(
     dbId: '<DB_ID>',
