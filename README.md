@@ -237,6 +237,18 @@ if (database.error.isEmpty) {
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
         </tr>
+        <tr>
+            <td><code>colls</code></td>
+            <td><code>_colls</code></td>
+            <td>colls/</td>
+            <td>It is a system generated property that specifies the addressable path of the collections resource.</td>
+        </tr>
+        <tr>
+            <td><code>users</code></td>
+            <td><code>_users</code></td>
+            <td>users/</td>
+            <td>It is a system generated property that specifies the addressable path of the users resource.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -268,6 +280,12 @@ if (database.error.isEmpty) {
             <td><code>code</code>,<br><code>message</code></td>
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+        <tr>
+            <td><code>databases</code></td>
+            <td><code>Databases</code></td>
+            <td>[]</td>
+            <td>A list of CosmosDB databases. <code>List&lt;CosmosDatabase&gt;</code></td>
         </tr>
     </tbody>
 </table>
@@ -397,6 +415,60 @@ if (collection.error.isEmpty) {
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
         </tr>
+        <tr>
+            <td><code>docs</code></td>
+            <td><code>_docs</code></td>
+            <td>docs/</td>
+            <td>It is a system generated property that specifies the addressable path of the documents resource.</td>
+        </tr>
+        <tr>
+            <td><code>sprocs</code></td>
+            <td><code>_sprocs</code></td>
+            <td>sprocs/</td>
+            <td>It is a system generated property that specifies the addressable path of the stored procedures (sprocs) resource.</td>
+        </tr>
+        <tr>
+            <td><code>triggers</code></td>
+            <td><code>_triggers</code></td>
+            <td>triggers/</td>
+            <td>It is a system generated property that specifies the addressable path of the triggers resource.</td>
+        </tr>
+        <tr>
+            <td><code>udfs</code></td>
+            <td><code>_udfs</code></td>
+            <td>udfs/</td>
+            <td>It is a system generated property that specifies the addressable path of the user-defined functions (udfs) resource.</td>
+        </tr>
+        <tr>
+            <td><code>conflicts</code></td>
+            <td><code>_conflicts</code></td>
+            <td>conflicts/</td>
+            <td>It is a system generated property that specifies the addressable path of the conflicts resource.</td>
+        </tr>
+        <tr>
+            <td><code>partitionKey</code></td>
+            <td><code>partitionKey</code></td>
+            <td>{<br>"paths": [ "/AccountNumber" ],<br>"kind": "Hash",<br>"Version": 2<br>}</td>
+            <td>This value is used to configure the partition key to be used for partitioning data into multiple partitions.</td>
+        </tr>
+        <tr>
+            <td><code>indexingPolicy</code></td>
+            <td><code>indexingPolicy</code></td>
+            <td>[{<br>"path": "/*",<br>"indexes": [{ "dataType": "String",<br>"precision": -1,<br> "kind": "Range" }]<br>}]</td>
+            <td>This value is used to configure indexing policy. By default, the indexing is automatic for all document paths within the collection.</td>
+        </tr>
+        <tr>
+            <td><code>uniqueKeyPolicy</code></td>
+            <td><code>uniqueKeyPolicy</code></td>
+            <td>[]</td>
+            <td>With unique keys, you make sure that one or more values within a logical partition is unique. By default, the unique key policy is an empty array or null as an object.</td>
+        </tr>
+        <tr>
+            <td><code>geospatialConfig</code></td>
+            <td><code>geospatialConfig</code></td>
+            <td>{<br>"type": "Geography"<br>}</td>
+            <td>The Geospatial Configuration specifies how the spatial data will be indexed. Specify one Geospatial Configuration per container: geography or geometry.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -428,6 +500,12 @@ if (collection.error.isEmpty) {
             <td><code>code</code>,<br><code>message</code></td>
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+        <tr>
+            <td><code>collections</code></td>
+            <td><code>DocumentCollections</code></td>
+            <td>[]</td>
+            <td>A list of CosmosDB collections. <code>List&lt;Collection&gt;</code></td>
         </tr>
     </tbody>
 </table>
@@ -612,6 +690,18 @@ if (document.error.isEmpty) {
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
         </tr>
+        <tr>
+            <td><code>attachments</code></td>
+            <td><code>_attachments</code></td>
+            <td>attachments/</td>
+            <td>It is a system generated property that specifies the addressable path for the attachments resource.</td>
+        </tr>
+        <tr>
+            <td><code>values</code></td>
+            <td><code>...</code></td>
+            <td>{<br>"key1": "val1",<br>"key2": "val2"<br>}</td>
+            <td>Any map of key-value pairs to save or retrieve in a document.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -643,6 +733,12 @@ if (document.error.isEmpty) {
             <td><code>code</code>,<br><code>message</code></td>
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+        <tr>
+            <td><code>documents</code></td>
+            <td><code>Documents</code></td>
+            <td>[]</td>
+            <td>A list of CosmosDB documents. <code>List&lt;CosmosDocument&gt;</code></td>
         </tr>
     </tbody>
 </table>
@@ -781,6 +877,12 @@ if (storedProcedure.error.isEmpty) {
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
         </tr>
+        <tr>
+            <td><code>body</code></td>
+            <td><code>body</code></td>
+            <td>function() { ... }</td>
+            <td>A user settable property. It is the body of the stored procedure.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -812,6 +914,12 @@ if (storedProcedure.error.isEmpty) {
             <td><code>code</code>,<br><code>message</code></td>
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+        <tr>
+            <td><code>storedProcedures</code></td>
+            <td><code>StoredProcedures</code></td>
+            <td>[]</td>
+            <td>A list of CosmosDB stored procedures. <code>List&lt;StoredProcedure&gt;</code></td>
         </tr>
     </tbody>
 </table>
@@ -950,6 +1058,12 @@ if (userDefinedFunction.error.isEmpty) {
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
         </tr>
+        <tr>
+            <td><code>body</code></td>
+            <td><code>body</code></td>
+            <td>function() { ... }</td>
+            <td>A user settable property. It is the body of the UDF.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -981,6 +1095,12 @@ if (userDefinedFunction.error.isEmpty) {
             <td><code>code</code>,<br><code>message</code></td>
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+        <tr>
+            <td><code>userDefinedFunctions</code></td>
+            <td><code>UserDefinedFunctions</code></td>
+            <td>[]</td>
+            <td>A list of CosmosDB stored procedures. <code>List&lt;UserDefinedFunction&gt;</code></td>
         </tr>
     </tbody>
 </table>
@@ -1132,6 +1252,24 @@ if (trigger.error.isEmpty) {
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
         </tr>
+        <tr>
+            <td><code>body</code></td>
+            <td><code>body</code></td>
+            <td>function() { ... }</td>
+            <td>A user settable property. It is the body of the trigger.</td>
+        </tr>
+        <tr>
+            <td><code>triggerOperation</code></td>
+            <td><code>triggerOperation</code></td>
+            <td>TriggerOperation.all</td>
+            <td>It is the type of operation that invokes the trigger.<br>The acceptable values are: TriggerOperation.all, TriggerOperation.insert, TriggerOperation.replace and TriggerOperation.delete.</td>
+        </tr>
+        <tr>
+            <td><code>triggerType</code></td>
+            <td><code>triggerType</code></td>
+            <td>TriggerType.post</td>
+            <td>This specifies when the trigger is fired. The acceptable values are: TriggerType.pre and TriggerType.post.<br>Pre triggers fire before an operation while Post triggers after an operation.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1163,6 +1301,12 @@ if (trigger.error.isEmpty) {
             <td><code>code</code>,<br><code>message</code></td>
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+        <tr>
+            <td><code>triggers</code></td>
+            <td><code>Triggers</code></td>
+            <td>[]</td>
+            <td>A list of CosmosDB triggers. <code>List&lt;Trigger&gt;</code></td>
         </tr>
     </tbody>
 </table>
@@ -1309,6 +1453,12 @@ if (user.error.isEmpty) {
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
         </tr>
+        <tr>
+            <td><code>permissions</code></td>
+            <td><code>_permissions</code></td>
+            <td>permissions\/</td>
+            <td>System generated property denoting the addressable path of the feed of permissions resource.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1340,6 +1490,12 @@ if (user.error.isEmpty) {
             <td><code>code</code>,<br><code>message</code></td>
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+        <tr>
+            <td><code>users</code></td>
+            <td><code>Users</code></td>
+            <td>[]</td>
+            <td>A list of CosmosDB users. <code>List&lt;User&gt;</code></td>
         </tr>
     </tbody>
 </table>
@@ -1512,6 +1668,24 @@ if (permission.error.isEmpty) {
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
         </tr>
+        <tr>
+            <td><code>token</code></td>
+            <td><code>_token</code></td>
+            <td>type=resource&ver=1&sig=m32...</td>
+            <td>System generated resource token for the particular resource and user.</td>
+        </tr>
+        <tr>
+            <td><code>permissionMode</code></td>
+            <td><code>permissionMode</code></td>
+            <td>PermissionMode.all</td>
+            <td>The access mode on the resource for the user: PermissionMode.all or PermissionMode.read.<br>All provides read, write, and delete access to a resource.</td>
+        </tr>
+        <tr>
+            <td><code>resource</code></td>
+            <td><code>resource</code></td>
+            <td>dbs/ruJjAA==/colls/ruJjAM9UnAA=/</td>
+            <td>The full addressable path of the resource associated with the permission.</td>
+        </tr>
     </tbody>
 </table>
 
@@ -1543,6 +1717,12 @@ if (permission.error.isEmpty) {
             <td><code>code</code>,<br><code>message</code></td>
             <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
             <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+        <tr>
+            <td><code>permissions</code></td>
+            <td><code>Permissions</code></td>
+            <td>[]</td>
+            <td>A list of CosmosDB permissions. <code>List&lt;Permission&gt;</code></td>
         </tr>
     </tbody>
 </table>
