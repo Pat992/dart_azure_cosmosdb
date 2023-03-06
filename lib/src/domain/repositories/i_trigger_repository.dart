@@ -14,7 +14,7 @@ abstract class ITriggerRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the triggers reside.
+  /// **collectionId:** Id/name of the collection where the triggers reside.
   ///
   /// [Type:] String *required*
   Future<TriggerList> list({
@@ -28,7 +28,7 @@ abstract class ITriggerRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the triggers is created.
+  /// **collectionId:** Id/name of the collection where the triggers is created.
   ///
   /// [Type:] String *required*
   ///
@@ -66,11 +66,11 @@ abstract class ITriggerRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the triggers is replaced.
+  /// **collectionId:** Id/name of the collection where the triggers is replaced.
   ///
   /// [Type:] String *required*
   ///
-  /// **triggerId:** Name of the trigger to replace.
+  /// **triggerId:** Id/name of the trigger to replace.
   ///
   /// [Type:] String *required*
   ///
@@ -103,11 +103,11 @@ abstract class ITriggerRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the triggers is deleted.
+  /// **collectionId:** Id/name of the collection where the triggers is deleted from.
   ///
   /// [Type:] String *required*
   ///
-  /// **triggerId:** Name of the trigger to delete.
+  /// **triggerId:** Id/name of the trigger to delete.
   ///
   /// [Type:] String *required*
   Future<Trigger> delete({

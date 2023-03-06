@@ -14,7 +14,7 @@ abstract class IPermissionRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **userId:** The value is the name of the user.
+  /// **userId:** Name/id of the user, the permissions are assigned to.
   ///
   /// [Type:] String *required*
   Future<PermissionList> list({
@@ -30,7 +30,7 @@ abstract class IPermissionRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **userId:** Name of the user.
+  /// **userId:** Name/id of the user, the permission is assigned to.
   ///
   /// [Type:] String *required*
   ///
@@ -49,7 +49,7 @@ abstract class IPermissionRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **userId:** Name of the user.
+  /// **userId:** Name/id of the user, the permission will be assigned to.
   ///
   /// [Type:] String *required*
   ///
@@ -80,7 +80,7 @@ abstract class IPermissionRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **userId:** Name of the user.
+  /// **userId:** Name/id of the user, the permission is assigned to.
   ///
   /// [Type:] String *required*
   ///
@@ -115,7 +115,7 @@ abstract class IPermissionRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **userId:** Name of the user.
+  /// **userId:** Name/id of the user, the permission is assigned to.
   ///
   /// [Type:] String *required*
   ///

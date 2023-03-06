@@ -144,7 +144,10 @@ TODO: show model description
 The database-get operation returns a `Future<CosmosDatabase>`.
 See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
-final CosmosDatabase database = await cosmosDb.database.get(dbId: '<DB_ID>');
+final CosmosDatabase database = await cosmosDb.database.get(
+    // REQUIRED -> User generated name/id of the database.
+    dbId: '<DB_ID>',
+);
 
 if (database.error.isEmpty) {
     // If the error is empty, continue....
@@ -156,7 +159,10 @@ TODO: show model description
 The database-create operation returns a `Future<CosmosDatabase>`.
 See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
-final CosmosDatabase database = await cosmosDb.database.create(dbId: '<DB_ID>');
+final CosmosDatabase database = await cosmosDb.database.create(
+    // REQUIRED -> User generated name/id of the database to be created.
+    dbId: '<DB_ID>',
+);
 
 if (database.error.isEmpty) {
     // If the error is empty, continue....
@@ -168,7 +174,10 @@ TODO: show model description
 The database-delete operation returns a `Future<CosmosDatabase>`.
 See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
-final CosmosDatabase database = await cosmosDb.database.delete(dbId: '<DB_ID>');
+final CosmosDatabase database = await cosmosDb.database.delete(
+    // REQUIRED -> User generated name/id of the database to be deleted.
+    dbId: '<DB_ID>',
+);
 
 if (database.error.isEmpty) {
     // If the error is empty, continue....
@@ -185,8 +194,10 @@ A collection is a container of JSON documents and associated JavaScript applicat
 The collection-list operation returns a `Future<CollectionList>` with a list of  `Collection` or an error object.
 See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
-final CollectionList collectionList = await cosmosDb.collection
-    .list(dbId: '<DB_ID>');
+final CollectionList collectionList = await cosmosDb.collection.list(
+    // REQUIRED -> User generated name/id of the database in which the collections are located.
+    dbId: '<DB_ID>',
+);
 
 if (collectionList.error.isEmpty) {
     // If the error is empty, continue....
@@ -198,8 +209,12 @@ TODO: show model description
 The collection-get operation returns a `Future<Collection>`.
 See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
-final Collection collection = await cosmosDb.collection
-    .get(dbId: '<DB_ID>', collectionId: '<COLLECTION_ID>');
+final Collection collection = await cosmosDb.collection.get(
+    // REQUIRED -> User generated name/id of the database in which the collection is located.
+    dbId: '<DB_ID>',
+    // REQUIRED -> Name of the existing collection.
+    collectionId: '<COLLECTION_ID>',
+);
 
 if (collection.error.isEmpty) {
     // If the error is empty, continue....
@@ -212,9 +227,13 @@ The collection-create operation returns a `Future<Collection>`.
 See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
 final Collection collection = await cosmosDb.collection.create(
+    // REQUIRED -> User generated name/id of the database in which the collections are saved.
     dbId: '<DB_ID>',
+    // REQUIRED -> Name of the collection to be created.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> The partition key to be used for partitioning data into multiple partitions.
     partitionKey: '/id',
+    // REQUIRED -> Set this value to 2, to use a large partition key, else set it to 1.
     version: 1,
 );
 
@@ -228,8 +247,12 @@ TODO: show model description
 The collection-delete operation returns a `Future<Collection>`.
 See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
-final Collection collection = await cosmosDb.collection
-    .delete(dbId: '<DB_ID>', collectionId: '<COLLECTION_ID>');
+final Collection collection = await cosmosDb.collection.delete(
+    // REQUIRED -> User generated name/id of the database in which the collection is located.
+    dbId: '<DB_ID>', 
+    // REQUIRED -> Name of the collection to be deleted.
+    collectionId: '<COLLECTION_ID>',
+);
 
 if (collection.error.isEmpty) {
     // If the error is empty, continue....
@@ -246,8 +269,12 @@ A document consists of user-defined content in JSON format. Aside from the requi
 The document-list operation returns a `Future<CosmosDocumentList>` with a list of  `CosmosDocument` or an error object.
 See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
-final CosmosDocumentList documentList = await cosmosDb.document
-    .list(dbId: '<DB_ID>', collectionId: '<COLLECTION_ID>');
+final CosmosDocumentList documentList = await cosmosDb.document.list(
+    // REQUIRED -> User generated name/id of the database.
+    dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection.
+    collectionId: '<COLLECTION_ID>',
+);
 
 if (documentList.error.isEmpty) {
     // If the error is empty, continue....
@@ -260,9 +287,13 @@ The collection-get operation returns a `Future<CosmosDocument>`.
 See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
 final CosmosDocument document = await cosmosDb.document.get(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> Id of the document to be retrieved.
     documentId: '<DOCUMENT_ID>',
+    // REQUIRED -> Partition key value for the document to be received.
     partitionKey: '<DOCUMENT_PARTITION_KEY>',
 );
 
@@ -276,6 +307,8 @@ TODO: show model description
 The collection-create operation returns a `Future<CosmosDocument>`.
 See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
+
+// Example: Create an instance of a Person to write to the document.
 final Person person = Person(
     id: '01',
     name: 'Jane', 
@@ -284,9 +317,15 @@ final Person person = Person(
 );
 
 final CosmosDocument document = await cosmosDb.document.create(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection.
     collectionId: '<COLLECTION_ID>',
-    partitionKey: '<DOCUMENT_PARTITION_KEY>',
+    // REQUIRED -> Partition key value for the document to be created.
+    // In this example the partition-key /id is used.
+    partitionKey: person.id,
+    // REQUIRED -> Any map with Strings as keys and dynamic values that will be added to the document.
+    // In this example the Person-instance is transformed into a map.
     body: person.toMap(),
 );
 
@@ -300,6 +339,7 @@ TODO: show model description
 The collection-replace operation returns a `Future<CosmosDocument>`.
 See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
+// Example: Create an instance of a Person to overwrite.
 final Person personUpdated = Person(
     id: '02',
     name: 'Jane', 
@@ -308,10 +348,17 @@ final Person personUpdated = Person(
 );
 
 final CosmosDocument document = await cosmosDb.document.replace(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection.
     collectionId: '<COLLECTION_ID>',
-    partitionKey: '<DOCUMENT_PARTITION_KEY>',
+    // REQUIRED -> Partition key value for the document to be created.
+    // In this example the partition-key /id is used.
+    partitionKey: person.id,
+    // REQUIRED -> Id of the document to be replaced.
     documentId: '01',
+    // REQUIRED -> Any map with Strings as keys and dynamic values that will replace the previous body.
+    // In this example the Person-instance is transformed into a map.
     body: person.toMap(),
 );
 
@@ -326,9 +373,13 @@ The collection-replace operation returns a `Future<CosmosDocument>`.
 See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
 final CosmosDocument document = await cosmosDb.document.delete(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> Partition key value for the document to be deleted.
     partitionKey: '<DOCUMENT_PARTITION_KEY>',
+    // REQUIRED -> Id of the document to be deleted.
     documentId: '01',
 );
 
@@ -347,8 +398,12 @@ A stored procedure is a piece of application logic written in JavaScript that is
 The stored-procedure-list operation returns a `Future<StoredProcedureList>` with a list of  `StoredProcedure` or an error object.
 See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
-final StoredProcedureList storedProcedureList = await cosmosDb.storedProcedure
-    .list(dbId: '<DB_ID>', collectionId: '<COLLECTION_ID>');
+final StoredProcedureList storedProcedureList = await cosmosDb.storedProcedure.list(
+    // REQUIRED -> User generated name/id of the database.
+    dbId: '<DB_ID>',
+    // REQUIRED -> Name of the collection where the stored procedures reside.
+    collectionId: '<COLLECTION_ID>',
+);
 
 if (storedProcedureList.error.isEmpty) {
     // If the error is empty, continue....
@@ -361,11 +416,14 @@ The stored-procedure-create operation returns a `Future<StoredProcedure>`.
 See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
 final StoredProcedure storedProcedure = await cosmosDb.storedProcedure.create(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Name of the collection where the stored procedure is created.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> The user generated unique name for the stored procedure, max 255 chars.
     storedProcedureId: '<SPROC_ID>',
-    function:
-        'function (docToCreate, addedPropertyName, addedPropertyValue { getContext().getResponse().setBody(\'Hello World\'); }',
+    // REQUIRED -> The body of the stored procedure as a String.
+    function: 'function () { ... }',
 );
 
 if (storedProcedure.error.isEmpty) {
@@ -379,11 +437,14 @@ The stored-procedure-replace operation returns a `Future<StoredProcedure>`.
 See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
 final StoredProcedure storedProcedure = await cosmosDb.storedProcedure.replace(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Name of the collection where the stored procedure is updated.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> The user generated unique name for an existing stored procedure.
     storedProcedureId: '<SPROC_ID>',
-    function:
-        'function (docToCreate, addedPropertyName, addedPropertyValue { getContext().getResponse().setBody(\'Hello Updated SPROC\'); }',
+    // REQUIRED -> The body of the stored procedure as a String, will replace the current function.
+    function: 'function () { ...Updated function... }',
 );
 
 if (storedProcedure.error.isEmpty) {
@@ -397,8 +458,11 @@ The stored-procedure-delete operation returns a `Future<StoredProcedure>`.
 See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
 final StoredProcedure storedProcedure = await cosmosDb.storedProcedure.delete(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Name of the collection where the stored procedure is deleted from.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> The user generated unique name for an existing stored procedure.
     storedProcedureId: '<SPROC_ID>',
 );
 
@@ -418,7 +482,9 @@ The user-defined-function-list operation returns a `Future<UserDefinedFunctionLi
 See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
 final UserDefinedFunctionList userDefinedFunctionList = await cosmosDb.userDefinedFunctions.list(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection where the user defined functions reside.
     collectionId: '<COLLECTION_ID>',
 );
 
@@ -432,9 +498,13 @@ The user-defined-function-create operation returns a `Future<UserDefinedFunction
 See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
 final UserDefinedFunction userDefinedFunction = await cosmosDb.userDefinedFunctions.create(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection where the user defined function is created.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> Unique name to identify the user defined function, max 255 chars.
     userDefinedFunctionId: '<UDFS_ID>',
+    // REQUIRED -> The body of the user defined function.
     function: 'function updateMetadata() { ... }',
 );
 
@@ -449,9 +519,13 @@ The user-defined-function-replace operation returns a `Future<UserDefinedFunctio
 See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
 final UserDefinedFunction userDefinedFunction = await cosmosDb.userDefinedFunctions.replace(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection where the user defined function is replaced.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> Id/name of the user defined function to be replaced.
     userDefinedFunctionId: '<UDFS_ID>',
+    // REQUIRED -> The body of the user defined function, will replace the current function.
     function: 'function updateMetadata() { ...Updated function... }',
 );
 
@@ -466,8 +540,11 @@ The user-defined-function-delete operation returns a `Future<UserDefinedFunction
 See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
 final UserDefinedFunction userDefinedFunction = await cosmosDb.userDefinedFunctions.delete(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection where the user defined function is deleted from.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> Id/name of the user defined function to be deleted.
     userDefinedFunctionId: '<UDFS_ID>',
 );
 
@@ -487,7 +564,9 @@ The trigger-list operation returns a `Future<TriggerList>` with a list of  `Trig
 See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final TriggerList triggerList = await cosmosDb.trigger.list(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection where the triggers reside.
     collectionId: '<COLLECTION_ID>',
 );
 
@@ -502,11 +581,20 @@ The trigger-create operation returns a `Future<Trigger>`.
 See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final Trigger trigger = await cosmosDb.trigger.create(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection where the triggers is created.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> Unique name used to identify the trigger, max 255 chars.
     triggerId: '<TRIGGER_ID>',
+    // REQUIRED -> The function of the trigger.
     function: 'function updateMetadata() { ... }',
+    // REQUIRED -> Type of operation that invokes the trigger.
+    // The acceptable values are: TriggerOperation.all, TriggerOperation.create, TriggerOperation.replace, and TriggerOperation.delete.
     triggerOperation: TriggerOperation.all,
+    // REQUIRED -> This value specifies when the trigger is fired.
+    // The acceptable values are: TriggerType.pre and TriggerType.post.
+    // Pre triggers fire before an operation while Post triggers after an operation.
     triggerType: TriggerType.post,
 );
 
@@ -521,11 +609,19 @@ The trigger-replace operation returns a `Future<Trigger>`.
 See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final Trigger trigger = await cosmosDb.trigger.replace(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection where the triggers is replaced.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> Id/name of the trigger to replace.
     triggerId: '<TRIGGER_ID>',
     function: 'function updateMetadata() { ...Updated function... }',
+    // REQUIRED -> Type of operation that invokes the trigger.
+    // The acceptable values are: TriggerOperation.all, TriggerOperation.create, TriggerOperation.replace, and TriggerOperation.delete.
     triggerOperation: TriggerOperation.all,
+    // REQUIRED -> This value specifies when the trigger is fired.
+    // The acceptable values are: TriggerType.pre and TriggerType.post.
+    // Pre triggers fire before an operation while Post triggers after an operation.
     triggerType: TriggerType.post,
 );
 
@@ -540,8 +636,11 @@ The trigger-delete operation returns a `Future<Trigger>`.
 See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final Trigger trigger = await cosmosDb.trigger.delete(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Id/name of the collection where the triggers is deleted from.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> Id/name of the trigger to delete.
     triggerId: '<TRIGGER_ID>',
 );
 
@@ -560,7 +659,10 @@ A user is a logical namespace for scoping permissions on collections, documents,
 The user-list operation returns a `Future<UserList>` with a list of  `User` or an error object.
 See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
-final UserList userList = await cosmosDb.user.list(dbId: '<DB_ID>');
+final UserList userList = await cosmosDb.user.list(
+    // REQUIRED -> User generated name/id of the database.
+    dbId: '<DB_ID>',
+);
 
 if (userList.error.isEmpty) {
     // If the error is empty, continue....
@@ -573,7 +675,9 @@ The user-get operation returns a `Future<User>`.
 See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final User user = await cosmosDb.user.get(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> The id/name of the user.
     userId: '<USER_ID>',
 );
 
@@ -588,7 +692,9 @@ The user-create operation returns a `Future<User>`.
 See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final User user = await cosmosDb.user.create(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> The user generated unique name for the user.
     userId: '<USER_ID>',
 );
 
@@ -603,8 +709,11 @@ The user-replace operation returns a `Future<User>`.
 See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final User user = await cosmosDb.user.replace(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> The id/name of the user to replace.
     userId: '<USER_ID>',
+    // REQUIRED -> The new unique id/name of the user.
     newUserId: '<NEW_USER_ID>',
 );
 
@@ -619,7 +728,9 @@ The user-delete operation returns a `Future<User>`.
 See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
 final User user = await cosmosDb.user.delete(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> The id/name of the user to delete.
     userId: '<USER_ID>',
 );
 
@@ -639,7 +750,9 @@ The permission-list operation returns a `Future<PermissionList>` with a list of 
 See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
 final PermissionList permissionList = await cosmosDb.permission.list(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Name/id of the user, the permissions are assigned to.
     userId: '<USER_ID>',
 );
 
@@ -654,8 +767,11 @@ The permission-get operation returns a `Future<Permission>`.
 See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
 final Permission permission = await cosmosDb.permission.get(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Name/id of the user, the permission is assigned to.
     userId: '<USER_ID>',
+    // REQUIRED -> Name/id of the permission to be retrieved.
     permissionId: '<PERMISSION_ID>',
 );
 
@@ -670,10 +786,17 @@ The permission-create operation returns a `Future<Permission>`.
 See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
 final Permission permission = await cosmosDb.permission.create(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Name/id of the user, the permission will be assigned to.
     userId: '<USER_ID>',
+    // REQUIRED -> The full addressable path of the resource associated with the permission. 
+    // For example, dbs/volcanodb/colls/volcano1.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> Name/id of the permission to be created.
     permissionId: '<PERMISSION_ID>',
+    // REQUIRED -> The access mode for the resource: All or Read. All provides read, write, and delete access to a resource.
+    // The acceptable values are: PermissionMode.all, PermissionMode.read
     permissionMode: PermissionMode.all,
 );
 
@@ -688,11 +811,19 @@ The permission-replace operation returns a `Future<Permission>`.
 See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
 final Permission permission = await cosmosDb.permission.replace(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Name/id of the user, the permission is assigned to.
     userId: '<USER_ID>',
+    // REQUIRED -> The full addressable path of the resource associated with the permission. 
+    // For example, dbs/volcanodb/colls/volcano1.
     collectionId: '<COLLECTION_ID>',
+    // REQUIRED -> Name/id of the permission to be replaced.
     permissionId: '<PERMISSION_ID>',
+    // REQUIRED -> The new name/id of the permission.
     newPermissionId: '<NEW_PERMISSION_ID>',
+    // REQUIRED -> The access mode for the resource: All or Read. All provides read, write, and delete access to a resource.
+    // The acceptable values are: PermissionMode.all, PermissionMode.read
     permissionMode: PermissionMode.all,
 );
 
@@ -707,8 +838,11 @@ The permission-delete operation returns a `Future<Permission>`.
 See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
 final Permission permission = await cosmosDb.permission.delete(
+    // REQUIRED -> User generated name/id of the database.
     dbId: '<DB_ID>',
+    // REQUIRED -> Name/id of the user, the permission is assigned to.
     userId: '<USER_ID>',
+    // REQUIRED -> Name/id of the permission to be deleted.
     permissionId: '<PERMISSION_ID>',
 );
 

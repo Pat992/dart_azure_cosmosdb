@@ -13,7 +13,7 @@ abstract class IDocumentRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection.
+  /// **collectionId:** Id/name of the collection.
   ///
   /// [Type:] String *required*
   Future<CosmosDocumentList> list({
@@ -27,15 +27,15 @@ abstract class IDocumentRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection.
+  /// **collectionId:** Id/name of the collection.
   ///
   /// [Type:] String *required*
   ///
-  /// **documentId:** ID of the document to be retrieved.
+  /// **documentId:** Id of the document to be retrieved.
   ///
   /// [Type:] String *required*
   ///
-  /// **partitionKey:** The partition key value for the document to be read.
+  /// **partitionKey:** Partition key value for the document to be received.
   /// Must be included if and only if the collection is created with a partitionKey definition.
   ///
   /// [Type:] String *required*
@@ -52,16 +52,16 @@ abstract class IDocumentRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection.
+  /// **collectionId:** Id/name of the collection.
   ///
   /// [Type:] String *required*
   ///
-  /// **partitionKey:** The partition key value for the document to be created.
+  /// **partitionKey:** Partition key value for the document to be created.
   /// Must be included if and only if the collection is created with a partitionKey definition.
   ///
   /// [Type:] String *required*
   ///
-  /// **body:** Any map with Strings as keys and dynamic values that need to be added to the document.
+  /// **body:** Any map with Strings as keys and dynamic values that will be added to the document.
   ///
   /// [Type:] Map<String, dynamic> *required*
   Future<CosmosDocument> create({
@@ -77,15 +77,15 @@ abstract class IDocumentRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection.
+  /// **collectionId:** Id/name of the collection.
   ///
   /// [Type:] String *required*
   ///
-  /// **documentId:** ID of the document to be deleted.
+  /// **documentId:** Id of the document to be deleted.
   ///
   /// [Type:] String *required*
   ///
-  /// **partitionKey:** The partition key value for the document to be deleted.
+  /// **partitionKey:** Partition key value for the document to be deleted.
   /// Must be included if and only if the collection is created with a partitionKey definition.
   ///
   /// [Type:] String *required*
@@ -102,15 +102,15 @@ abstract class IDocumentRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection.
+  /// **collectionId:** Id/name of the collection.
   ///
   /// [Type:] String *required*
   ///
-  /// **documentId:** ID of the document to be replaced.
+  /// **documentId:** Id of the document to be replaced.
   ///
   /// [Type:] String *required*
   ///
-  /// **partitionKey:** The partition key value for the document to be replaced.
+  /// **partitionKey:** Partition key value for the document to be replaced.
   /// Must be included if and only if the collection is created with a partitionKey definition.
   ///
   /// [Type:] String *required*
@@ -133,7 +133,7 @@ abstract class IDocumentRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection.
+  /// **collectionId:** Id/name of the collection.
   ///
   /// [Type:] String *required*
   ///

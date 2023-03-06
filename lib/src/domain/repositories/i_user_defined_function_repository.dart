@@ -12,7 +12,7 @@ abstract class IUserDefinedFunctionRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the user defined functions reside.
+  /// **collectionId:** Id/name of the collection where the user defined functions reside.
   ///
   /// [Type:] String *required*
   Future<UserDefinedFunctionList> list({
@@ -26,7 +26,7 @@ abstract class IUserDefinedFunctionRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the user defined function is created.
+  /// **collectionId:** Id/name of the collection where the user defined function is created.
   ///
   /// [Type:] String *required*
   ///
@@ -35,7 +35,7 @@ abstract class IUserDefinedFunctionRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **function:** It is the body of the user defined function.
+  /// **function:** The body of the user defined function.
   ///
   /// [Type:] String *required*
   Future<UserDefinedFunction> create({
@@ -52,15 +52,15 @@ abstract class IUserDefinedFunctionRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the user defined function is replaced.
+  /// **collectionId:** Id/name of the collection where the user defined function is replaced.
   ///
   /// [Type:] String *required*
   ///
-  /// **userDefinedFunctionId:** Name/id of the user defined function to be replaced.
+  /// **userDefinedFunctionId:** Id/name of the user defined function to be replaced.
   ///
   /// [Type:] String *required*
   ///
-  /// **function:** It is the body of the user defined function, will replace the current function.
+  /// **function:** The body of the user defined function, will replace the current function.
   ///
   /// [Type:] String *required*
   Future<UserDefinedFunction> replace({
@@ -76,11 +76,11 @@ abstract class IUserDefinedFunctionRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the user defined function is deleted.
+  /// **collectionId:** Id/name of the collection where the user defined function is deleted from.
   ///
   /// [Type:] String *required*
   ///
-  /// **userDefinedFunctionId:** Name/id of the user defined function to be deleted.
+  /// **userDefinedFunctionId:** Id/name of the user defined function to be deleted.
   ///
   /// [Type:] String *required*
   Future<UserDefinedFunction> delete({

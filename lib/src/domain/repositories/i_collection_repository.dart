@@ -17,7 +17,7 @@ abstract class ICollectionRepository {
 
   /// **Description:** Performing a GET on a specific collection resource retrieves the properties for the collection.
   ///
-  /// **dbId:** User generated name/id of the database in which the collections are saved.
+  /// **dbId:** User generated name/id of the database in which the collection is saved.
   ///
   /// [Type:] String *required*
   ///
@@ -31,15 +31,15 @@ abstract class ICollectionRepository {
 
   /// **Description:** The create-operation creates a new collection in a database.
   ///
-  /// **dbId:** User generated name/id of the database in which the collections are saved.
+  /// **dbId:** User generated name/id of the database in which the collection is created.
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the existing collection.
+  /// **collectionId:** Name of the collection to be created.
   ///
   /// [Type:] String *required*
   ///
-  /// **partitionKey:** Used to configure the partition key to be used for partitioning data into multiple partitions.
+  /// **partitionKey:** The partition key to be used for partitioning data into multiple partitions.
   /// Can be '/id' or a different value.
   ///
   /// [Type:] String *required*
@@ -56,7 +56,7 @@ abstract class ICollectionRepository {
 
   /// **Description:** The delete-operation deletes an existing collection in a database.
   ///
-  /// **dbId:** User generated name/id of the database in which the collections are saved.
+  /// **dbId:** User generated name/id of the database in which the collection is located.
   ///
   /// [Type:] String *required*
   ///

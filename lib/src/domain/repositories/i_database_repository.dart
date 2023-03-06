@@ -9,7 +9,7 @@ abstract class IDatabaseRepository {
 
   /// **Description:** Retrieve a database resource, perform a GET on the database resource.
   ///
-  /// **dbId:** User generated name/id of the database in which the collections are saved.
+  /// **dbId:** User generated name/id of the database.
   ///
   /// [Type:] String *required*
   Future<CosmosDatabase> get({
@@ -18,7 +18,7 @@ abstract class IDatabaseRepository {
 
   /// **Description:** The create-operation creates a new database in the database account.
   ///
-  /// **dbId:** User generated name/id of the database in which the collections are saved.
+  /// **dbId:** User generated name/id of the database.
   ///
   /// [Type:] String *required*
   Future<CosmosDatabase> create({

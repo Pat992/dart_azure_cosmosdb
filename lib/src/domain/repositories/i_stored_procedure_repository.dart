@@ -14,7 +14,7 @@ abstract class IStoredProcedureRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the stored procedures reside.
+  /// **collectionId:** Id/name of the collection where the stored procedures reside.
   ///
   /// [Type:] String *required*
   Future<StoredProcedureList> list({
@@ -28,7 +28,7 @@ abstract class IStoredProcedureRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the stored procedures is created.
+  /// **collectionId:** Id/name of the collection where the stored procedures is created.
   ///
   /// [Type:] String *required*
   ///
@@ -55,7 +55,7 @@ abstract class IStoredProcedureRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the stored procedures is replaced.
+  /// **collectionId:** Id/name of the collection where the stored procedures is replaced.
   ///
   /// [Type:] String *required*
   ///
@@ -81,7 +81,7 @@ abstract class IStoredProcedureRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the stored procedures is deleted from.
+  /// **collectionId:** Id/name of the collection where the stored procedures is deleted from.
   ///
   /// [Type:] String *required*
   ///
@@ -101,7 +101,7 @@ abstract class IStoredProcedureRepository {
   ///
   /// [Type:] String *required*
   ///
-  /// **collectionId:** Name of the collection where the stored procedures resides.
+  /// **collectionId:** Id/name of the collection where the stored procedures resides.
   ///
   /// [Type:] String *required*
   ///
