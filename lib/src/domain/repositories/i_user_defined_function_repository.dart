@@ -46,7 +46,7 @@ abstract class IUserDefinedFunctionRepository {
   });
 
   /// **Description:** Performing a PUT operation on a specific UDF resource replaces the entire UDF resource.
-  /// All user settable properties, including the id and the body, must be submitted in the body to perform the replacement.
+  /// All user-settable properties, including the id and the body, must be submitted in the body to perform the replacement.
   ///
   /// **dbId:** User generated name/id of the database.
   ///

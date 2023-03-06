@@ -24,7 +24,7 @@ abstract class IPermissionRepository {
 
   /// **Description:** Performing a GET operation on a specific permission resource retrieves the permission properties, including the token, for the particular permission.
   /// A new resource token is created every time a GET is invoked on the permission resource.
-  /// This new token has the default validity period of one hour, unless it is overridden.
+  /// The new tokens have the default validity period (one hour) unless it is overridden.
   ///
   /// **dbId:** User generated name/id of the database.
   ///
@@ -74,7 +74,7 @@ abstract class IPermissionRepository {
   });
 
   /// **Description:** Performing a PUT operation on a specific permission resource replaces the entire user resource.
-  /// All user settable properties, the id, permissionMode, and resource, must be submitted in the body to perform the replacement.
+  /// All user-settable properties, the id, permissionMode, and resource, must be submitted in the body to perform the replacement.
   ///
   /// **dbId:** User generated name/id of the database.
   ///

@@ -49,7 +49,7 @@ abstract class IStoredProcedureRepository {
   });
 
   /// **Description:** Replaces the entire stored procedure resource.
-  /// All user settable properties, including the ID and the body, must be submitted in the body to perform the replacement.
+  /// All user-settable properties, including the ID and the body, must be submitted in the body to perform the replacement.
   ///
   /// **dbId:** User generated name/id of the database.
   ///

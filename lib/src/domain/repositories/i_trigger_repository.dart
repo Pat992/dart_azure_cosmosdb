@@ -60,7 +60,7 @@ abstract class ITriggerRepository {
   });
 
   /// **Description:** Performing a PUT operation on a specific trigger resource replaces the entire trigger resource.
-  /// All user settable properties, including the ID, the body, the triggerOperation, and the triggerType, must be submitted in the body to perform the replacement.
+  /// All user-settable properties, including the ID, the body, the triggerOperation, and the triggerType, must be submitted in the body to perform the replacement.
   ///
   /// **dbId:** User generated name/id of the database.
   ///

@@ -129,6 +129,8 @@ final cosmosDb = CosmosDb(
 Each Azure Cosmos DB account supports multiple independently named databases. A database is a logical namespace for collections, users, and permissions.
 
 #### 3.2.1 List Databases
+List the databases under the database account, performs a GET on the databases resource.
+
 The database-list operation returns a `Future<CosmosDatabaseList>` with a list of  `CosmosDatabase` or an error object.
 See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
@@ -138,9 +140,10 @@ if(databaseList.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.2.2 Get a Database
+Retrieve a database resource, performs a GET on the database resource.
+
 The database-get operation returns a `Future<CosmosDatabase>`.
 See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
@@ -153,9 +156,10 @@ if (database.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.2.3 Create a Database
+The create-operation creates a new database in the database account.
+
 The database-create operation returns a `Future<CosmosDatabase>`.
 See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
@@ -168,9 +172,10 @@ if (database.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.2.4 Delete a Database
+The delete-operation deletes an existing database in the database account.
+
 The database-delete operation returns a `Future<CosmosDatabase>`.
 See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
 ```dart
@@ -183,7 +188,6 @@ if (database.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.2.5 The Database model
 
@@ -191,6 +195,8 @@ TODO: show model description
 A collection is a container of JSON documents and associated JavaScript application logic, i.e. stored procedures, triggers and user-defined functions.
 
 #### 3.3.1 List Collections
+Performing a GET on the collections resource of a particular database, i.e. the colls URI path, returns a list of the collections in the database.
+
 The collection-list operation returns a `Future<CollectionList>` with a list of  `Collection` or an error object.
 See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
@@ -203,9 +209,10 @@ if (collectionList.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.3.2 Get a Collection
+Performing a GET on a specific collection resource retrieves the properties for the collection.
+
 The collection-get operation returns a `Future<Collection>`.
 See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
@@ -220,9 +227,10 @@ if (collection.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.3.3 Create a Collection
+The create-operation creates a new collection in a database.
+
 The collection-create operation returns a `Future<Collection>`.
 See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
@@ -241,9 +249,10 @@ if (collection.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.3.4 Delete a Collection
+The delete-operation deletes an existing collection in a database.
+
 The collection-delete operation returns a `Future<Collection>`.
 See [3.3.5 The Collection model](#335-the-collection-model) for information on the returned model and its variables.
 ```dart
@@ -258,7 +267,6 @@ if (collection.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.3.5 The Collection model
 
@@ -266,6 +274,8 @@ TODO: show model description
 A document consists of user-defined content in JSON format. Aside from the required ID property, users can define any arbitrary elements, structures, and hierarchies for the content. The ID element is a unique string that is user-settable and must not exceed 255 characters. You can insert, replace, delete, read, enumerate, and query arbitrary JSON documents in a collection.
 
 #### 3.4.1 List Documents
+Performing a GET on the documents resource of a particular collection, i.e. the docs URI path, returns a list of documents under the collection.
+
 The document-list operation returns a `Future<CosmosDocumentList>` with a list of  `CosmosDocument` or an error object.
 See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
@@ -280,9 +290,10 @@ if (documentList.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.4.2 Get a Document
+The get-operation retrieves a document by its partition key and document key.
+
 The collection-get operation returns a `Future<CosmosDocument>`.
 See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
@@ -301,9 +312,10 @@ if (document.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.4.3 Create a Document
+The create-operation creates a new document in a collection.
+
 The collection-create operation returns a `Future<CosmosDocument>`.
 See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
@@ -333,9 +345,10 @@ if (document.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.4.4 Replace a Document
+The replace-operation replaces the entire content of a document.
+
 The collection-replace operation returns a `Future<CosmosDocument>`.
 See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
@@ -366,9 +379,10 @@ if (document.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.4.5 Delete a Document
+The delete-operation deletes an existing document in a collection.
+
 The collection-replace operation returns a `Future<CosmosDocument>`.
 See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
 ```dart
@@ -387,7 +401,6 @@ if (document.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.4.6 The Document model
 
@@ -395,6 +408,8 @@ TODO: show model description
 A stored procedure is a piece of application logic written in JavaScript that is registered and executed against a collection as a single transaction. In Azure Cosmos DB, JavaScript is hosted in the same memory space as the database. Hence, requests made within stored procedures execute in the same scope as a database session. This process enables Azure Cosmos DB to guarantee ACID for all operations that are part of a single stored procedure.
 
 #### 3.5.1 List Stored Procedures
+Performing a GET on the stored procedures resource of a particular database, that is, the sprocs URI path, returns a list of the stored procedures in the collection.
+
 The stored-procedure-list operation returns a `Future<StoredProcedureList>` with a list of  `StoredProcedure` or an error object.
 See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
@@ -409,9 +424,10 @@ if (storedProcedureList.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.5.2 Create a Stored Procedure
+The create-operation creates a new stored procedure in a collection.
+
 The stored-procedure-create operation returns a `Future<StoredProcedure>`.
 See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
@@ -430,9 +446,11 @@ if (storedProcedure.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.5.3 Replace a Stored Procedure
+Replaces the entire stored procedure resource.
+All user-settable properties, including the ID and the body, must be submitted in the body to perform the replacement.
+
 The stored-procedure-replace operation returns a `Future<StoredProcedure>`.
 See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
@@ -451,9 +469,10 @@ if (storedProcedure.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.5.4 Delete a Stored Procedure
+The delete-operation deletes an existing stored procedure in a collection.
+
 The stored-procedure-delete operation returns a `Future<StoredProcedure>`.
 See [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model) for information on the returned model and its variables.
 ```dart
@@ -470,7 +489,6 @@ if (storedProcedure.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.5.5 The Stored Procedure model
 
@@ -478,6 +496,8 @@ TODO: show model description
 A user-defined function (UDF) is a side effect free piece of application logic written in JavaScript. It allows developers to construct a query operator, thus extending the core of the Cosmos DB query language. Like stored procedures, UDFs live in the confines of a collection, thus confining the application logic to the collection.
 
 #### 3.6.1 List User Defined Functions
+Performing a GET on the triggers resource of a particular database returns a list of the triggers in the collection.
+
 The user-defined-function-list operation returns a `Future<UserDefinedFunctionList>` with a list of  `UserDefinedFunction` or an error object.
 See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
@@ -494,6 +514,8 @@ if (userDefinedFunctionList.error.isEmpty) {
 ```
 
 #### 3.6.2 Create a User Defined Function
+The create-operation creates a new stored procedure in a collection.
+
 The user-defined-function-create operation returns a `Future<UserDefinedFunction>`.
 See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
@@ -512,9 +534,11 @@ if (userDefinedFunction.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.6.3 Replace a User Defined Function
+Performing a PUT operation on a specific UDF resource replaces the entire UDF resource.
+All user-settable properties, including the id and the body, must be submitted in the body to perform the replacement.
+
 The user-defined-function-replace operation returns a `Future<UserDefinedFunction>`.
 See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
@@ -533,9 +557,10 @@ if (userDefinedFunction.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.6.4 Delete a User Defined Function
+The delete-operation deletes an existing user-defined function in a collection.
+
 The user-defined-function-delete operation returns a `Future<UserDefinedFunction>`.
 See [3.6.5 The User Defined Function model](#365-the-user-defined-function-model) for information on the returned model and its variables.
 ```dart
@@ -552,7 +577,6 @@ if (userDefinedFunction.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.6.5 The User Defined Function model
 
@@ -560,6 +584,8 @@ TODO: show model description
 Triggers are pieces of application logic that can be executed before (pre-triggers) and after (post-triggers) creation, deletion, and replacement of a document. Triggers are written in JavaScript. Both pre and post triggers do not take parameters. Like stored procedures, triggers live within the confines of a collection, thus confining the application logic to the collection.
 
 #### 3.7.1 List Triggers
+Performing a GET on the triggers resource of a particular database returns a list of the triggers in the collection.
+
 The trigger-list operation returns a `Future<TriggerList>` with a list of  `Trigger` or an error object.
 See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
@@ -574,9 +600,10 @@ if (triggerList.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.7.2 Create a Trigger
+The create-operation creates a new trigger in a collection.
+
 The trigger-create operation returns a `Future<Trigger>`.
 See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
@@ -602,9 +629,11 @@ if (trigger.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.7.3 Replace a Trigger
+Performing a PUT operation on a specific trigger resource replaces the entire trigger resource.
+All user-settable properties, including the ID, the body, the triggerOperation, and the triggerType, must be submitted in the body to perform the replacement.
+
 The trigger-replace operation returns a `Future<Trigger>`.
 See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
@@ -629,9 +658,10 @@ if (trigger.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.7.4 Delete a Trigger
+The delete-operation deletes an existing trigger in a collection.
+
 The trigger-delete operation returns a `Future<Trigger>`.
 See [3.7.5 The Trigger model](#375-the-trigger-model) for information on the returned model and its variables.
 ```dart
@@ -648,7 +678,6 @@ if (trigger.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.7.5 The Trigger model
 
@@ -656,6 +685,8 @@ TODO: show model description
 A user is a logical namespace for scoping permissions on collections, documents, attachments, stored procedures, triggers, and user-defined functions. The user construct lives under a database resource and thus cannot cross the database boundary it is under. The user resource is represented by users in the Azure Cosmos DB REST resource model. It is a system resource, and thus contains a fixed schema.
 
 #### 3.8.1 List Users
+Performing a GET operation on the users resource of a particular database, i.e. the users URI path.
+
 The user-list operation returns a `Future<UserList>` with a list of  `User` or an error object.
 See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
@@ -668,9 +699,10 @@ if (userList.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.8.2 Get a User
+Performing a GET operation on a single user with his id/name.
+
 The user-get operation returns a `Future<User>`.
 See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
@@ -685,9 +717,10 @@ if (user.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.8.3 Create a User
+The create-operation creates a new user in a database.
+
 The user-create operation returns a `Future<User>`.
 See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
@@ -702,9 +735,11 @@ if (user.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.8.4 Replace a User
+PUT operation on the specific user resource to replace the entire user resource.
+The only replaceable property is the id of the user. This replace operation does not impact the permissions of the user.
+
 The user-replace operation returns a `Future<User>`.
 See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
@@ -721,9 +756,10 @@ if (user.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.8.5 Delete a User
+The delete-operation deletes an existing user in a database.
+
 The user-delete operation returns a `Future<User>`.
 See [3.8.6 The Trigger model](#386-the-trigger-model) for information on the returned model and its variables.
 ```dart
@@ -738,7 +774,6 @@ if (user.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.8.6 The User model
 
@@ -746,6 +781,10 @@ TODO: show model description
 Permission is an authorization token associated with a user for authorized access to a specific resource. It is used to manage access to collections, documents, attachments, stored procedures, triggers, and user-defined functions for a particular user.
 
 #### 3.9.1 List Permissions
+GET operation on the permissions URI path, which returns a list of permissions for the user.
+All of the resource tokens are recreated for the respective permissions returned as part of the response.
+The new tokens have the default validity period (one hour) unless it is overridden.
+
 The permission-list operation returns a `Future<PermissionList>` with a list of  `Permission` or an error object.
 See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
@@ -760,9 +799,12 @@ if (permissionList.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.9.2 Get a Permission
+Performing a GET operation on a specific permission resource retrieves the permission properties, including the token, for the particular permission.
+A new resource token is created every time a GET is invoked on the permission resource.
+The new tokens have the default validity period (one hour) unless it is overridden.
+
 The permission-get operation returns a `Future<Permission>`.
 See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
@@ -779,9 +821,10 @@ if (permission.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.9.3 Create a Permission
+The create-operation creates a new permission in a database.
+
 The permission-create operation returns a `Future<Permission>`.
 See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
@@ -804,9 +847,11 @@ if (permission.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.9.4 Replace a Permission
+Performing a PUT operation on a specific permission resource replaces the entire user resource.
+All user-settable properties, the id, permissionMode, and resource, must be submitted in the body to perform the replacement.
+
 The permission-replace operation returns a `Future<Permission>`.
 See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
@@ -831,9 +876,10 @@ if (permission.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.9.5 Delete a Permission
+The delete-operation deletes an existing permission in a database.
+
 The permission-delete operation returns a `Future<Permission>`.
 See [3.9.6 The Permission model](#396-the-permission-model) for information on the returned model and its variables.
 ```dart
@@ -850,7 +896,6 @@ if (permission.error.isEmpty) {
     // If the error is empty, continue....
 }
 ```
-TODO: show model description
 
 #### 3.9.6 The Permission model
 

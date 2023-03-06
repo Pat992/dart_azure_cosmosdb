@@ -4,10 +4,10 @@ import 'package:dart_azure_cosmosdb/src/infrastructure/models/models_barrel.dart
 
 /// A database is a logical namespace for collections, users, and permissions.
 abstract class IDatabaseRepository {
-  /// **Description:** List the databases under the database account, perform a GET on the databases resource.
+  /// **Description:** List the databases under the database account, performs a GET on the databases resource.
   Future<CosmosDatabaseList> list();
 
-  /// **Description:** Retrieve a database resource, perform a GET on the database resource.
+  /// **Description:** Retrieve a database resource, performs a GET on the database resource.
   ///
   /// **dbId:** User generated name/id of the database.
   ///
