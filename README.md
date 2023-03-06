@@ -78,23 +78,23 @@ For more information, check out the **[Microsoft CosmosDB documentation](https:/
 ## 2 Getting started
 
 ### 2.1 Android settings
-This package uses the HTTP-package and needs access to the internet, networking needs to be enabled in the `.entitlements`.
+This package uses the HTTP-package and needs access to the internet, networking needs to be enabled in the `AndroidManifest.xml`.
 ```xml
-<key>com.apple.security.network.client</key>
-<true/>
+<manifest xmlns:android...>
+    ...
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application ...
+</manifest>
 ```
 
 ### 2.2 iOS settings
 No steps are necessary for iOS.
 
 ### 2.3 macOS settings
-This package uses the HTTP-package and needs access to the internet, networking needs to be enabled in the `AndroidManifest.xml`.
+This package uses the HTTP-package and needs access to the internet, networking needs to be enabled in the `.entitlements`.
 ```xml
-<manifest xmlns:android...>
-  ...
-  <uses-permission android:name="android.permission.INTERNET" />
-  <application ...
-</manifest>
+<key>com.apple.security.network.client</key>
+<true/>
 ```
 
 ### 2.4 Windows settings
