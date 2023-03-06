@@ -30,7 +30,7 @@ class Base {
   /// **Example:** '"00001800-0000-0000-0000-563324f30000"'
   String etag;
 
-  /// **Description:** An empty Map if success, else a map with a code and a message
+  /// **Description:** An empty Map in case of a successful transaction, else a map with a code and a message.
   ///
   /// **Example:** { code: 'Error_Code', message: 'Error message' }
   Map<String, String> error;

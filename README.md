@@ -23,7 +23,7 @@
     - [3.2.2 Get a Database](#321-get-a-database)
     - [3.2.3 Create a Database](#322-create-a-database)
     - [3.2.4 Delete a Database](#323-delete-a-database)
-    - [3.2.5 The Database model](#325-the-database-model)
+    - [3.2.5 The CosmosDatabase model](#325-the-cosmosdatabase-model)
   - [3.3 Collections](#53-collections)
     - [3.3.1 List Collections](#331-list-collections)
     - [3.3.2 Get a Collection](#332-get-a-collection)
@@ -36,7 +36,7 @@
     - [3.4.3 Create a Document](#343-create-a-document)
     - [3.4.4 Replace a Document](#344-replace-a-document)
     - [3.4.5 Delete a Document](#345-delete-a-document)
-    - [3.4.6 The Document model](#346-the-document-model)
+    - [3.4.6 The CosmosDocument model](#346-the-cosmosdocument-model)
   - [3.5 Stored Procedures](#35-stored-procedures)
     - [3.5.1 List Stored Procedures](#351-list-stored-procedures)
     - [3.5.2 Create a Stored Procedure](#352-create-a-stored-procedure)
@@ -189,7 +189,88 @@ if (database.error.isEmpty) {
 }
 ```
 
-#### 3.2.5 The Database model
+#### 3.2.5 The CosmosDatabase model
+##### `CosmosDatabase`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td><code>id</code></td>
+            <td>myId1</td>
+            <td>The unique user generated name for the resource, max 255 chars.</td>
+        </tr>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>ts</code></td>
+            <td><code>_ts</code></td>
+            <td>1446192371</td>
+            <td>System generated property. It specifies the last updated timestamp of the resource. The value is a timestamp.</td>
+        </tr>
+        <tr>
+            <td><code>self</code></td>
+            <td><code>_self</code></td>
+            <td>dbs\/qicAAA==\/</td>
+            <td>System generated property. It is the unique addressable URI for the resource.</td>
+        </tr>
+        <tr>
+            <td><code>etag</code></td>
+            <td><code>_etag</code></td>
+            <td>00001800-...</td>
+            <td>System generated property representing the resource etag required for optimistic concurrency control.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
+
+##### `CosmosDatabaseList`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>count</code></td>
+            <td><code>_count</code></td>
+            <td>3</td>
+            <td>This property shows the number of resources returned as part of list operation.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
 
 ### 3.3 Collections
 A collection is a container of JSON documents and associated JavaScript application logic, i.e. stored procedures, triggers and user-defined functions.
@@ -269,6 +350,87 @@ if (collection.error.isEmpty) {
 ```
 
 #### 3.3.5 The Collection model
+##### `Collection`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td><code>id</code></td>
+            <td>myId1</td>
+            <td>The unique user generated name for the resource, max 255 chars.</td>
+        </tr>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>ts</code></td>
+            <td><code>_ts</code></td>
+            <td>1446192371</td>
+            <td>System generated property. It specifies the last updated timestamp of the resource. The value is a timestamp.</td>
+        </tr>
+        <tr>
+            <td><code>self</code></td>
+            <td><code>_self</code></td>
+            <td>dbs\/qicAAA==\/</td>
+            <td>System generated property. It is the unique addressable URI for the resource.</td>
+        </tr>
+        <tr>
+            <td><code>etag</code></td>
+            <td><code>_etag</code></td>
+            <td>00001800-...</td>
+            <td>System generated property representing the resource etag required for optimistic concurrency control.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
+
+##### `CollectionList`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>count</code></td>
+            <td><code>_count</code></td>
+            <td>3</td>
+            <td>This property shows the number of resources returned as part of list operation.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
 
 ### 3.4 Documents
 A document consists of user-defined content in JSON format. Aside from the required ID property, users can define any arbitrary elements, structures, and hierarchies for the content. The ID element is a unique string that is user-settable and must not exceed 255 characters. You can insert, replace, delete, read, enumerate, and query arbitrary JSON documents in a collection.
@@ -402,7 +564,88 @@ if (document.error.isEmpty) {
 }
 ```
 
-#### 3.4.6 The Document model
+#### 3.4.6 The CosmosDocument model
+##### `CosmosDocument`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td><code>id</code></td>
+            <td>myId1</td>
+            <td>The unique user generated name for the resource, max 255 chars.</td>
+        </tr>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>ts</code></td>
+            <td><code>_ts</code></td>
+            <td>1446192371</td>
+            <td>System generated property. It specifies the last updated timestamp of the resource. The value is a timestamp.</td>
+        </tr>
+        <tr>
+            <td><code>self</code></td>
+            <td><code>_self</code></td>
+            <td>dbs\/qicAAA==\/</td>
+            <td>System generated property. It is the unique addressable URI for the resource.</td>
+        </tr>
+        <tr>
+            <td><code>etag</code></td>
+            <td><code>_etag</code></td>
+            <td>00001800-...</td>
+            <td>System generated property representing the resource etag required for optimistic concurrency control.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
+
+##### `CosmosDocumentList`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>count</code></td>
+            <td><code>_count</code></td>
+            <td>3</td>
+            <td>This property shows the number of resources returned as part of list operation.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
 
 ### 3.5 Stored Procedures
 A stored procedure is a piece of application logic written in JavaScript that is registered and executed against a collection as a single transaction. In Azure Cosmos DB, JavaScript is hosted in the same memory space as the database. Hence, requests made within stored procedures execute in the same scope as a database session. This process enables Azure Cosmos DB to guarantee ACID for all operations that are part of a single stored procedure.
@@ -491,6 +734,87 @@ if (storedProcedure.error.isEmpty) {
 ```
 
 #### 3.5.5 The Stored Procedure model
+##### `StoredProcedure`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td><code>id</code></td>
+            <td>myId1</td>
+            <td>The unique user generated name for the resource, max 255 chars.</td>
+        </tr>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>ts</code></td>
+            <td><code>_ts</code></td>
+            <td>1446192371</td>
+            <td>System generated property. It specifies the last updated timestamp of the resource. The value is a timestamp.</td>
+        </tr>
+        <tr>
+            <td><code>self</code></td>
+            <td><code>_self</code></td>
+            <td>dbs\/qicAAA==\/</td>
+            <td>System generated property. It is the unique addressable URI for the resource.</td>
+        </tr>
+        <tr>
+            <td><code>etag</code></td>
+            <td><code>_etag</code></td>
+            <td>00001800-...</td>
+            <td>System generated property representing the resource etag required for optimistic concurrency control.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
+
+##### `StoredProcedureList`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>count</code></td>
+            <td><code>_count</code></td>
+            <td>3</td>
+            <td>This property shows the number of resources returned as part of list operation.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
 
 ### 3.6 User Defined Functions
 A user-defined function (UDF) is a side effect free piece of application logic written in JavaScript. It allows developers to construct a query operator, thus extending the core of the Cosmos DB query language. Like stored procedures, UDFs live in the confines of a collection, thus confining the application logic to the collection.
@@ -579,6 +903,87 @@ if (userDefinedFunction.error.isEmpty) {
 ```
 
 #### 3.6.5 The User Defined Function model
+##### `UserDefinedFunction`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td><code>id</code></td>
+            <td>myId1</td>
+            <td>The unique user generated name for the resource, max 255 chars.</td>
+        </tr>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>ts</code></td>
+            <td><code>_ts</code></td>
+            <td>1446192371</td>
+            <td>System generated property. It specifies the last updated timestamp of the resource. The value is a timestamp.</td>
+        </tr>
+        <tr>
+            <td><code>self</code></td>
+            <td><code>_self</code></td>
+            <td>dbs\/qicAAA==\/</td>
+            <td>System generated property. It is the unique addressable URI for the resource.</td>
+        </tr>
+        <tr>
+            <td><code>etag</code></td>
+            <td><code>_etag</code></td>
+            <td>00001800-...</td>
+            <td>System generated property representing the resource etag required for optimistic concurrency control.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
+
+##### `UserDefinedFunctionList`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>count</code></td>
+            <td><code>_count</code></td>
+            <td>3</td>
+            <td>This property shows the number of resources returned as part of list operation.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
 
 ### 3.7 Triggers
 Triggers are pieces of application logic that can be executed before (pre-triggers) and after (post-triggers) creation, deletion, and replacement of a document. Triggers are written in JavaScript. Both pre and post triggers do not take parameters. Like stored procedures, triggers live within the confines of a collection, thus confining the application logic to the collection.
@@ -680,6 +1085,87 @@ if (trigger.error.isEmpty) {
 ```
 
 #### 3.7.5 The Trigger model
+##### `Trigger`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td><code>id</code></td>
+            <td>myId1</td>
+            <td>The unique user generated name for the resource, max 255 chars.</td>
+        </tr>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>ts</code></td>
+            <td><code>_ts</code></td>
+            <td>1446192371</td>
+            <td>System generated property. It specifies the last updated timestamp of the resource. The value is a timestamp.</td>
+        </tr>
+        <tr>
+            <td><code>self</code></td>
+            <td><code>_self</code></td>
+            <td>dbs\/qicAAA==\/</td>
+            <td>System generated property. It is the unique addressable URI for the resource.</td>
+        </tr>
+        <tr>
+            <td><code>etag</code></td>
+            <td><code>_etag</code></td>
+            <td>00001800-...</td>
+            <td>System generated property representing the resource etag required for optimistic concurrency control.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
+
+##### `TriggerList`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>count</code></td>
+            <td><code>_count</code></td>
+            <td>3</td>
+            <td>This property shows the number of resources returned as part of list operation.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
 
 ### 3.8 Users
 A user is a logical namespace for scoping permissions on collections, documents, attachments, stored procedures, triggers, and user-defined functions. The user construct lives under a database resource and thus cannot cross the database boundary it is under. The user resource is represented by users in the Azure Cosmos DB REST resource model. It is a system resource, and thus contains a fixed schema.
@@ -776,6 +1262,87 @@ if (user.error.isEmpty) {
 ```
 
 #### 3.8.6 The User model
+##### `User`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td><code>id</code></td>
+            <td>myId1</td>
+            <td>The unique user generated name for the resource, max 255 chars.</td>
+        </tr>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>ts</code></td>
+            <td><code>_ts</code></td>
+            <td>1446192371</td>
+            <td>System generated property. It specifies the last updated timestamp of the resource. The value is a timestamp.</td>
+        </tr>
+        <tr>
+            <td><code>self</code></td>
+            <td><code>_self</code></td>
+            <td>dbs\/qicAAA==\/</td>
+            <td>System generated property. It is the unique addressable URI for the resource.</td>
+        </tr>
+        <tr>
+            <td><code>etag</code></td>
+            <td><code>_etag</code></td>
+            <td>00001800-...</td>
+            <td>System generated property representing the resource etag required for optimistic concurrency control.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
+
+##### `UserList`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>count</code></td>
+            <td><code>_count</code></td>
+            <td>3</td>
+            <td>This property shows the number of resources returned as part of list operation.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
 
 ### 3.9 Permissions
 Permission is an authorization token associated with a user for authorized access to a specific resource. It is used to manage access to collections, documents, attachments, stored procedures, triggers, and user-defined functions for a particular user.
@@ -898,6 +1465,87 @@ if (permission.error.isEmpty) {
 ```
 
 #### 3.9.6 The Permission model
+##### `Permission`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>id</code></td>
+            <td><code>id</code></td>
+            <td>myId1</td>
+            <td>The unique user generated name for the resource, max 255 chars.</td>
+        </tr>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>ts</code></td>
+            <td><code>_ts</code></td>
+            <td>1446192371</td>
+            <td>System generated property. It specifies the last updated timestamp of the resource. The value is a timestamp.</td>
+        </tr>
+        <tr>
+            <td><code>self</code></td>
+            <td><code>_self</code></td>
+            <td>dbs\/qicAAA==\/</td>
+            <td>System generated property. It is the unique addressable URI for the resource.</td>
+        </tr>
+        <tr>
+            <td><code>etag</code></td>
+            <td><code>_etag</code></td>
+            <td>00001800-...</td>
+            <td>System generated property representing the resource etag required for optimistic concurrency control.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
+
+##### `PermissionList`
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Azure API key name</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>rid</code></td>
+            <td><code>_rid</code></td>
+            <td>qicAAA==</td>
+            <td>System generated property. The resource ID (_rid) is a unique identifier. It is used internally for placement of and navigation to the resource.</td>
+        </tr>
+        <tr>
+            <td><code>count</code></td>
+            <td><code>_count</code></td>
+            <td>3</td>
+            <td>This property shows the number of resources returned as part of list operation.</td>
+        </tr>
+        <tr>
+            <td><code>error</code></td>
+            <td><code>code</code>,<br><code>message</code></td>
+            <td>{<br>"code": "...",<br>"message": "..."<br>}</td>
+            <td>An empty Map in case of a successful transaction, else a map with a code and a message.</td>
+        </tr>
+    </tbody>
+</table>
 
 ## 4 Where to go from here
 
