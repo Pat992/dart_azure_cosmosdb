@@ -132,7 +132,7 @@ Each Azure Cosmos DB account supports multiple independently named databases. A 
 List the databases under the database account, performs a GET on the databases resource.
 
 The database-list operation returns a `Future<CosmosDatabaseList>` with a list of  `CosmosDatabase` or an error object.
-See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
+See [3.2.5 The CosmosDatabase model](#325-the-cosmosdatabase-model) for information on the returned model and its variables.
 ```dart
 final CosmosDatabaseList databaseList = await cosmosDb.database.list();
 
@@ -145,7 +145,7 @@ if(databaseList.error.isEmpty) {
 Retrieve a database resource, performs a GET on the database resource.
 
 The database-get operation returns a `Future<CosmosDatabase>`.
-See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
+See [3.2.5 The CosmosDatabase model](#325-the-cosmosdatabase-model) for information on the returned model and its variables.
 ```dart
 final CosmosDatabase database = await cosmosDb.database.get(
     // REQUIRED -> User generated name/id of the database.
@@ -161,7 +161,7 @@ if (database.error.isEmpty) {
 The create-operation creates a new database in the database account.
 
 The database-create operation returns a `Future<CosmosDatabase>`.
-See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
+See [3.2.5 The CosmosDatabase model](#325-the-cosmosdatabase-model) for information on the returned model and its variables.
 ```dart
 final CosmosDatabase database = await cosmosDb.database.create(
     // REQUIRED -> User generated name/id of the database to be created.
@@ -177,7 +177,7 @@ if (database.error.isEmpty) {
 The delete-operation deletes an existing database in the database account.
 
 The database-delete operation returns a `Future<CosmosDatabase>`.
-See [3.2.5 The Database model](#325-the-database-model) for information on the returned model and its variables.
+See [3.2.5 The CosmosDatabase model](#325-the-cosmosdatabase-model) for information on the returned model and its variables.
 ```dart
 final CosmosDatabase database = await cosmosDb.database.delete(
     // REQUIRED -> User generated name/id of the database to be deleted.
@@ -538,7 +538,7 @@ A document consists of user-defined content in JSON format. Aside from the requi
 Performing a GET on the documents resource of a particular collection, i.e. the docs URI path, returns a list of documents under the collection.
 
 The document-list operation returns a `Future<CosmosDocumentList>` with a list of  `CosmosDocument` or an error object.
-See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
+See [3.4.6 The CosmosDocument model](#346-the-cosmosdocument-model) for information on the returned model and its variables.
 ```dart
 final CosmosDocumentList documentList = await cosmosDb.document.list(
     // REQUIRED -> User generated name/id of the database.
@@ -556,7 +556,7 @@ if (documentList.error.isEmpty) {
 The get-operation retrieves a document by its partition key and document key.
 
 The collection-get operation returns a `Future<CosmosDocument>`.
-See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
+See [3.4.6 The CosmosDocument model](#346-the-cosmosdocument-model) for information on the returned model and its variables.
 ```dart
 final CosmosDocument document = await cosmosDb.document.get(
     // REQUIRED -> User generated name/id of the database.
@@ -578,7 +578,7 @@ if (document.error.isEmpty) {
 The create-operation creates a new document in a collection.
 
 The collection-create operation returns a `Future<CosmosDocument>`.
-See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
+See [3.4.6 The CosmosDocument model](#346-the-cosmosdocument-model) for information on the returned model and its variables.
 ```dart
 
 // Example: Create an instance of a Person to write to the document.
@@ -611,7 +611,7 @@ if (document.error.isEmpty) {
 The replace-operation replaces the entire content of a document.
 
 The collection-replace operation returns a `Future<CosmosDocument>`.
-See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
+See [3.4.6 The CosmosDocument model](#346-the-cosmosdocument-model) for information on the returned model and its variables.
 ```dart
 // Example: Create an instance of a Person to overwrite.
 final Person personUpdated = Person(
@@ -645,7 +645,7 @@ if (document.error.isEmpty) {
 The delete-operation deletes an existing document in a collection.
 
 The collection-replace operation returns a `Future<CosmosDocument>`.
-See [3.4.6 The Document model](#346-the-document-model) for information on the returned model and its variables.
+See [3.4.6 The CosmosDocument model](#346-the-cosmosdocument-model) for information on the returned model and its variables.
 ```dart
 final CosmosDocument document = await cosmosDb.document.delete(
     // REQUIRED -> User generated name/id of the database.
