@@ -191,6 +191,12 @@ if (database.error.isEmpty) {
 
 #### 3.2.5 The CosmosDatabase model
 ##### `CosmosDatabase`
+
+**Methods**
+`CosmosDatabase.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`CosmosDatabase.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -253,6 +259,11 @@ if (database.error.isEmpty) {
 </table>
 
 ##### `CosmosDatabaseList`
+**Methods**
+`CosmosDatabaseList.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`CosmosDatabaseList.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -369,6 +380,11 @@ if (collection.error.isEmpty) {
 
 #### 3.3.5 The Collection model
 ##### `Collection`
+**Methods**
+`Collection.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`Collection.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -473,6 +489,11 @@ if (collection.error.isEmpty) {
 </table>
 
 ##### `CollectionList`
+**Methods**
+`CollectionList.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`CollectionList.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -644,6 +665,11 @@ if (document.error.isEmpty) {
 
 #### 3.4.6 The CosmosDocument model
 ##### `CosmosDocument`
+**Methods**
+`CosmosDocument.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`CosmosDocument.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -706,6 +732,11 @@ if (document.error.isEmpty) {
 </table>
 
 ##### `CosmosDocumentList`
+**Methods**
+`CosmosDocumentList.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`CosmosDocumentList.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -831,6 +862,11 @@ if (storedProcedure.error.isEmpty) {
 
 #### 3.5.5 The Stored Procedure model
 ##### `StoredProcedure`
+**Methods**
+`StoredProcedure.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`StoredProcedure.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -887,6 +923,11 @@ if (storedProcedure.error.isEmpty) {
 </table>
 
 ##### `StoredProcedureList`
+**Methods**
+`StoredProcedureList.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`StoredProcedureList.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -1012,6 +1053,11 @@ if (userDefinedFunction.error.isEmpty) {
 
 #### 3.6.5 The User Defined Function model
 ##### `UserDefinedFunction`
+**Methods**
+`UserDefinedFunction.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`UserDefinedFunction.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -1068,6 +1114,11 @@ if (userDefinedFunction.error.isEmpty) {
 </table>
 
 ##### `UserDefinedFunctionList`
+**Methods**
+`UserDefinedFunctionList.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`UserDefinedFunctionList.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -1206,6 +1257,11 @@ if (trigger.error.isEmpty) {
 
 #### 3.7.5 The Trigger model
 ##### `Trigger`
+**Methods**
+`Trigger.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`Trigger.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -1274,6 +1330,11 @@ if (trigger.error.isEmpty) {
 </table>
 
 ##### `TriggerList`
+**Methods**
+`TriggerList.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`TriggerList.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -1407,6 +1468,11 @@ if (user.error.isEmpty) {
 
 #### 3.8.6 The User model
 ##### `User`
+**Methods**
+`User.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`User.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -1463,6 +1529,11 @@ if (user.error.isEmpty) {
 </table>
 
 ##### `UserList`
+**Methods**
+`UserList.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`UserList.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -1622,6 +1693,11 @@ if (permission.error.isEmpty) {
 
 #### 3.9.6 The Permission model
 ##### `Permission`
+**Methods**
+`Permission.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`Permission.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
@@ -1690,6 +1766,11 @@ if (permission.error.isEmpty) {
 </table>
 
 ##### `PermissionList`
+**Methods**
+`PermissionList.toMap()` -> Transforms the model to a Map for the CosmosDB API.
+`PermissionList.toMap(Map<String, dynamic> map)` -> Transforms a Map from the CosmosDB API to the model.
+
+**Variables**
 <table>
     <thead>
         <tr>
