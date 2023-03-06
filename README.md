@@ -1809,6 +1809,8 @@ if (permission.error.isEmpty) {
 </table>
 
 ## 4 Where to go from here
+While you could use this package for creating your own CosmosDB editor, in case of an app that will save and receive data from users, it is advisable to use a user and its key.
+Check out the **[Microsoft CosmosDB documentation](https://learn.microsoft.com/en-us/rest/api/cosmos-db/)** for more information on the CosmosDB SQL-API.
 
 ## 5 Bugs and issues
 Please file feature requests and bugs at the [issue tracker](https://github.com/Pat992/dart_azure_cosmosdb/issues)
