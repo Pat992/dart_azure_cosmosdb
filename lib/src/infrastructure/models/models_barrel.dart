@@ -9,6 +9,13 @@ export 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/trigger_list
 export 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/user_defined_function_list_model.dart';
 export 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/user_list_model.dart';
 export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_model.dart';
+export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/collection_resolution_policy_model.dart';
+export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/geospatial_config_model.dart';
+export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/index_model.dart';
+export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/indexing_policy_model.dart';
+export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/partition_key_model.dart';
+export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/path_model.dart';
+export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/unique_policy_model.dart';
 export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/database_model.dart';
 export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/document_model.dart';
 export 'package:dart_azure_cosmosdb/src/infrastructure/models/single/permission_model.dart';

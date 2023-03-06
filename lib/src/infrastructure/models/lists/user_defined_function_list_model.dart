@@ -3,16 +3,29 @@
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/user_defined_function_model.dart';
 
+/// A list of CosmosDB user defined functions.
 class UserDefinedFunctionList extends BaseList {
+  /// **Description:** A list of CosmosDB user defined functions.
+  ///
+  /// **Example:** [[]]
   List<UserDefinedFunction> userDefinedFunctions = [];
 
+  /// **Description:** Creates a [UserDefinedFunctionList] model Object.
+  ///
+  /// **userDefinedFunctions:** A list of CosmosDB user defined functions.
+  ///
+  /// [Type:] List<UserDefinedFunction> *optional*
+  ///
+  /// [Default value:] const [[]]
   UserDefinedFunctionList({
     this.userDefinedFunctions = const [],
-    super.error = const {},
-    super.rid = '',
-    super.count = 0,
-  });
+  }) : super(
+          error: const {},
+          rid: '',
+          count: 0,
+        );
 
+  /// **Description:** Transforms the [UserDefinedFunctionList] model to a Map for the CosmosDB API.
   @override
   Map<String, dynamic> toMap() {
     var body = super.toMap();
@@ -28,6 +41,7 @@ class UserDefinedFunctionList extends BaseList {
     return body;
   }
 
+  /// **Description:** Transforms a Map from the CosmosDB API to the [UserDefinedFunctionList] model.
   @override
   UserDefinedFunctionList.fromMap(Map<String, dynamic> map)
       : super.fromMap(map) {

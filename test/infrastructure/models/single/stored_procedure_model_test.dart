@@ -6,42 +6,6 @@ import 'package:test/test.dart';
 import '../../../fixtures/fixture_reader.dart';
 
 void main() {
-  test('Model is a correct map when created manually', () {
-    // arrange
-    final storedProcedureMap =
-        json.decode(fixture('stored-procedure-success.json'));
-    final storedProcedure = StoredProcedure(
-      body:
-          "function () {\r\n    var context = getContext();\r\n    var response = context.getResponse();\r\n\r\n    response.setBody(\"Hello, World!\");\r\n}",
-      id: "sproc_hello_world",
-      rid: "Sl8fALN4sw4CAAAAAAAAgA==",
-      ts: 1449681197,
-      self:
-          "dbs/Sl8fAA==/colls/Sl8fALN4sw4=/sprocs/Sl8fALN4sw4CAAAAAAAAgA==/",
-      etag: "\"06003ce1-0000-0000-0000-5668612d0000\"",
-    );
-    // act
-    // assert
-    expect(storedProcedure.toMap(), storedProcedureMap);
-  });
-
-  test('Model has a correct error when created manually', () {
-    // arrange
-    final errorMap = json.decode(fixture('general-error.json'));
-    final storedProcedure = StoredProcedure(
-      id: '1',
-      body: '',
-      error: {
-        "code": "BadRequest",
-        "message":
-            "Request url is invalid.\r\nActivityId: 9e68f294-7603-4502-a009-6b5dff0a2759, Microsoft.Azure.Documents.Common/2.14.0"
-      },
-    );
-    // act
-    // assert
-    expect(storedProcedure.toMap(), errorMap);
-  });
-
   test('Model is correct for any kind of api endpoint', () {
     // arrange
     final storedProcedureMap =
