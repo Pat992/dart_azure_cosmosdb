@@ -26,13 +26,11 @@ class UniqueKeyPolicy {
       };
     }
     return {
-      'uniqueKeys': [
-        {'paths': uniqueKeys}
-      ],
+      'uniqueKeys': uniqueKeys,
     };
   }
 
   /// **Description:** Transforms a Map from the CosmosDB API to the [UniqueKeyPolicy] model.
   UniqueKeyPolicy.fromMap(Map<String, dynamic> map)
-      : uniqueKeys = map['uniqueKeys'][0]['paths'] ?? [];
+      : uniqueKeys = map['uniqueKeys'] ?? [];
 }
