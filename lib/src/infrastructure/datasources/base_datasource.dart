@@ -57,7 +57,6 @@ class BaseDatasource implements IBaseDatasource {
   Future<Map<String, dynamic>> postRequest({
     required String urlExtension,
     required Map<String, dynamic> body,
-    List<dynamic> arrBody = const [],
     String resourceLink = '',
     Map<String, String> additionalHeader = const {},
     String? contentType,
@@ -73,13 +72,36 @@ class BaseDatasource implements IBaseDatasource {
     var response = await client.post(
       uri,
       headers: headers,
-      body: arrBody.isEmpty ? json.encode(body) : json.encode(arrBody),
+      body: json.encode(body),
     );
 
     final stringRes = response.body;
     final responseMap = json.decode(stringRes);
 
     return responseMap;
+  }
+
+  @override
+  Future<String> executionRequest({
+    required String urlExtension,
+    required List<dynamic> arrBody,
+    String resourceLink = '',
+  }) async {
+    final uri = Uri.parse('$connectionUri$urlExtension');
+
+    final headers = generateHeaders(
+      resourceLink: resourceLink,
+      method: 'post',
+      additionalHeader: {},
+    );
+
+    var response = await client.post(
+      uri,
+      headers: headers,
+      body: json.encode(arrBody),
+    );
+
+    return response.body;
   }
 
   @override

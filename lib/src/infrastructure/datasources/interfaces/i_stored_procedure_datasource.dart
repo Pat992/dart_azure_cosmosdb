@@ -87,8 +87,8 @@ abstract class IStoredProcedureDatasource {
   ///
   /// List<dynamic> parameters - Parameters for the stored procedure.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
-  Future<Map<String, dynamic>> execute({
+  /// **Returns:** Future<String>.
+  Future<String> execute({
     required String dbId,
     required String collectionId,
     required String storedProcedureId,
