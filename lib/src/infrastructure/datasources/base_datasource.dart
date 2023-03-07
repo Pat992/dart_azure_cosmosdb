@@ -73,7 +73,7 @@ class BaseDatasource implements IBaseDatasource {
     var response = await client.post(
       uri,
       headers: headers,
-      body: arrBody.isEmpty ? body : arrBody,
+      body: arrBody.isEmpty ? json.encode(body) : json.encode(arrBody),
     );
 
     final stringRes = response.body;
@@ -101,7 +101,7 @@ class BaseDatasource implements IBaseDatasource {
     var response = await client.put(
       uri,
       headers: headers,
-      body: body,
+      body: json.encode(body),
     );
 
     final stringRes = response.body;
@@ -148,7 +148,7 @@ class BaseDatasource implements IBaseDatasource {
     String? contentType,
   }) {
     final utcString = dateUtil.createDate();
-    print(utcString);
+
     final authHeader = authUtil.getHeaders(
       authorizationType: authorizationType,
       contentType: contentType ?? 'application/json',
