@@ -13,6 +13,7 @@ class UserDatasource extends BaseDatasource implements IUserDatasource {
     required super.authorizationVersion,
     required super.xmsVersion,
     required super.authUtil,
+    required super.dateUtil,
   }) : super(resourceType: ResourceType.users);
 
   @override

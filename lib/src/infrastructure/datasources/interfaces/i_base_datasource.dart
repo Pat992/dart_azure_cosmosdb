@@ -107,9 +107,4 @@ abstract class IBaseDatasource {
     required Map<String, String> additionalHeader,
     String? contentType,
   });
-
-  /// **Description:** Generates the current date to create a correct token.
-  ///
-  /// **Returns:** String.
-  String getRfc1123Date();
 }

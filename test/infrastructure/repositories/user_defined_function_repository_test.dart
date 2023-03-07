@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
+import 'package:dart_azure_cosmosdb/src/core/date_util.dart';
 import 'package:dart_azure_cosmosdb/src/domain/repositories/i_user_defined_function_repository.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/user_defined_function_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/user_defined_function_repository.dart';
@@ -15,6 +16,7 @@ import 'base_datasource_test.mocks.dart';
 @GenerateMocks([http.Client])
 void main() {
   final authUtil = AuthUtil();
+  final dateUtil = DateUtil();
   late IUserDefinedFunctionRepository userDefinedFunctionRepository;
   late MockClient mockClient;
   final uriString = 'https://cosmosdb-test.com';
@@ -33,6 +35,7 @@ void main() {
         authorizationType: 'master',
         authorizationVersion: '1.0',
         primaryKey: pk,
+        dateUtil: dateUtil,
       ),
     );
   });

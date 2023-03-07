@@ -14,6 +14,7 @@ class StoredProcedureDatasource extends BaseDatasource
     required super.authorizationVersion,
     required super.xmsVersion,
     required super.authUtil,
+    required super.dateUtil,
   }) : super(resourceType: ResourceType.storedProcedures);
 
   @override

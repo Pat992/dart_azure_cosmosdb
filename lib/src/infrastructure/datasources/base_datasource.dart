@@ -3,12 +3,14 @@
 import 'dart:convert';
 
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
+import 'package:dart_azure_cosmosdb/src/core/date_util.dart';
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_base_datasource.dart';
 import 'package:http/http.dart' as http;
 
 class BaseDatasource implements IBaseDatasource {
   IAuthUtil authUtil;
+  IDateUtil dateUtil;
   final http.Client client;
   String connectionUri;
   String authorizationType;
@@ -20,6 +22,7 @@ class BaseDatasource implements IBaseDatasource {
   BaseDatasource({
     required this.client,
     required this.authUtil,
+    required this.dateUtil,
     required this.resourceType,
     required this.xmsVersion,
     required this.connectionUri,
@@ -144,7 +147,8 @@ class BaseDatasource implements IBaseDatasource {
     required Map<String, String> additionalHeader,
     String? contentType,
   }) {
-    final utcString = getRfc1123Date();
+    final utcString = dateUtil.createDate();
+    print(utcString);
     final authHeader = authUtil.getHeaders(
       authorizationType: authorizationType,
       contentType: contentType ?? 'application/json',
@@ -161,10 +165,5 @@ class BaseDatasource implements IBaseDatasource {
       authHeader.addAll(additionalHeader);
     }
     return authHeader;
-  }
-
-  @override
-  String getRfc1123Date() {
-    return DateTime.now().toUtc().toIso8601String();
   }
 }

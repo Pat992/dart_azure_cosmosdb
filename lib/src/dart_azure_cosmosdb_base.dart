@@ -1,6 +1,7 @@
 // Copyright 2023 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
+import 'package:dart_azure_cosmosdb/src/core/date_util.dart';
 import 'package:dart_azure_cosmosdb/src/domain/repositories/i_repository_barrel.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/datasources_barrel.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/repository_barrel.dart';
@@ -59,6 +60,9 @@ class CosmosDb {
 
   /// **Description:** The auth-util, used for creating the http-headers.
   final IAuthUtil _authUtil = AuthUtil();
+
+  /// **Description:** The date-util, used for creating and building the current date for the http-headers.
+  final IDateUtil _dateUtil = DateUtil();
 
   /// **Description:** The REST API supports basic CRUD operations on the resources under a database account.
   /// A collection is a container of JSON documents and associated JavaScript application logic, i.e. stored procedures, triggers and user-defined functions.
@@ -144,6 +148,7 @@ class CosmosDb {
       authorizationVersion: authorizationVersion,
       xmsVersion: xmsVersion,
       authUtil: _authUtil,
+      dateUtil: _dateUtil,
     );
 
     _databaseDatasource = DatabaseDatasource(
@@ -154,6 +159,7 @@ class CosmosDb {
       authorizationVersion: authorizationVersion,
       xmsVersion: xmsVersion,
       authUtil: _authUtil,
+      dateUtil: _dateUtil,
     );
 
     _documentDatasource = DocumentDatasource(
@@ -164,6 +170,7 @@ class CosmosDb {
       authorizationVersion: authorizationVersion,
       xmsVersion: xmsVersion,
       authUtil: _authUtil,
+      dateUtil: _dateUtil,
     );
 
     _permissionDatasource = PermissionDatasource(
@@ -174,6 +181,7 @@ class CosmosDb {
       authorizationVersion: authorizationVersion,
       xmsVersion: xmsVersion,
       authUtil: _authUtil,
+      dateUtil: _dateUtil,
     );
 
     _triggerDatasource = TriggerDatasource(
@@ -184,6 +192,7 @@ class CosmosDb {
       authorizationVersion: authorizationVersion,
       xmsVersion: xmsVersion,
       authUtil: _authUtil,
+      dateUtil: _dateUtil,
     );
 
     _storedProcedureDatasource = StoredProcedureDatasource(
@@ -194,6 +203,7 @@ class CosmosDb {
       authorizationVersion: authorizationVersion,
       xmsVersion: xmsVersion,
       authUtil: _authUtil,
+      dateUtil: _dateUtil,
     );
 
     _userDatasource = UserDatasource(
@@ -204,6 +214,7 @@ class CosmosDb {
       authorizationVersion: authorizationVersion,
       xmsVersion: xmsVersion,
       authUtil: _authUtil,
+      dateUtil: _dateUtil,
     );
 
     _userDefinedFunctionDatasource = UserDefinedFunctionDatasource(
@@ -214,6 +225,7 @@ class CosmosDb {
       authorizationVersion: authorizationVersion,
       xmsVersion: xmsVersion,
       authUtil: _authUtil,
+      dateUtil: _dateUtil,
     );
 
     collection =

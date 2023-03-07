@@ -14,6 +14,7 @@ class TriggerDatasource extends BaseDatasource implements ITriggerDatasource {
     required super.authorizationVersion,
     required super.xmsVersion,
     required super.authUtil,
+    required super.dateUtil,
   }) : super(resourceType: ResourceType.triggers);
 
   @override
