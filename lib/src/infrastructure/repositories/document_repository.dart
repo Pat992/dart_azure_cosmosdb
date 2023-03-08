@@ -107,7 +107,7 @@ class DocumentRepository implements IDocumentRepository {
   }
 
   @override
-  Future<CosmosDocumentList> query({
+  Future<Map<String, dynamic>> query({
     required String dbId,
     required String collectionId,
     required String query,
@@ -120,12 +120,12 @@ class DocumentRepository implements IDocumentRepository {
         query: query,
       );
 
-      return CosmosDocumentList.fromMap(res);
+      return res;
     } catch (e) {
-      return CosmosDocumentList.fromMap({
+      return {
         'code': 'exception',
         'message': '$e',
-      });
+      };
     }
   }
 

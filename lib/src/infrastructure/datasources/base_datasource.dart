@@ -3,12 +3,14 @@
 import 'dart:convert';
 
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
+import 'package:dart_azure_cosmosdb/src/core/date_util.dart';
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_base_datasource.dart';
 import 'package:http/http.dart' as http;
 
 class BaseDatasource implements IBaseDatasource {
   IAuthUtil authUtil;
+  IDateUtil dateUtil;
   final http.Client client;
   String connectionUri;
   String authorizationType;
@@ -20,6 +22,7 @@ class BaseDatasource implements IBaseDatasource {
   BaseDatasource({
     required this.client,
     required this.authUtil,
+    required this.dateUtil,
     required this.resourceType,
     required this.xmsVersion,
     required this.connectionUri,
@@ -54,7 +57,6 @@ class BaseDatasource implements IBaseDatasource {
   Future<Map<String, dynamic>> postRequest({
     required String urlExtension,
     required Map<String, dynamic> body,
-    List<dynamic> arrBody = const [],
     String resourceLink = '',
     Map<String, String> additionalHeader = const {},
     String? contentType,
@@ -70,13 +72,36 @@ class BaseDatasource implements IBaseDatasource {
     var response = await client.post(
       uri,
       headers: headers,
-      body: arrBody.isEmpty ? body : arrBody,
+      body: json.encode(body),
     );
 
     final stringRes = response.body;
     final responseMap = json.decode(stringRes);
 
     return responseMap;
+  }
+
+  @override
+  Future<String> executionRequest({
+    required String urlExtension,
+    required List<dynamic> arrBody,
+    String resourceLink = '',
+  }) async {
+    final uri = Uri.parse('$connectionUri$urlExtension');
+
+    final headers = generateHeaders(
+      resourceLink: resourceLink,
+      method: 'post',
+      additionalHeader: {},
+    );
+
+    var response = await client.post(
+      uri,
+      headers: headers,
+      body: json.encode(arrBody),
+    );
+
+    return response.body;
   }
 
   @override
@@ -98,7 +123,7 @@ class BaseDatasource implements IBaseDatasource {
     var response = await client.put(
       uri,
       headers: headers,
-      body: body,
+      body: json.encode(body),
     );
 
     final stringRes = response.body;
@@ -144,7 +169,8 @@ class BaseDatasource implements IBaseDatasource {
     required Map<String, String> additionalHeader,
     String? contentType,
   }) {
-    final utcString = getRfc1123Date();
+    final utcString = dateUtil.createDate();
+
     final authHeader = authUtil.getHeaders(
       authorizationType: authorizationType,
       contentType: contentType ?? 'application/json',
@@ -161,10 +187,5 @@ class BaseDatasource implements IBaseDatasource {
       authHeader.addAll(additionalHeader);
     }
     return authHeader;
-  }
-
-  @override
-  String getRfc1123Date() {
-    return DateTime.now().toUtc().toIso8601String();
   }
 }

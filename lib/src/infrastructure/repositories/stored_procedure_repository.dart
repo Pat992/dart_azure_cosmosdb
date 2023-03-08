@@ -64,7 +64,7 @@ class StoredProcedureRepository extends IStoredProcedureRepository {
   }
 
   @override
-  Future<Map<String, dynamic>> execute({
+  Future<String> execute({
     required String dbId,
     required String collectionId,
     required String storedProcedureId,
@@ -80,10 +80,10 @@ class StoredProcedureRepository extends IStoredProcedureRepository {
 
       return res;
     } catch (e) {
-      return {
+      return '''{
         'code': 'exception',
         'message': '$e',
-      };
+      }''';
     }
   }
 
@@ -121,7 +121,7 @@ class StoredProcedureRepository extends IStoredProcedureRepository {
         storedProcedureId: storedProcedureId,
         function: function,
       );
-
+ 
       return StoredProcedure.fromMap(res);
     } catch (e) {
       return StoredProcedure.fromMap({

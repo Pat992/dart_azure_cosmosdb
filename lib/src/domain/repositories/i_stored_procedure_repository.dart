@@ -112,7 +112,7 @@ abstract class IStoredProcedureRepository {
   /// **parameters:** An array of the parameters to pass to the stored procedure.
   ///
   /// [Type:] List<dynamic> *required*
-  Future<Map<String, dynamic>> execute({
+  Future<String> execute({
     required String dbId,
     required String collectionId,
     required String storedProcedureId,

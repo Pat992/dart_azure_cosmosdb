@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
+import 'package:dart_azure_cosmosdb/src/core/date_util.dart';
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/base_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_base_datasource.dart';
@@ -15,6 +16,7 @@ import 'base_datasource_test.mocks.dart';
 @GenerateMocks([http.Client])
 void main() {
   final authUtil = AuthUtil();
+  final dateUtil = DateUtil();
   late IBaseDatasource baseDatasource;
   late MockClient mockClient;
   final uriString = 'https://cosmosdb-test.com';
@@ -32,6 +34,7 @@ void main() {
       authorizationType: 'master',
       authorizationVersion: '1.0',
       primaryKey: pk,
+      dateUtil: dateUtil,
     );
   });
 

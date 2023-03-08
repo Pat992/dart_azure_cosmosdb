@@ -13,6 +13,7 @@ class DocumentDatasource extends BaseDatasource implements IDocumentDatasource {
     required super.authorizationVersion,
     required super.xmsVersion,
     required super.authUtil,
+    required super.dateUtil,
   }) : super(resourceType: ResourceType.docs);
 
   @override

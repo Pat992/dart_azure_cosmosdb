@@ -14,6 +14,7 @@ class StoredProcedureDatasource extends BaseDatasource
     required super.authorizationVersion,
     required super.xmsVersion,
     required super.authUtil,
+    required super.dateUtil,
   }) : super(resourceType: ResourceType.storedProcedures);
 
   @override
@@ -94,7 +95,7 @@ class StoredProcedureDatasource extends BaseDatasource
   }
 
   @override
-  Future<Map<String, dynamic>> execute({
+  Future<String> execute({
     required String dbId,
     required String collectionId,
     required String storedProcedureId,
@@ -104,11 +105,10 @@ class StoredProcedureDatasource extends BaseDatasource
         '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId/${resourceType.value}/$storedProcedureId';
     final String urlExtension = '/$resourceLink';
 
-    return await postRequest(
+    return await executionRequest(
       urlExtension: urlExtension,
       resourceLink: resourceLink,
       arrBody: parameters,
-      body: {},
     );
   }
 }

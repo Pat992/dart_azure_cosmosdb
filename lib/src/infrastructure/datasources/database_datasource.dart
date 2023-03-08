@@ -13,6 +13,7 @@ class DatabaseDatasource extends BaseDatasource implements IDatabaseDatasource {
     required super.authorizationVersion,
     required super.xmsVersion,
     required super.authUtil,
+    required super.dateUtil,
   }) : super(resourceType: ResourceType.dbs);
 
   @override

@@ -15,6 +15,7 @@ class PermissionDatasource extends BaseDatasource
     required super.authorizationVersion,
     required super.xmsVersion,
     required super.authUtil,
+    required super.dateUtil,
   }) : super(resourceType: ResourceType.permissions);
 
   @override
@@ -103,7 +104,7 @@ class PermissionDatasource extends BaseDatasource
     final String urlExtension = '/$resourceLink';
 
     final Map<String, dynamic> body = {
-      'id': permissionId,
+      'id': newPermissionId,
       'permissionMode': permissionMode.value,
       'resource':
           '${ResourceType.dbs.value}/$dbId/${ResourceType.collections.value}/$collectionId'
