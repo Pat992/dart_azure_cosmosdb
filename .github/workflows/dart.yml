@@ -40,3 +40,7 @@ jobs:
       # want to change this to 'flutter test'.
       - name: Run tests
         run: dart test
+        env:
+          KEY: ${{ secrets.KEY }}
+          URL: ${{ secrets.URL }}
+          EXEC_ENV: 'github_actions'
