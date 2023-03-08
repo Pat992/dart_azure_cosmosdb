@@ -146,7 +146,7 @@ abstract class IDocumentRepository {
   /// [Type:] String *optional*
   ///
   /// [Default:] const [[]]
-  Future<CosmosDocumentList> query({
+  Future<Map<String, dynamic>> query({
     required String dbId,
     required String collectionId,
     required String query,
