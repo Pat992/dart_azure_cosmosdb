@@ -1,15 +1,27 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:dart_azure_cosmosdb/dart_azure_cosmosdb.dart';
 import 'package:test/test.dart';
+
+import '../fixtures/fixture_reader.dart';
 
 // TODO: document execution of stored proc, queries for documents (also test) etc
 // TODO: update document creation/replace (id)
 
 void main() {
   late CosmosDb cosmosDb;
-  final cosmosUrl = '';
-  final key = '';
+  String execEnv = Platform.environment['EXEC_ENV'] ?? '';
+  String cosmosUrl = Platform.environment['URL'] ?? '';
+  String key = Platform.environment['KEY'] ?? '';
 
+  // cosmos-connection.json
   setUp(() {
+    if (execEnv != 'github_actions') {
+      final cosmosDBSettings = json.decode(fixture('cosmos-connection.json'));
+      cosmosUrl = cosmosDBSettings['URL'];
+      key = cosmosDBSettings['KEY'];
+    }
     cosmosDb = CosmosDb(connectionUri: cosmosUrl, primaryKey: key);
   });
   // -------------------------------------------------------------------------------------------------------------------------------
@@ -629,7 +641,7 @@ void main() {
         dbId: 'test-db',
         userId: 'perm-user',
       );
-      print(res.error);
+
       // assert
       expect(res.id, 'updated-permission');
       expect(res.permissionMode, PermissionMode.all);
