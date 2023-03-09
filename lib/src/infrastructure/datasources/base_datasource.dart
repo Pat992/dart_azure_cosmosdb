@@ -67,12 +67,13 @@ class BaseDatasource implements IBaseDatasource {
       resourceLink: resourceLink,
       method: 'post',
       additionalHeader: additionalHeader,
+      contentType: contentType,
     );
 
     var response = await client.post(
       uri,
       headers: headers,
-      body: json.encode(body),
+      body: utf8.encode(json.encode(body)),
     );
 
     final stringRes = response.body;
@@ -118,6 +119,7 @@ class BaseDatasource implements IBaseDatasource {
       resourceLink: resourceLink,
       method: 'put',
       additionalHeader: additionalHeader,
+      contentType: contentType,
     );
 
     var response = await client.put(
@@ -186,6 +188,7 @@ class BaseDatasource implements IBaseDatasource {
     if (additionalHeader.isNotEmpty) {
       authHeader.addAll(additionalHeader);
     }
+
     return authHeader;
   }
 }
