@@ -188,7 +188,7 @@ class BaseDatasource implements IBaseDatasource {
     if (additionalHeader.isNotEmpty) {
       authHeader.addAll(additionalHeader);
     }
-    print(authHeader);
+
     return authHeader;
   }
 }
