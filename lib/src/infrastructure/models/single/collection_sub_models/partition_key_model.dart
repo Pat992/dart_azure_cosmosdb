@@ -51,5 +51,5 @@ class PartitionKey {
   PartitionKey.fromMap(Map<String, dynamic> map)
       : paths = map['paths'] ?? [],
         kind = map['kind'] ?? '',
-        version = map['version'];
+        version = map['version'] ?? 1;
 }
