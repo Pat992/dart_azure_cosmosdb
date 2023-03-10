@@ -211,6 +211,25 @@ void main() {
       expect(res.error, {});
     });
 
+    test('Run query', () async {
+      // arrange
+      // act
+      final res = await cosmosDb.document.query(
+          dbId: 'test-db',
+          collectionId: 'test-container',
+          query: 'SELECT c.name FROM c WHERE c.id = "id2"');
+
+      print(res);
+      // assert
+      expect(res, {
+        '_rid': 'OK8nANv9DNo=',
+        'Documents': [
+          {'name': 'updated name'}
+        ],
+        '_count': 1
+      });
+    });
+
     test('Delete document', () async {
       // arrange
       // act
