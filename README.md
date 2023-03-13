@@ -36,13 +36,15 @@
     - [3.4.3 Create a Document](#343-create-a-document)
     - [3.4.4 Replace a Document](#344-replace-a-document)
     - [3.4.5 Delete a Document](#345-delete-a-document)
-    - [3.4.6 The CosmosDocument model](#346-the-cosmosdocument-model)
+    - [3.4.6 Query documents](#346-query-documents)
+    - [3.4.7 The CosmosDocument model](#347-the-cosmosdocument-model)
   - [3.5 Stored Procedures](#35-stored-procedures)
     - [3.5.1 List Stored Procedures](#351-list-stored-procedures)
     - [3.5.2 Create a Stored Procedure](#352-create-a-stored-procedure)
     - [3.5.3 Replace a Stored Procedure](#353-replace-a-stored-procedure)
     - [3.5.4 Delete a Stored Procedure](#354-delete-a-stored-procedure)
-    - [3.5.5 The Stored Procedure model](#355-the-stored-procedure-model)
+    - [3.5.5 Execute a Stored Procedure](#355-execute-a-stored-procedure)
+    - [3.5.6 The Stored Procedure model](#356-the-stored-procedure-model)
   - [3.6 User Defined Functions](#36-user-defined-functions)
     - [3.6.1 List User Defined Functions](#361-list-user-defined-functions)
     - [3.6.2 Create a User Defined Function](#362-create-a-user-defined-function)
@@ -663,7 +665,10 @@ if (document.error.isEmpty) {
 }
 ```
 
-#### 3.4.6 The CosmosDocument model
+#### 3.4.6 Query documents
+// TODO: document query
+
+#### 3.4.7 The CosmosDocument model
 ##### `CosmosDocument`
 **Methods**
 `CosmosDocument.toMap()` -> Transforms the model to a Map for the CosmosDB API.
@@ -860,7 +865,10 @@ if (storedProcedure.error.isEmpty) {
 }
 ```
 
-#### 3.5.5 The Stored Procedure model
+#### 3.5.5 Execute a Stored Procedure
+// TODO: document execution of stproc
+
+#### 3.5.6 The Stored Procedure model
 ##### `StoredProcedure`
 **Methods**
 `StoredProcedure.toMap()` -> Transforms the model to a Map for the CosmosDB API.

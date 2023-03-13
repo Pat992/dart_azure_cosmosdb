@@ -7,7 +7,6 @@ import 'package:test/test.dart';
 import '../fixtures/fixture_reader.dart';
 
 // TODO: document execution of stored proc, queries for documents (also test) etc
-// TODO: update document creation/replace (id)
 
 void main() {
   late CosmosDb cosmosDb;
