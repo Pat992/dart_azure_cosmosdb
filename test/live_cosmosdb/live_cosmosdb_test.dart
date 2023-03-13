@@ -6,8 +6,6 @@ import 'package:test/test.dart';
 
 import '../fixtures/fixture_reader.dart';
 
-// TODO: document execution of stored proc, queries for documents (also test) etc
-
 void main() {
   late CosmosDb cosmosDb;
   String execEnv = Platform.environment['EXEC_ENV'] ?? '';
