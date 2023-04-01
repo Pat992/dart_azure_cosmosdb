@@ -216,15 +216,10 @@ void main() {
           collectionId: 'test-container',
           query: 'SELECT c.name FROM c WHERE c.id = "id2"');
 
-      print(res);
       // assert
-      expect(res, {
-        '_rid': 'OK8nANv9DNo=',
-        'Documents': [
-          {'name': 'updated name'}
-        ],
-        '_count': 1
-      });
+      expect(res.error, {});
+      expect(res.count, 1);
+      expect(res.documents[0].values['name'], 'updated name');
     });
 
     test('Delete document', () async {
