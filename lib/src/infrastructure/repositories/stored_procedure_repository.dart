@@ -121,7 +121,7 @@ class StoredProcedureRepository extends IStoredProcedureRepository {
         storedProcedureId: storedProcedureId,
         function: function,
       );
- 
+
       return StoredProcedure.fromMap(res);
     } catch (e) {
       return StoredProcedure.fromMap({

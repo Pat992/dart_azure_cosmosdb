@@ -4,7 +4,6 @@ import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/base_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_collection_datasource.dart';
 
-// TODO: replace/update
 class CollectionDatasource extends BaseDatasource
     implements ICollectionDatasource {
   CollectionDatasource({

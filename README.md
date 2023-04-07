@@ -666,7 +666,6 @@ if (document.error.isEmpty) {
 ```
 
 #### 3.4.6 Query documents
-// TODO: document query
 
 #### 3.4.7 The CosmosDocument model
 ##### `CosmosDocument`
@@ -866,7 +865,6 @@ if (storedProcedure.error.isEmpty) {
 ```
 
 #### 3.5.5 Execute a Stored Procedure
-// TODO: document execution of stproc
 
 #### 3.5.6 The Stored Procedure model
 ##### `StoredProcedure`
