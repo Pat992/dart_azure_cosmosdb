@@ -1,9 +1,9 @@
 # Dart package for the Azure Cosmos Database
 
 <div>
-<a href="https://pub.dev/packages/dart_azure_cosmos_db"><img src="https://img.shields.io/pub/v/dart_azure_cosmos_db.svg" alt="Pub"></a>
-<img alt="GitHub Workflow Status (branch)" src="https://shields.mitmproxy.org/github/workflow/status/Pat992/dart_azure_cosmos_db/Dart%20Tests/main">
-<a href="https://github.com/Pat992/dart_azure_cosmos_db"><img src="https://img.shields.io/github/stars/Pat992/dart_azure_cosmos_db?style=flat&logo=github&colorB=deeppink&label=stars" alt="Star on Github"></a>
+<a href="https://pub.dev/packages/dart_azure_cosmosdb"><img src="https://img.shields.io/pub/v/dart_azure_cosmosdb.svg" alt="Pub"></a>
+<img alt="GitHub Workflow Status (branch)" src="https://shields.mitmproxy.org/github/workflow/status/Pat992/dart_azure_cosmosdb/Dart/main">
+<a href="https://github.com/Pat992/dart_azure_cosmosdb"><img src="https://img.shields.io/github/stars/Pat992/dart_azure_cosmosdb?style=flat&logo=github&colorB=deeppink&label=stars" alt="Star on Github"></a>
 <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/static/v1?label=license&message=BSD 3-Clause&color=blue" alt="License: BSD 3-Clause"></a>
 </div>
 
