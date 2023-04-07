@@ -1,6 +1,6 @@
 name: dart_azure_cosmosdb
-description: A starting point for Dart libraries or applications.
-version: 0.9.0
+description: dart_azure_cosmosdb offers interaction with the Azure CosmosDB SQL-API.
+version: 0.9.0+1
 repository: https://github.com/Pat992/dart_azure_cosmosdb
 homepage: https://github.com/Pat992/dart_azure_cosmosdb
 
