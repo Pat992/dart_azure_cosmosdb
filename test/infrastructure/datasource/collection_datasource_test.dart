@@ -78,26 +78,6 @@ void main() {
     }
   }
 
-  // TODO: add and test replace
-  // setUpPutResponse(String urlExtension) {
-  //   Uri uri = Uri.parse('$uriString$urlExtension');
-  //
-  //   switch (urlExtension) {
-  //     case '/dbs/testDb/colls/testCollection':
-  //       when(mockClient.put(uri,
-  //               headers: anyNamed("headers"), body: anyNamed('body')))
-  //           .thenAnswer((_) async =>
-  //               http.Response(fixture('collection-success.json'), 200));
-  //       break;
-  //     default:
-  //       when(mockClient.put(any,
-  //               headers: anyNamed("headers"), body: anyNamed('body')))
-  //           .thenAnswer(
-  //               (_) async => http.Response(fixture('general-error.json'), 400));
-  //       break;
-  //   }
-  // }
-
   setUpDeleteResponse(String urlExtension) {
     Uri uri = Uri.parse('$uriString$urlExtension');
 
@@ -196,47 +176,6 @@ void main() {
       expect(res, resMap);
     });
   });
-
-  // TODO: PUT tests
-  // group('PUT', () {
-  //   test(
-  //       'Check if .replace is building a correct url and returning a correct map',
-  //       () async {
-  //     // arrange
-  //     final resMap = json.decode(fixture('collection-success.json'));
-  //     setUpPostResponse('/dbs/testDb/colls');
-  //
-  //     // act
-  //     final res = await collectionDatasource.create(
-  //       dbId: 'testDb',
-  //       collectionId: 'testCollection',
-  //       version: 1,
-  //       partitionKey: '',
-  //     );
-  //
-  //     // assert
-  //     expect(res, resMap);
-  //   });
-  //
-  //   test(
-  //       'Check if .replace is building a correct url (in an error case) and returning a correct map',
-  //       () async {
-  //     // arrange
-  //     final resMap = json.decode(fixture('general-error.json'));
-  //     setUpPostResponse('/error');
-  //
-  //     // act
-  //     final res = await collectionDatasource.create(
-  //       dbId: 'error',
-  //       collectionId: 'error',
-  //       version: 1,
-  //       partitionKey: '',
-  //     );
-  //
-  //     // assert
-  //     expect(res, resMap);
-  //   });
-  // });
 
   group('DELETE', () {
     test(

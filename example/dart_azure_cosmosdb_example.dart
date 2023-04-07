@@ -134,9 +134,9 @@ Future<void> runQuery(
       query: query ?? '',
     );
 
-    if (result['message'] != null) {
-      printError(result['code']);
-      printError(result['message']);
+    if (result.error.isNotEmpty) {
+      printError(result.error['code'] ?? 'Error');
+      printError(result.error['message'] ?? 'Unknown exception');
     } else {
       print(json.encode(result));
     }

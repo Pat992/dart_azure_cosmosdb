@@ -6,9 +6,6 @@ import 'package:test/test.dart';
 
 import '../fixtures/fixture_reader.dart';
 
-// TODO: document execution of stored proc, queries for documents (also test) etc
-// TODO: update document creation/replace (id)
-
 void main() {
   late CosmosDb cosmosDb;
   String execEnv = Platform.environment['EXEC_ENV'] ?? '';
@@ -209,6 +206,20 @@ void main() {
       expect(res.values['age'], 15);
       expect(list.count, 2);
       expect(res.error, {});
+    });
+
+    test('Run query', () async {
+      // arrange
+      // act
+      final res = await cosmosDb.document.query(
+          dbId: 'test-db',
+          collectionId: 'test-container',
+          query: 'SELECT c.name FROM c WHERE c.id = "id2"');
+
+      // assert
+      expect(res.error, {});
+      expect(res.count, 1);
+      expect(res.documents[0].values['name'], 'updated name');
     });
 
     test('Delete document', () async {
