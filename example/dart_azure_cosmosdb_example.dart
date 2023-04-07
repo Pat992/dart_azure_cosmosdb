@@ -138,7 +138,7 @@ Future<void> runQuery(
       printError(result.error['code'] ?? 'Error');
       printError(result.error['message'] ?? 'Unknown exception');
     } else {
-      print(json.encode(result));
+      print(result.toMap());
     }
   }
 }

@@ -1,6 +1,6 @@
 name: dart_azure_cosmosdb
 description: A starting point for Dart libraries or applications.
-version: 1.0.0
+version: 0.9.0
 repository: https://github.com/Pat992/dart_azure_cosmosdb
 homepage: https://github.com/Pat992/dart_azure_cosmosdb
 

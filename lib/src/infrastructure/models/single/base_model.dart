@@ -65,11 +65,11 @@ class Base {
       };
     }
     return {
-      'id': id,
-      '_rid': rid,
-      '_ts': ts,
-      '_self': self,
-      '_etag': etag,
+      if (id.isNotEmpty) 'id': id,
+      if (rid.isNotEmpty) '_rid': rid,
+      if (ts > 0) '_ts': ts,
+      if (self.isNotEmpty) '_self': self,
+      if (etag.isNotEmpty) '_etag': etag,
     };
   }
 }
