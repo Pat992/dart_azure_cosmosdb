@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/user_model.dart';
@@ -14,7 +14,7 @@ class UserList extends BaseList {
   ///
   /// **users:** A list of CosmosDB users.
   ///
-  /// [Type:] List<User> *optional*
+  /// [Type:] List&lt;User&gt; *optional*
   ///
   /// [Default value:] const [[]]
   UserList({
@@ -38,7 +38,6 @@ class UserList extends BaseList {
   }
 
   /// **Description:** Transforms a Map from the CosmosDB API to the [UserList] model.
-  @override
   UserList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
     if (map.containsKey('Users')) {
       for (final user in map['Users']) {

@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/trigger_model.dart';
@@ -14,7 +14,7 @@ class TriggerList extends BaseList {
   ///
   /// **triggers:** A list of CosmosDB triggers.
   ///
-  /// [Type:] List<Trigger> *optional*
+  /// [Type:] List&lt;Trigger&gt; *optional*
   ///
   /// [Default value:] const [[]]
   TriggerList({
@@ -39,7 +39,6 @@ class TriggerList extends BaseList {
   }
 
   /// **Description:** Transforms a Map from the CosmosDB API to the [TriggerList] model.
-  @override
   TriggerList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
     if (map.containsKey('Triggers')) {
       for (final trigger in map['Triggers']) {

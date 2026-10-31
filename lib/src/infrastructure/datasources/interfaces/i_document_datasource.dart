@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 /// Datasource to send requests to the Azure CosmosDB SQL api,
@@ -12,7 +12,7 @@ abstract class IDocumentDatasource {
   ///
   /// String collectionId - Collection in which the documents are located.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> list({
     required String dbId,
     required String collectionId,
@@ -30,7 +30,7 @@ abstract class IDocumentDatasource {
   ///
   /// String partitionKey - Partition key of the document to get.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> get({
     required String dbId,
     required String collectionId,
@@ -48,9 +48,9 @@ abstract class IDocumentDatasource {
   ///
   /// String partitionKey - Partition key of the document.
   ///
-  /// Map<String, dynamic> - Body with key-values that need to be saved in the document.
+  /// Map&lt;String, dynamic&gt; - Body with key-values that need to be saved in the document.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> create({
     required String dbId,
     required String collectionId,
@@ -70,7 +70,7 @@ abstract class IDocumentDatasource {
   ///
   /// String partitionKey - Partition key of the document.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> delete({
     required String dbId,
     required String collectionId,
@@ -90,9 +90,9 @@ abstract class IDocumentDatasource {
   ///
   /// String partitionKey - Partition key of the document.
   ///
-  /// Map<String, dynamic> - Body with key-values that will replace the current values in the document.
+  /// Map&lt;String, dynamic&gt; - Body with key-values that will replace the current values in the document.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> replace({
     required String dbId,
     required String collectionId,
@@ -111,9 +111,9 @@ abstract class IDocumentDatasource {
   ///
   /// String query - Query to be executed.
   ///
-  /// List<dynamic> parameters - Additional parameters, if query expects them.
+  /// List&lt;dynamic&gt; parameters - Additional parameters, if query expects them.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> query({
     required String dbId,
     required String collectionId,

@@ -1,17 +1,16 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
-import 'dart:convert';
 
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
 import 'package:dart_azure_cosmosdb/src/core/date_util.dart';
 import 'package:dart_azure_cosmosdb/src/core/enum/base_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/interfaces/i_base_datasource.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class BaseDatasource implements IBaseDatasource {
   IAuthUtil authUtil;
   IDateUtil dateUtil;
-  final http.Client client;
+  final Dio client;
   String connectionUri;
   String authorizationType;
   String authorizationVersion;
@@ -37,20 +36,18 @@ class BaseDatasource implements IBaseDatasource {
     String resourceLink = '',
     Map<String, String> additionalHeader = const {},
   }) async {
-    final uri = Uri.parse('$connectionUri$urlExtension');
-
     final headers = generateHeaders(
       resourceLink: resourceLink,
       method: 'get',
       additionalHeader: additionalHeader,
     );
 
-    var response = await client.get(uri, headers: headers);
+    var response = await client.get(
+      '$connectionUri$urlExtension',
+      options: Options(headers: headers),
+    );
 
-    final stringRes = response.body;
-    final responseMap = json.decode(stringRes);
-
-    return responseMap;
+    return response.data;
   }
 
   @override
@@ -61,8 +58,6 @@ class BaseDatasource implements IBaseDatasource {
     Map<String, String> additionalHeader = const {},
     String? contentType,
   }) async {
-    final uri = Uri.parse('$connectionUri$urlExtension');
-
     final headers = generateHeaders(
       resourceLink: resourceLink,
       method: 'post',
@@ -71,15 +66,12 @@ class BaseDatasource implements IBaseDatasource {
     );
 
     var response = await client.post(
-      uri,
-      headers: headers,
-      body: utf8.encode(json.encode(body)),
+      '$connectionUri$urlExtension',
+      options: Options(headers: headers),
+      data: body,
     );
 
-    final stringRes = response.body;
-    final responseMap = json.decode(stringRes);
-
-    return responseMap;
+    return response.data;
   }
 
   @override
@@ -88,8 +80,6 @@ class BaseDatasource implements IBaseDatasource {
     required List<dynamic> arrBody,
     String resourceLink = '',
   }) async {
-    final uri = Uri.parse('$connectionUri$urlExtension');
-
     final headers = generateHeaders(
       resourceLink: resourceLink,
       method: 'post',
@@ -97,12 +87,12 @@ class BaseDatasource implements IBaseDatasource {
     );
 
     var response = await client.post(
-      uri,
-      headers: headers,
-      body: json.encode(arrBody),
+      '$connectionUri$urlExtension',
+      options: Options(headers: headers),
+      data: arrBody,
     );
 
-    return response.body;
+    return response.data;
   }
 
   @override
@@ -113,8 +103,6 @@ class BaseDatasource implements IBaseDatasource {
     Map<String, String> additionalHeader = const {},
     String? contentType,
   }) async {
-    final uri = Uri.parse('$connectionUri$urlExtension');
-
     final headers = generateHeaders(
       resourceLink: resourceLink,
       method: 'put',
@@ -123,15 +111,12 @@ class BaseDatasource implements IBaseDatasource {
     );
 
     var response = await client.put(
-      uri,
-      headers: headers,
-      body: json.encode(body),
+      '$connectionUri$urlExtension',
+      options: Options(headers: headers),
+      data: body,
     );
 
-    final stringRes = response.body;
-    final responseMap = json.decode(stringRes);
-
-    return responseMap;
+    return response.data;
   }
 
   @override
@@ -141,8 +126,6 @@ class BaseDatasource implements IBaseDatasource {
     Map<String, String> additionalHeader = const {},
     String? contentType,
   }) async {
-    final uri = Uri.parse('$connectionUri$urlExtension');
-
     final headers = generateHeaders(
       resourceLink: resourceLink,
       method: 'delete',
@@ -150,18 +133,17 @@ class BaseDatasource implements IBaseDatasource {
     );
 
     var response = await client.delete(
-      uri,
-      headers: headers,
+      '$connectionUri$urlExtension',
+      options: Options(headers: headers),
     );
 
-    final stringRes = response.body;
+    final res = response.data;
 
-    if (stringRes.isEmpty) {
+    if (res == null || res == '') {
       return {};
     }
 
-    final responseMap = json.decode(stringRes);
-    return responseMap;
+    return res;
   }
 
   @override

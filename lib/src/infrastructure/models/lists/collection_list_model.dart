@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_model.dart';
@@ -14,7 +14,7 @@ class CollectionList extends BaseList {
   ///
   /// **collections:** A list of CosmosDB collections.
   ///
-  /// [Type:] List<Collection> *optional*
+  /// [Type:] List&lt;Collection&gt; *optional*
   ///
   /// [Default value:] const [[]]
   CollectionList({
@@ -41,7 +41,6 @@ class CollectionList extends BaseList {
   }
 
   /// **Description:** Transforms a Map from the CosmosDB API to the [CollectionList] model.
-  @override
   CollectionList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
     if (map.containsKey('DocumentCollections')) {
       for (final collection in map['DocumentCollections']) {

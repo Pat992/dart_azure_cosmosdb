@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 /// **Description:** Model of the [Base], used by other models
@@ -52,8 +52,11 @@ class Base {
         ts = map['_ts'] ?? 0,
         self = map['_self'] ?? '',
         etag = map['_etag'] ?? '',
-        error = map.containsKey('code') && map.containsKey('message')
-            ? {'code': map['code'], 'message': map['message']}
+        error = map['code'] != null && map['message'] != null
+            ? {
+                'code': map['code'].toString(),
+                'message': map['message'].toString(),
+              }
             : {};
 
   /// **Description:** Transforms the [Base] model to a Map for the CosmosDB API.

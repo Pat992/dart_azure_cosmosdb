@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 /// Datasource to send requests to the Azure CosmosDB SQL api,
@@ -8,7 +8,7 @@ abstract class IDatabaseDatasource {
   ///
   /// **Parameter:** none
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> list();
 
   Future<Map<String, dynamic>> get({
@@ -21,7 +21,7 @@ abstract class IDatabaseDatasource {
   ///
   /// String dbId - Id of the database to get.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> create({
     required String dbId,
   });
@@ -32,7 +32,7 @@ abstract class IDatabaseDatasource {
   ///
   /// String dbId - Id of the database to delete.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> delete({
     required String dbId,
   });

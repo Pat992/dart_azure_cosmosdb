@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 /// Datasource to send requests to the Azure CosmosDB SQL api,
@@ -12,7 +12,7 @@ abstract class IStoredProcedureDatasource {
   ///
   /// String collectionId - Collection in which the stored procedures are located.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> list({
     required String dbId,
     required String collectionId,
@@ -30,7 +30,7 @@ abstract class IStoredProcedureDatasource {
   ///
   /// String function - The function of the stored-procedure.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> create({
     required String dbId,
     required String collectionId,
@@ -50,7 +50,7 @@ abstract class IStoredProcedureDatasource {
   ///
   /// String function - The function of the stored-procedure, will replace the existing one.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;.
   Future<Map<String, dynamic>> replace({
     required String dbId,
     required String collectionId,
@@ -68,7 +68,7 @@ abstract class IStoredProcedureDatasource {
   ///
   /// String storedProcedureId - Id of the existing stored procedure.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> delete({
     required String dbId,
     required String collectionId,
@@ -85,9 +85,9 @@ abstract class IStoredProcedureDatasource {
   ///
   /// String storedProcedureId - Id of the existing stored procedure.
   ///
-  /// List<dynamic> parameters - Parameters for the stored procedure.
+  /// List&lt;dynamic&gt; parameters - Parameters for the stored procedure.
   ///
-  /// **Returns:** Future<String>.
+  /// **Returns:** Future&lt;String&gt;.
   Future<String> execute({
     required String dbId,
     required String collectionId,

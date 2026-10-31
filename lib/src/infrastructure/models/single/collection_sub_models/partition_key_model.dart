@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 /// This value is used to configure the partition key to be used for partitioning data into multiple partitions.
@@ -26,7 +26,7 @@ class PartitionKey {
   /// Paths must not contain a wildcard or a trailing slash. For example, the JSON property “AccountNumber” is specified as “/AccountNumber”.
   /// The array must contain only a single value.
   ///
-  /// [Type:] List<String> *required*
+  /// [Type:] List&lt;String&gt; *required*
   ///
   /// **version:** An optional field, if not specified the default value is 1. To use the large partition key, set the version to 2.
   ///

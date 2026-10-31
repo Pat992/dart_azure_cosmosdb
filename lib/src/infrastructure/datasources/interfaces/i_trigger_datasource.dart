@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/enum/trigger_enum.dart';
 
@@ -13,7 +13,7 @@ abstract class ITriggerDatasource {
   ///
   /// String collectionId - Collection in which the the triggers are located.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> list({
     required String dbId,
     required String collectionId,
@@ -35,8 +35,8 @@ abstract class ITriggerDatasource {
   ///
   /// TriggerType triggerType - trigger type.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
-  create({
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
+  Future<Map<String, dynamic>> create({
     required String dbId,
     required String collectionId,
     required String triggerId,
@@ -61,7 +61,7 @@ abstract class ITriggerDatasource {
   ///
   /// TriggerType triggerType - trigger type.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> replace({
     required String dbId,
     required String collectionId,
@@ -81,7 +81,7 @@ abstract class ITriggerDatasource {
   ///
   /// String triggerId - Id of the trigger.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> delete({
     required String dbId,
     required String collectionId,

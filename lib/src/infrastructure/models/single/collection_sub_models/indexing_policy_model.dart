@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/path_model.dart';
 
@@ -52,11 +52,11 @@ class IndexingPolicy {
   /// **includedPaths:** The array containing document paths to be indexed.
   /// By default, two paths are included: the / path, which specifies that all document paths be indexed, and the _ts path, which indexes for a timestamp range comparison.
   ///
-  /// [Type:] List<IncludedPath>
+  /// [Type:] List&lt;IncludedPath&gt;
   ///
   /// **includedPaths:** The array containing document paths to be excluded from indexing.
   ///
-  /// [Type:] List<ExcludedPath>
+  /// [Type:] List&lt;ExcludedPath&gt;
   IndexingPolicy({
     this.indexingMode = 'consistent',
     this.automatic = true,

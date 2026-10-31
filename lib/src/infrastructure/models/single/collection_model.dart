@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/base_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/collection_resolution_policy_model.dart';
@@ -148,8 +148,7 @@ class Collection extends Base {
   }
 
   /// **Description:** Transforms a Map from the CosmosDB API to the [Collection] model.
-  @override
-  Collection.fromMap(Map<String, dynamic> map)
+  Collection.fromMap(super.map)
       : docs = map['_docs'] ?? '',
         sprocs = map['_sprocs'] ?? '',
         triggers = map['_triggers'] ?? '',
@@ -170,5 +169,5 @@ class Collection extends Base {
         conflictResolutionPolicy = map['conflictResolutionPolicy'] != null
             ? ConflictResolutionPolicy.fromMap(map['conflictResolutionPolicy'])
             : null,
-        super.fromMap(map);
+        super.fromMap();
 }
