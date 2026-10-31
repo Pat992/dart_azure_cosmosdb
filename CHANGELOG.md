@@ -3,6 +3,7 @@
 - Updated packages
 - Testing updated
 - Dart fixes implemented
+- Added the build directory to the .pubignore
 
 ## 1.0.0
 - Fixed Shield for build result

@@ -2,9 +2,9 @@
 
 <div>
 <a href="https://pub.dev/packages/dart_azure_cosmosdb"><img src="https://img.shields.io/pub/v/dart_azure_cosmosdb.svg" alt="Pub"></a>
-<img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/actions/workflow/status/Pat992/dart_azure_cosmosdb/dart.yml?branch=main">
+<img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Pat992/dart_azure_cosmosdb/dart.yml">
 <a href="https://github.com/Pat992/dart_azure_cosmosdb"><img src="https://img.shields.io/github/stars/Pat992/dart_azure_cosmosdb?style=flat&logo=github&colorB=deeppink&label=stars" alt="Star on Github"></a>
-<a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/static/v1?label=license&message=BSD 3-Clause&color=blue" alt="License: BSD 3-Clause"></a>
+<img alt="Static Badge" src="https://img.shields.io/badge/BSD%203-Clause?style=flat&label=License&color=blue&link=https%3A%2F%2Fopensource.org%2Flicenses%2FBSD-3-Clause">
 </div>
 
 ## Table of content
