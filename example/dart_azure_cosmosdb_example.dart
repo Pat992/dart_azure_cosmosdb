@@ -49,7 +49,7 @@ Future<CosmosDb> connectToCosmosDb() async {
 
   // If there is an error in the databaseList, prompt the user to enter the URL and key again.
   if (databaseList.error.isNotEmpty) {
-    printError('Unable to SignIn, please try again.');
+    printError('Unable to SignIn, please try again - ${databaseList.error}');
     return await connectToCosmosDb();
   }
 

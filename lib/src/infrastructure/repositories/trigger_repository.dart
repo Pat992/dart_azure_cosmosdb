@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/enum/trigger_enum.dart';
 import 'package:dart_azure_cosmosdb/src/domain/repositories/i_trigger_repository.dart';

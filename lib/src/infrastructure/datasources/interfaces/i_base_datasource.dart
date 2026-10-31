@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 /// Base-datasource that implements some basic requests and creates the header,
@@ -12,9 +12,9 @@ abstract class IBaseDatasource {
   ///
   /// String resourceLink - Resource-link added to the header if necessary.
   ///
-  /// Map<String, String> additionalHeader - additional headers to add to the basic ones.
+  /// Map&lt;String, String&gt; additionalHeader - additional headers to add to the basic ones.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> getRequest({
     required String urlExtension,
     String resourceLink = '',
@@ -27,15 +27,15 @@ abstract class IBaseDatasource {
   ///
   /// String urlExtension - Extension to the base-url.
   ///
-  /// Map<String, dynamic> - Body of the POST-request.
+  /// Map&lt;String, dynamic&gt; - Body of the POST-request.
   ///
   /// String resourceLink - Resource-link added to the header if necessary.
   ///
-  /// Map<String, String> additionalHeader - additional headers to add to the basic ones.
+  /// Map&lt;String, String&gt; additionalHeader - additional headers to add to the basic ones.
   ///
   /// String? contentType - in case of a query: application/query+json
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> postRequest({
     required String urlExtension,
     required Map<String, dynamic> body,
@@ -50,9 +50,9 @@ abstract class IBaseDatasource {
   ///
   /// String urlExtension - Extension to the base-url.
   ///
-  /// List<dynamic> arrBody - parameters sent as an array.
+  /// List&lt;dynamic> arrBody - parameters sent as an array.
   ///
-  /// **Returns:** Future<String>.
+  /// **Returns:** Future&lt;String>.
   Future<String> executionRequest({
     required String urlExtension,
     required List<dynamic> arrBody,
@@ -65,15 +65,15 @@ abstract class IBaseDatasource {
   ///
   /// String urlExtension - Extension to the base-url.
   ///
-  /// Map<String, dynamic> - Body of the PUT-request.
+  /// Map&lt;String, dynamic&gt; - Body of the PUT-request.
   ///
   /// String resourceLink - Resource-link added to the header if necessary.
   ///
-  /// Map<String, String> additionalHeader - additional headers to add to the basic ones.
+  /// Map&lt;String, String&gt; additionalHeader - additional headers to add to the basic ones.
   ///
   /// String? contentType - in case of a query: application/query+json
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> putRequest({
     required String urlExtension,
     required Map<String, dynamic> body,
@@ -90,11 +90,11 @@ abstract class IBaseDatasource {
   ///
   /// String resourceLink - Resource-link added to the header if necessary.
   ///
-  /// Map<String, String> additionalHeader - additional headers to add to the basic ones.
+  /// Map&lt;String, String&gt; additionalHeader - additional headers to add to the basic ones.
   ///
   /// String? contentType - in case of a query: application/query+json
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> deleteRequest({
     required String urlExtension,
     String resourceLink = '',
@@ -112,7 +112,7 @@ abstract class IBaseDatasource {
   ///
   /// String? contentType - in case of a query: application/query+json
   ///
-  /// **Returns:** Map<String, String>.
+  /// **Returns:** Map&lt;String, String&gt;.
   Map<String, String> generateHeaders({
     required String resourceLink,
     required String method,

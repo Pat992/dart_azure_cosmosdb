@@ -1,3 +1,9 @@
+## 1.0.1
+- Replaced http with dio
+- Updated packages
+- Testing updated
+- Dart fixes implemented
+
 ## 1.0.0
 - Fixed Shield for build result
 - Updated packages http and crypto

@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/enum/permission_enum.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/base_model.dart';
@@ -67,12 +67,11 @@ class Permission extends Base {
   }
 
   /// **Description:** Transforms a Map from the CosmosDB API to the [Permission] model.
-  @override
-  Permission.fromMap(Map<String, dynamic> map)
+  Permission.fromMap(super.map)
       : permissionMode = map['permissionMode'] == 'All'
             ? PermissionMode.all
             : PermissionMode.read,
         resource = map['resource'] ?? '',
         token = map['_token'] ?? '',
-        super.fromMap(map);
+        super.fromMap();
 }

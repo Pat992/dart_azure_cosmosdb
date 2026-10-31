@@ -9,3 +9,5 @@ pubspec.lock
 /.idea
 
 /test/fixtures/cosmos-connection.json
+
+/build

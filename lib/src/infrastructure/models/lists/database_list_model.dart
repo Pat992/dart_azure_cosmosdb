@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/lists/base_list_model.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/database_model.dart';
@@ -14,7 +14,7 @@ class CosmosDatabaseList extends BaseList {
   ///
   /// **databases:** A list of CosmosDB databases.
   ///
-  /// [Type:] List<CosmosDatabase> *optional*
+  /// [Type:] List&lt;CosmosDatabase&gt; *optional*
   ///
   /// [Default value:] const [[]]
   CosmosDatabaseList({
@@ -38,7 +38,6 @@ class CosmosDatabaseList extends BaseList {
   }
 
   /// **Description:** Transforms a Map from the CosmosDB API to the [CosmosDatabaseList] model.
-  @override
   CosmosDatabaseList.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
     if (map.containsKey('Databases')) {
       for (final db in map['Databases']) {

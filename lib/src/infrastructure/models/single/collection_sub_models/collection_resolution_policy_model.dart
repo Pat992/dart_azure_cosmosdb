@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 /// For Azure Cosmos DB accounts configured with multiple write regions, update conflicts can occur when writers concurrently update the same item in multiple regions.

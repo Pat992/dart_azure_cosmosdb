@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/base_model.dart';
 
@@ -48,9 +48,8 @@ class CosmosDatabase extends Base {
   }
 
   /// **Description:** Transforms a Map from the CosmosDB API to the [CosmosDatabase] model.
-  @override
-  CosmosDatabase.fromMap(Map<String, dynamic> map)
+  CosmosDatabase.fromMap(super.map)
       : colls = map['_colls'] ?? '',
         users = map['_users'] ?? '',
-        super.fromMap(map);
+        super.fromMap();
 }

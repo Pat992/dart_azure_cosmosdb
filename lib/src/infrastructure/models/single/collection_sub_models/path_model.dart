@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/single/collection_sub_models/index_model.dart';
 
@@ -26,7 +26,7 @@ class Path {
   /// **indexes:** The array containing document paths to be indexed.
   /// By default, two paths are included: the / path, which specifies that all document paths be indexed, and the _ts path, which indexes for a timestamp range comparison.
   ///
-  /// [Type:] List<PathIndex> *optional*
+  /// [Type:] List&lt;PathIndex&gt; *optional*
   ///
   /// [Default value:] const [[]]
   Path({

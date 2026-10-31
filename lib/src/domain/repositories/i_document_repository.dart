@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/infrastructure/models/models_barrel.dart';
 
@@ -63,7 +63,7 @@ abstract class IDocumentRepository {
   ///
   /// **body:** Any map with Strings as keys and dynamic values that will be added to the document.
   ///
-  /// [Type:] Map<String, dynamic> *required*
+  /// [Type:] Map&lt;String, dynamic&gt; *required*
   Future<CosmosDocument> create({
     required String dbId,
     required String collectionId,
@@ -117,7 +117,7 @@ abstract class IDocumentRepository {
   ///
   /// **body:** Any map with Strings as keys and dynamic values that will replace the current values.
   ///
-  /// [Type:] Map<String, dynamic> *required*
+  /// [Type:] Map&lt;String, dynamic&gt; *required*
   Future<CosmosDocument> replace({
     required String dbId,
     required String collectionId,

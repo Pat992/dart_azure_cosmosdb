@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 /// Datasource to send requests to the Azure CosmosDB SQL api,
@@ -12,7 +12,7 @@ abstract class IUserDefinedFunctionDatasource {
   ///
   /// String collectionId - Collection in which the the user defined functions are located.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> list({
     required String dbId,
     required String collectionId,
@@ -30,7 +30,7 @@ abstract class IUserDefinedFunctionDatasource {
   ///
   /// String function - The function of the user defined function.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> create({
     required String dbId,
     required String collectionId,
@@ -50,7 +50,7 @@ abstract class IUserDefinedFunctionDatasource {
   ///
   /// String function - The function of the user defined function.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> replace({
     required String dbId,
     required String collectionId,
@@ -68,7 +68,7 @@ abstract class IUserDefinedFunctionDatasource {
   ///
   /// String userDefinedFunctionId - Id of the user defined function.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> delete({
     required String dbId,
     required String collectionId,

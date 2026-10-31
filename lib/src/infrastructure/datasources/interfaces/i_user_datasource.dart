@@ -1,4 +1,4 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 
 /// Datasource to send requests to the Azure CosmosDB SQL api,
@@ -10,7 +10,7 @@ abstract class IUserDatasource {
   ///
   /// String dbId - Database in which the users are located.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> list({
     required String dbId,
   });
@@ -23,7 +23,7 @@ abstract class IUserDatasource {
   ///
   /// String userId - Id of an existing user.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> get({
     required String dbId,
     required String userId,
@@ -37,7 +37,7 @@ abstract class IUserDatasource {
   ///
   /// String userId - Id of the user.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> create({
     required String dbId,
     required String userId,
@@ -53,7 +53,7 @@ abstract class IUserDatasource {
   ///
   /// String newUserId - The new id of the user.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> replace({
     required String dbId,
     required String userId,
@@ -68,7 +68,7 @@ abstract class IUserDatasource {
   ///
   /// String userId - The id of the user.
   ///
-  /// **Returns:** Future<Map<String, dynamic>>.
+  /// **Returns:** Future&lt;Map&lt;String, dynamic&gt;&gt;.
   Future<Map<String, dynamic>> delete({
     required String dbId,
     required String userId,

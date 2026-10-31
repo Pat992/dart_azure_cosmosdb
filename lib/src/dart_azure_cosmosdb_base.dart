@@ -1,11 +1,11 @@
-// Copyright 2023 Patrick Hettich. All rights reserved.
+// Copyright 2026 Patrick Hettich. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be found in the LICENSE file.
 import 'package:dart_azure_cosmosdb/src/core/auth_util.dart';
 import 'package:dart_azure_cosmosdb/src/core/date_util.dart';
 import 'package:dart_azure_cosmosdb/src/domain/repositories/i_repository_barrel.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/datasources_barrel.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/repository_barrel.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class CosmosDb {
   /// **Description:** Authorization type of the provided token.
@@ -20,7 +20,7 @@ class CosmosDb {
 
   /// **Description:** Base URI to the Azure Cosmos Database.
   ///
-  /// **Example:** 'https://<COSMOS_DB_NAME>.documents.azure.com:443/'
+  /// **Example:** 'https://&lt;COSMOS_DB_NAME&gt;.documents.azure.com:443/'
   final String connectionUri;
 
   /// **Description:** The supported REST API versions of the Azure Cosmos DB service.
@@ -56,7 +56,7 @@ class CosmosDb {
   late final IUserDefinedFunctionDatasource _userDefinedFunctionDatasource;
 
   /// **Description:** The http-client used in the datasources
-  final _client = http.Client();
+  final _client = Dio();
 
   /// **Description:** The auth-util, used for creating the http-headers.
   final IAuthUtil _authUtil = AuthUtil();
@@ -108,7 +108,7 @@ class CosmosDb {
   /// **Description:** Creates a [CosmosDb] instance.
   ///
   /// **connectionUri:** The URI to the Azure Cosmos Database,
-  /// for example: https://<COSMOS_DB_NAME>.documents.azure.com:443/
+  /// for example: https://&lt;COSMOS_DB_NAME&gt;.documents.azure.com:443/
   ///
   /// [Type:] String *required*
   ///

@@ -5,7 +5,7 @@ import 'package:dart_azure_cosmosdb/src/core/date_util.dart';
 import 'package:dart_azure_cosmosdb/src/domain/repositories/i_document_repository.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/datasources/document_datasource.dart';
 import 'package:dart_azure_cosmosdb/src/infrastructure/repositories/document_repository.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
@@ -13,18 +13,18 @@ import 'package:test/test.dart';
 import '../../fixtures/fixture_reader.dart';
 import 'base_datasource_test.mocks.dart';
 
-@GenerateMocks([http.Client])
+@GenerateMocks([Dio])
 void main() {
   final authUtil = AuthUtil();
   final dateUtil = DateUtil();
   late IDocumentRepository documentRepository;
-  late MockClient mockClient;
+  late MockDio mockClient;
   final uriString = 'https://cosmosdb-test.com';
   String pk =
       'BHipJo/AFw5lUZ6v/dOzQF2RPAbS9WQ9QbiFkjhOWNLOTk9LWL/Sm16/ZySbCmBH9bFl4pvLS+egQC0S6cIioA==';
 
   setUp(() {
-    mockClient = MockClient();
+    mockClient = MockDio();
 
     documentRepository = DocumentRepository(
       documentDatasource: DocumentDatasource(
@@ -42,74 +42,166 @@ void main() {
 
   // helper
   void setUpGetResponse(String urlExtension) {
-    Uri uri = Uri.parse('$uriString$urlExtension');
+    final uri = '$uriString$urlExtension';
+
+    Response<dynamic> response({
+      required String path,
+      dynamic data,
+      int statusCode = 200,
+    }) {
+      return Response<dynamic>(
+        requestOptions: RequestOptions(path: path),
+        data: data,
+        statusCode: statusCode,
+      );
+    }
 
     switch (urlExtension) {
       case '/dbs/testDb/colls/testColl/docs':
-        when(mockClient.get(uri, headers: anyNamed("headers"))).thenAnswer(
-            (_) async =>
-                http.Response(fixture('document-list-success.json'), 200));
+        when(mockClient.get<dynamic>(
+          uri,
+          options: anyNamed('options'),
+        )).thenAnswer((_) async => response(
+              path: uri,
+              data: json.decode(fixture('document-list-success.json')),
+            ));
         break;
       case '/dbs/testDb/colls/testColl/docs/testDoc':
-        when(mockClient.get(uri, headers: anyNamed("headers"))).thenAnswer(
-            (_) async => http.Response(fixture('document-success.json'), 200));
+        when(mockClient.get<dynamic>(
+          uri,
+          options: anyNamed('options'),
+        )).thenAnswer((_) async => response(
+              path: uri,
+              data: json.decode(fixture('document-success.json')),
+            ));
         break;
       default:
-        when(mockClient.get(any, headers: anyNamed("headers"))).thenAnswer(
-            (_) async => http.Response(fixture('general-error.json'), 400));
+        when(mockClient.get<dynamic>(
+          any,
+          options: anyNamed('options'),
+        )).thenAnswer((_) async => response(
+              path: uri,
+              data: json.decode(fixture('general-error.json')),
+              statusCode: 400,
+            ));
         break;
     }
   }
 
-  setUpPostResponse(String urlExtension) {
-    Uri uri = Uri.parse('$uriString$urlExtension');
+  void setUpPostResponse(String urlExtension) {
+    final uri = '$uriString$urlExtension';
+
+    Response<dynamic> response({
+      required String path,
+      dynamic data,
+      int statusCode = 200,
+    }) {
+      return Response<dynamic>(
+        requestOptions: RequestOptions(path: path),
+        data: data,
+        statusCode: statusCode,
+      );
+    }
 
     switch (urlExtension) {
       case '/dbs/testDb/colls/testColl/docs':
-        when(mockClient.post(uri,
-                headers: anyNamed("headers"), body: anyNamed('body')))
-            .thenAnswer((_) async =>
-                http.Response(fixture('document-success.json'), 200));
+        when(mockClient.post<dynamic>(
+          uri,
+          data: anyNamed('data'),
+          options: anyNamed('options'),
+        )).thenAnswer((_) async => response(
+              path: uri,
+              data: json.decode(fixture('document-success.json')),
+            ));
         break;
       default:
-        when(mockClient.post(any,
-                headers: anyNamed("headers"), body: anyNamed('body')))
-            .thenAnswer(
-                (_) async => http.Response(fixture('general-error.json'), 400));
+        when(mockClient.post<dynamic>(
+          any,
+          data: anyNamed('data'),
+          options: anyNamed('options'),
+        )).thenAnswer((_) async => response(
+              path: uri,
+              data: json.decode(fixture('general-error.json')),
+              statusCode: 400,
+            ));
         break;
     }
   }
 
-  setUpPutResponse(String urlExtension) {
-    Uri uri = Uri.parse('$uriString$urlExtension');
+  void setUpPutResponse(String urlExtension) {
+    final uri = '$uriString$urlExtension';
+
+    Response<dynamic> response({
+      required String path,
+      dynamic data,
+      int statusCode = 200,
+    }) {
+      return Response<dynamic>(
+        requestOptions: RequestOptions(path: path),
+        data: data,
+        statusCode: statusCode,
+      );
+    }
 
     switch (urlExtension) {
       case '/dbs/testDb/colls/testColl/docs/testDoc':
-        when(mockClient.put(uri,
-                headers: anyNamed("headers"), body: anyNamed('body')))
-            .thenAnswer((_) async =>
-                http.Response(fixture('document-success.json'), 200));
+        when(mockClient.put<dynamic>(
+          uri,
+          data: anyNamed('data'),
+          options: anyNamed('options'),
+        )).thenAnswer((_) async => response(
+              path: uri,
+              data: json.decode(fixture('document-success.json')),
+            ));
         break;
       default:
-        when(mockClient.put(any,
-                headers: anyNamed("headers"), body: anyNamed('body')))
-            .thenAnswer(
-                (_) async => http.Response(fixture('general-error.json'), 400));
+        when(mockClient.put<dynamic>(
+          any,
+          data: anyNamed('data'),
+          options: anyNamed('options'),
+        )).thenAnswer((_) async => response(
+              path: uri,
+              data: json.decode(fixture('general-error.json')),
+              statusCode: 400,
+            ));
         break;
     }
   }
 
-  setUpDeleteResponse(String urlExtension) {
-    Uri uri = Uri.parse('$uriString$urlExtension');
+  void setUpDeleteResponse(String urlExtension) {
+    final uri = '$uriString$urlExtension';
+
+    Response<dynamic> response({
+      required String path,
+      dynamic data,
+      int statusCode = 200,
+    }) {
+      return Response<dynamic>(
+        requestOptions: RequestOptions(path: path),
+        data: data,
+        statusCode: statusCode,
+      );
+    }
 
     switch (urlExtension) {
       case '/dbs/testDb/colls/testColl/docs/testDoc':
-        when(mockClient.delete(uri, headers: anyNamed("headers")))
-            .thenAnswer((_) async => http.Response('', 204));
+        when(mockClient.delete<dynamic>(
+          uri,
+          options: anyNamed('options'),
+        )).thenAnswer((_) async => response(
+              path: uri,
+              statusCode: 204,
+            ));
         break;
       default:
-        when(mockClient.delete(any, headers: anyNamed("headers"))).thenAnswer(
-            (_) async => http.Response(fixture('general-error.json'), 400));
+        when(mockClient.delete<dynamic>(
+          any,
+          options: anyNamed('options'),
+        )).thenAnswer((_) async => response(
+              path: uri,
+              data: json.decode(fixture('general-error.json')),
+              statusCode: 400,
+            ));
         break;
     }
   }
